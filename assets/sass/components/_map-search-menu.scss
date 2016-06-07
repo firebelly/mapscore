@@ -1,0 +1,106 @@
+//Base Fonts + Colors
+@import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+$dark-blue: #1f1c57; //rgb(31,28,87);
+$yellow: #f2ff3d; //rgb(242,255,61);
+$pink: #ff3666; //rgb(255,54,102);
+$light-gray: #f4f4f7; //rgb(244,244,247);
+$blue-gray: #bcbbcd; //rgb(188,187,205); 
+$white: #fff; //rgb(255,255,255);
+
+// A few "global elements" to be redone in master code.
+body{
+  font-family: 'Karla', sans-serif;
+  color: $dark-blue;
+}
+
+h2 {
+  color: $pink;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: .1em;
+}
+
+// Override base styles
+ul,ol { 
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+// Map Search Menu Styling
+.search-menu {
+  width: 280px;
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+.category-name, .step, .services {
+  padding: 9px 10px 5px 10px;
+}
+
+.step, .category {
+  margin-top: 10px;
+  margin-left: 36px;
+  width: 246px;
+}
+
+.steps {
+  font-size: 15px;
+  counter-reset: step-counter;
+  .step {
+    background: $yellow;
+    position: relative;
+    &:before{
+      position: absolute;
+      left: -36px;
+      top: 0;
+      width: 36px;
+      height: 34px;
+      content: counter(step-counter)".";
+      counter-increment: step-counter;
+      background: $pink;
+      font-size: 20px;
+      letter-spacing: .1em;
+      padding-left: 10px;
+      padding-top: 8px;
+      font-weight: bold;
+    }
+  }
+}
+
+.categories{
+  font-size: 13px;
+  margin-top: 20px;
+  .category {
+    background: $light-gray;
+    &.open .category-name {
+      font-weight: bold;
+    }
+  }
+}
+
+.services {
+  color: $white;
+  background: $blue-gray;
+  .service {
+    position: relative;
+    padding-left: 10px;
+    padding-top: 5px;
+    &:first-child { padding-top: 0; }
+    &:hover {
+      cursor: pointer;
+    }
+    &:before {
+      position: absolute;
+      left: 0px;
+      content: '+';
+    }
+    &.selected {
+      color: $dark-blue;
+      &:before {
+        content: '-';
+      }
+    }
+  }
+}

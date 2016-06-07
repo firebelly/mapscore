@@ -5,6 +5,7 @@
 /**
  * Correct `block` display not defined in IE 8/9.
  */
+@import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
 article,
 aside,
 details,
@@ -380,7 +381,6 @@ table {
 .grid {
   width: 100%;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -392,39 +392,33 @@ table {
 @media screen and (min-width: 43.75em) {
   .flex-item {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-basis: auto;
-        -ms-flex-preferred-size: auto;
-            flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
   }
 
   .one-fourth {
     max-width: 25%;
-    -webkit-flex-basis: 25%;
-        -ms-flex-preferred-size: 25%;
-            flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
   }
 
   .one-third {
-    -webkit-flex-basis: 33.3333333%;
-        -ms-flex-preferred-size: 33.3333333%;
-            flex-basis: 33.3333333%;
+    -ms-flex-preferred-size: 33.3333333%;
+        flex-basis: 33.3333333%;
     max-width: 33.3333333%;
   }
 
   .one-half {
-    -webkit-flex-basis: 50%;
-        -ms-flex-preferred-size: 50%;
-            flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
     max-width: 50%;
   }
 
   .two-thirds {
-    -webkit-flex-basis: 66.6666667%;
-        -ms-flex-preferred-size: 66.6666667%;
-            flex-basis: 66.6666667%;
+    -ms-flex-preferred-size: 66.6666667%;
+        flex-basis: 66.6666667%;
     max-width: 66.6666667%;
   }
 }
@@ -471,4 +465,101 @@ img {
 }
 .wrap:after {
   clear: both;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  color: #1f1c57;
+}
+
+h2 {
+  color: #ff3666;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: .1em;
+}
+
+ul, ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.search-menu {
+  width: 280px;
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+.category-name, .step, .services {
+  padding: 9px 10px 5px 10px;
+}
+
+.step, .category {
+  margin-top: 10px;
+  margin-left: 36px;
+  width: 246px;
+}
+
+.steps {
+  font-size: 15px;
+  counter-reset: step-counter;
+}
+.steps .step {
+  background: #f2ff3d;
+  position: relative;
+}
+.steps .step:before {
+  position: absolute;
+  left: -36px;
+  top: 0;
+  width: 36px;
+  height: 34px;
+  content: counter(step-counter) ".";
+  counter-increment: step-counter;
+  background: #ff3666;
+  font-size: 20px;
+  letter-spacing: .1em;
+  padding-left: 10px;
+  padding-top: 8px;
+  font-weight: bold;
+}
+
+.categories {
+  font-size: 13px;
+  margin-top: 20px;
+}
+.categories .category {
+  background: #f4f4f7;
+}
+.categories .category.open .category-name {
+  font-weight: bold;
+}
+
+.services {
+  color: #fff;
+  background: #bcbbcd;
+}
+.services .service {
+  position: relative;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+.services .service:first-child {
+  padding-top: 0;
+}
+.services .service:hover {
+  cursor: pointer;
+}
+.services .service:before {
+  position: absolute;
+  left: 0px;
+  content: '+';
+}
+.services .service.selected {
+  color: #1f1c57;
+}
+.services .service.selected:before {
+  content: '-';
 }
