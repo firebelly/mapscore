@@ -19,6 +19,7 @@ h2 {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: .1em;
+  margin: 0;
 }
 
 // Override base styles
@@ -32,7 +33,7 @@ ul,ol {
 .search-menu {
   width: 280px;
   line-height: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .category-name, .step, .services {
