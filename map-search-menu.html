@@ -37,24 +37,76 @@
     </header>
     <main class="site-main" role="main">
       <div class="wrap">
-<!-- BEGIN MAP SEARCH MENU -->
-        <div id="map_dd" ng-controller="CommunityListCtrl">
-            <select
-                    ng-model="selectedItem"
-                    ng-init="selectedItem='Chicago Communities'"
-                    ng-options="c.community_name for c in communities track by c.community_name"
-                    ng-change="communities.selectCommunity(selectedItem)">
-                <option value="Chicago Communities">Chicago Communities</option>
-                <option value="" ng-if="false"></option>
-            </select>
-        </div>
-        <div id="map_s2">
-            <p>Choose your services from the list below:</p>
-        </div>
-            <ul id="category" ng-controller="CategoryListCtrl">
-        <li id="c1">
-            <div>Food, groceries, and restaurants</div>
-            <ul>
+<!-- BEGIN MAP SEARCH MENU WORK -->
+        <h2>Start Your Search</h2>
+        <div class="search-menu">
+          <div class="step">
+              <select>
+                  <option value="Chicago Communities" selected>Select Your Community</option>
+                  <option value="Community1" selected>Community1</option>
+                  <option value="Community2" selected>Community2</option>
+                  <option value="Community3" selected>Community3</option>
+              </select>
+          </div>
+          <div class="step">
+              <p>Choose Your Services Below:</p>
+          </div>
+          <ul class="categories">
+            <li id="c14" class="category">
+              <div>Arts and Entertainment</div>
+              <ul>
+                <li id="d14.01">Museums</li>
+                <li id="d14.02">Zoos and Aquariums</li>
+                <li id="d14.03">Live Theater and Plays</li>
+                <li id="d14.04">Movie Theaters</li>
+                <li id="d14.05">Rental Halls, Party Planning, and Catering</li>
+                <li id="d14.06">Clubs, Lounges, and Bars</li>
+                <li id="d14.07">Social Clubs</li>
+                <li id="d14.08">Performers and Arts Instructors</li>
+                <li id="d14.09">Amusement Centers</li>
+                <li id="d14.10">Movie Rentals</li>
+                <li id="d14.11">Stadiums</li>
+                <li id="d14.12">Golf Courses</li>
+                <li id="d14.13">Travel Agents</li>
+                <li id="d14.14">Other Entertainment</li>
+              </ul>
+            </li>
+            <li id="c11" class="category">
+              <div>Education, Schools, and Childcare</div>
+              <ul>
+                <li id="d11.01">Home Daycares</li>
+                <li id="d11.02">Kid Centers</li>
+                <li id="d11.03">Public Schools K-12</li>
+                <li id="d11.04">Private Schools K-12</li>
+                <li id="d11.05">Trade Schools</li>
+                <li id="d11.06">Professional Schools</li>
+                <li id="d11.07">Seminary/Religious Training Schools</li>
+                <li id="d11.08">Public Universities</li>
+                <li id="d11.09">Private Universities</li>
+                <li id="d11.10">Tutoring, Ged, and Adult Education</li>
+              </ul>
+            </li>
+            <li id="c5" class="category">
+              <div>Financial, Insurance, Legal, Taxes</div>
+              <ul>
+                <li id="d5.01">Banks</li>
+                <li id="d5.02">Accountant and Tax Services</li>
+                <li id="d5.03">Currency Exchanges</li>
+                <li id="d5.04">Payday Loan</li>
+                <li id="d5.05">Pawn Shops</li>
+                <li id="d5.06">Other Financial</li>
+                <li id="d5.07">Insurance</li>
+                <li id="d5.08">Lawyers</li>
+                <li id="d5.09">Other Legal</li>
+                <li id="d5.10">Property Services</li>
+                <li id="d5.11">Corporate Offices</li>
+                <li id="d5.12">Other Professional</li>
+                <li id="d5.13">Other</li>
+              </ul>
+            </li>
+            <li id="c1" class="category">
+              <div>Food, Groceries, and Restaurants</div>
+              <ul>
                 <li id="d1.01">Fast Food</li>
                 <li id="d1.02">Restaurants</li>
                 <li id="d1.03">Bar &amp; Grills</li>
@@ -63,11 +115,144 @@
                 <li id="d2.03">Small Grocery</li>
                 <li id="d2.04">Other Food</li>
                 <li id="d1.05">Other</li>
-            </ul>
-        </li>
-        <li id="c2">
-            <div>Shopping</div>
-            <ul>
+              </ul>
+            </li>
+            <li id="c15" class="category">
+              <div>Gyms and Exercise</div>
+              <ul>
+                <li id="d15.01">Dance, Yoga, Pilates, and Martial Arts</li>
+                <li id="d15.02">Gyms/Field Houses</li>
+                <li id="d15.03">Trainers</li>
+                <li id="d15.04">Sport Teams</li>
+                <li id="d15.05">Weight Loss Centers</li>
+                <li id="d15.06">Other Fitness</li>
+              </ul>
+            </li>
+            <li id="c6" class="category">
+              <div>Health services</div>
+              <ul>
+                <li id="d6.01">Hospitals</li>
+                <li id="d6.02">Emergency Rooms</li>
+                <li id="d6.03">Out-patient Clinics</li>
+                <li id="d6.04">Chiropractors</li>
+                <li id="d6.05">Alternative Medicine</li>
+                <li id="d6.06">Dentists</li>
+                <li id="d6.07">Eye Care</li>
+                <li id="d6.08">In-patient Mental Health</li>
+                <li id="d6.09">Counseling</li>
+                <li id="d6.10">Out-patient Testing, Rehabilitation, and Therapy</li>
+                <li id="d6.11">In-patient Rehabilitation</li>
+                <li id="d6.12">Ambulances</li>
+                <li id="d6.13">Mobile Health</li>
+                <li id="d2.05">Drug Stores and Pharmacies</li>
+                <li id="d17.03">Research Groups</li>
+                <li id="d6.14">Other Health Services</li>
+              </ul>
+            </li>
+            <li id="c12" class="category">
+              <div>Housing, Real Estate, Apartments, and Hotels</div>
+              <ul>
+                <li id="d12.01">Hotels</li>
+                <li id="d12.02">Shelters</li>
+                <li id="d12.03">Group Homes</li>
+                <li id="d12.04">Senior Housing</li>
+                <li id="d12.05">Religious Housing</li>
+                <li id="d12.06">Public Housing</li>
+                <li id="d12.07">Student Housing</li>
+                <li id="d12.08">Other Housing</li>
+              </ul>
+            </li>
+            <li id="c8" class="category">
+              <div>Moving, storage, and shipping</div>
+              <ul>
+                <li id="d8.01">Warehouses</li>
+                <li id="d8.02">Public Storage</li>
+                <li id="d8.03">Taxi and Limo</li>
+                <li id="d8.04">Public Transit</li>
+                <li id="d8.05">Shipping and Delivery Services</li>
+                <li id="d8.06">Parking</li>
+                <li id="d8.07">Car Rental</li>
+                <li id="d8.08">Car Emissions Test Centers</li>
+                <li id="d8.09">Moving and Storage</li>
+                <li id="d8.10">Towing</li>
+                <li id="d8.11">Wholesalers</li>
+                <li id="d8.12">Other</li>
+              </ul>
+            </li>
+            <li id="c17" class="category">
+              <div>Other</div>
+              <ul>
+                <li id="d16.01">Community Event Groups</li>
+                <li id="d16.02">Community Gardens</li>
+                <li id="d16.03">Research Groups</li>
+                <li id="d16.04">Other</li>
+              </ul>
+            </li>
+            <li id="c4" class="category">
+              <div>Personal Services</div>
+              <ul>
+                <li id="d4.01">Beauty and Barber Shops</li>
+                <li id="d4.02">Tattoos and Body Piercing</li>
+                <li id="d4.03">Spas</li>
+                <li id="d4.04">Psychics</li>
+                <li id="d4.05">Laundry and Tailor Services</li>
+                <li id="d14.13">Travel Agents</li>
+                <li id="d4.06">Other Personal Services</li>
+              </ul>
+            </li>
+            <li id="c3" class="category">
+              <div>Professional and Home Services</div>
+              <ul>
+                <li id="d3.01">Auto Repair, Body Shops, Car Wash, and Detailing</li>
+                <li id="d3.02">Home Repair/improvement</li>
+                <li id="d3.03">Other Repair</li>
+                <li id="d3.04">Outdoor/Yard Services</li>
+                <li id="d3.05">Indoor/Building Services</li>
+                <li id="d3.06">Locksmiths and Security Services</li>
+                <li id="d3.07">Florist, Flower, and Plant Shops</li>
+                <li id="d3.08">Funeral Homes and Cemetary Services</li>
+                <li id="d3.09">Disposal and Recycling</li>
+                <li id="d3.10">Equipment Rental</li>
+                <li id="d3.11">Bike Shops</li>
+                <li id="d3.12">Copy/mail/print Shops</li>
+                <li id="d3.13">Tech Services</li>
+                <li id="d3.14">Media Services</li>
+                <li id="d3.15">Photo Studios</li>
+                <li id="d3.16">Animal Care</li>
+                <li id="d3.17">Other Services</li>
+              </ul>
+            </li>
+            <li id="c13" class="category">
+              <div>Public and Government Services</div>
+              <ul>
+                <li id="d13.01">Post Offices</li>
+                <li id="d13.02">Fire Departments</li>
+                <li id="d13.03">Libraries</li>
+                <li id="d13.04">City Police Stations</li>
+                <li id="d13.05">Other Law Enforcement</li>
+                <li id="d13.06">Government</li>
+                <li id="d13.07">Government Representative</li>
+                <li id="d13.08">Utility-water</li>
+                <li id="d13.09">Utility-electric</li>
+                <li id="d13.10">Utility-gas</li>
+                <li id="d13.11">Military/armed Forces</li>
+                <li id="d13.12">Other Public and Government Services</li>
+              </ul>
+            </li>
+            </li>
+            <li id="c10" class="category">
+              <div>Religious and Places of Worship</div>
+              <ul>
+                <li id="d10.01">Churches</li>
+                <li id="d10.02">Mosques</li>
+                <li id="d10.03">Synagogues</li>
+                <li id="d10.04">Other Worship</li>
+                <li id="d10.05">Other Religious Except Residential</li>
+              </ul>
+            </li>
+             <li id="c2" class="category">
+              <div>Shopping</div>
+              <ul>
                 <li id="d2.01">Convenience Stores</li>
                 <li id="d2.02">Grocery</li>
                 <li id="d2.03">Small Grocery</li>
@@ -77,7 +262,7 @@
                 <li id="d2.07">Clothing</li>
                 <li id="d2.08">Shoes</li>
                 <li id="d2.09">Thrift Stores</li>
-                <li id="d2.10">Department store</li>
+                <li id="d2.10">Department Store</li>
                 <li id="d2.11">General and Dollar Stores</li>
                 <li id="d2.12">Housewares and Furniture</li>
                 <li id="d2.13">Hardware</li>
@@ -94,238 +279,53 @@
                 <li id="d2.24">Crafts</li>
                 <li id="d2.25">Toys</li>
                 <li id="d2.26">Other Shopping</li>
-            </ul>
-        </li>
-        <li id="c3">
-            <div>Professional and Home Services</div>
-            <ul>
-                <li id="d3.01">Auto Repair, Body Shops, Car Wash, and Detailing</li>
-                <li id="d3.02">Home Repair/Improvement</li>
-                <li id="d3.03">Other Repair</li>
-                <li id="d3.04">Outdoor/Yard Services</li>
-                <li id="d3.05">Indoor/Building Services</li>
-                <li id="d3.06">Locksmiths and Security Services</li>
-                <li id="d3.07">Florist, Flower, and Plant Shops</li>
-                <li id="d3.08">Funeral Homes and Cemetary Services</li>
-                <li id="d3.09">Disposal and Recycling</li>
-                <li id="d3.10">Equipment Rental</li>
-                <li id="d3.11">Bike Shops</li>
-                <li id="d3.12">Copy/Mail/Print Shops</li>
-                <li id="d3.13">Tech Services</li>
-                <li id="d3.14">Media Services</li>
-                <li id="d3.15">Photo Studios</li>
-                <li id="d3.16">Animal Care</li>
-                <li id="d3.17">Other Services</li>
-            </ul>
-        </li>
-        <li id="c4">
-            <div>Personal Services</div>
-            <ul>
-                <li id="d4.01">Beauty and barber shops</li>
-                <li id="d4.02">Tattoos and body piercing</li>
-                <li id="d4.03">Spas</li>
-                <li id="d4.04">Psychics</li>
-                <li id="d4.05">Laundry and tailor services</li>
-                <li id="d14.13">Travel agents</li>
-                <li id="d4.06">Other personal services</li>
-            </ul>
-        </li>
-        <li id="c5">
-            <div>Financial, insurance, legal, and tax services</div>
-            <ul>
-                <li id="d5.01">Banks</li>
-                <li id="d5.02">Accountant and tax services</li>
-                <li id="d5.03">Currency exchanges</li>
-                <li id="d5.04">Payday loan</li>
-                <li id="d5.05">Pawn shops</li>
-                <li id="d5.06">Other financial</li>
-                <li id="d5.07">Insurance</li>
-                <li id="d5.08">Lawyers</li>
-                <li id="d5.09">Other legal</li>
-                <li id="d5.10">Property services</li>
-                <li id="d5.11">Corporate offices</li>
-                <li id="d5.12">Other professional</li>
-                <li id="d5.13">Other</li>
-            </ul>
-        </li>
-        <li id="c6">
-            <div>Health services</div>
-            <ul>
-                <li id="d6.01">Hospitals</li>
-                <li id="d6.02">Emergency Rooms</li>
-                <li id="d6.03">Out-patient Clinics</li>
-                <li id="d6.04">Chiropractors</li>
-                <li id="d6.05">Alternative Medicine</li>
-                <li id="d6.06">Dentists</li>
-                <li id="d6.07">Eye care</li>
-                <li id="d6.08">In-patient Mental Health</li>
-                <li id="d6.09">Counseling</li>
-                <li id="d6.10">Out-patient testing, rehabilitation, and therapy</li>
-                <li id="d6.11">In-patient rehabilitation</li>
-                <li id="d6.12">Ambulances</li>
-                <li id="d6.13">Mobile health</li>
-                <li id="d2.05">Drug Stores and Pharmacies</li>
-                <li id="d17.03">Research groups</li>
-                <li id="d6.14">Other health services</li>
-            </ul>
-        </li>
-        <li id="c7">
-            <div>Social services, advocacy, and political offices</div>
-            <ul>
-                <li id="d7.01">Social service centers</li>
-                <li id="d7.02">Food pantries</li>
-                <li id="d7.03">Employment and job services</li>
-                <li id="d7.04">Children's services, foster care, and adoption</li>
-                <li id="d7.05">Senior service centers</li>
-                <li id="d7.06">Disabled service centers</li>
-                <li id="d7.07">Mobile social service</li>
-                <li id="d7.08">Other social service</li>
+              </ul>
+            </li>
+            <li id="c7" class="category">
+              <div>Social services, advocacy, and political offices</div>
+              <ul>
+                <li id="d7.01">Social Service Centers</li>
+                <li id="d7.02">Food Pantries</li>
+                <li id="d7.03">Employment and Job Services</li>
+                <li id="d7.04">Children's Services, Foster Care, and Adoption</li>
+                <li id="d7.05">Senior Service Centers</li>
+                <li id="d7.06">Disabled Service Centers</li>
+                <li id="d7.07">Mobile Social Service</li>
+                <li id="d7.08">Other Social Service</li>
                 <li id="d7.09">Administrative</li>
-                <li id="d7.10">Political offices</li>
-                <li id="d7.11">Community organizing and advocacy</li>
+                <li id="d7.10">Political Offices</li>
+                <li id="d7.11">Community Organizing and Advocacy</li>
                 <li id="d7.12">Other</li>
-            </ul>
-        </li>
-        <li id="c8">
-            <div>Moving, storage, and shipping</div>
-            <ul>
-                <li id="d8.01">Warehouses</li>
-                <li id="d8.02">Public storage</li>
-                <li id="d8.03">Taxi and limo</li>
-                <li id="d8.04">Public transit</li>
-                <li id="d8.05">Shipping and delivery services</li>
-                <li id="d8.06">Parking</li>
-                <li id="d8.07">Car rental</li>
-                <li id="d8.08">Car emissions test centers</li>
-                <li id="d8.09">Moving and storage</li>
-                <li id="d8.10">Towing</li>
-                <li id="d8.11">Wholesalers</li>
-                <li id="d8.12">Other</li>
-            </ul>
-        </li>
-        <li id="c9">
-            <div>Wholesale and manufacturing</div>
-            <ul>
-                <li id="d9.01">Food processing plants</li>
-                <li id="d9.02">Chemical production or processing</li>
-                <li id="d9.03">Parts manufacturers</li>
-                <li id="d9.04">Finished goods</li>
-                <li id="d9.05">Other manufacturing</li>
-            </ul>
-        </li>
-        <li id="c10">
-            <div>Religious and Places of Worship</div>
-            <ul>
-                <li id="d10.01">Churches</li>
-                <li id="d10.02">Mosques</li>
-                <li id="d10.03">Synagogues</li>
-                <li id="d10.04">Other Worship</li>
-                <li id="d10.05">Other Religious except residential</li>
-            </ul>
-        </li>
-        <li id="c11">
-            <div>Education, Schools, and Childcare</div>
-            <ul>
-                <li id="d11.01">Home daycares</li>
-                <li id="d11.02">Kid Centers</li>
-                <li id="d11.03">Public schools K-12</li>
-                <li id="d11.04">Private schools K-12</li>
-                <li id="d11.05">Trade schools</li>
-                <li id="d11.06">Professional schools</li>
-                <li id="d11.07">Seminary/Religious Training schools</li>
-                <li id="d11.08">Public Universities</li>
-                <li id="d11.09">Private Universities</li>
-                <li id="d11.10">Tutoring, GED, and Adult Education</li>
-            </ul>
-        </li>
-        <li id="c12">
-            <div>Housing, Real Estate, Apartments, and Hotels</div>
-            <ul>
-                <li id="d12.01">Hotels</li>
-                <li id="d12.02">Shelters</li>
-                <li id="d12.03">Group homes</li>
-                <li id="d12.04">Senior housing</li>
-                <li id="d12.05">Religious housing</li>
-                <li id="d12.06">Public housing</li>
-                <li id="d12.07">Student housing</li>
-                <li id="d12.08">Other housing</li>
-            </ul>
-        </li>
-        <li id="c13">
-            <div>Public and Government Services</div>
-            <ul>
-                <li id="d13.01">Post offices</li>
-                <li id="d13.02">Fire Departments</li>
-                <li id="d13.03">Libraries</li>
-                <li id="d13.04">City Police Stations</li>
-                <li id="d13.05">Other law enforcement</li>
-                <li id="d13.06">Government</li>
-                <li id="d13.07">Government Representative</li>
-                <li id="d13.08">Utility-Water</li>
-                <li id="d13.09">Utility-Electric</li>
-                <li id="d13.10">Utility-Gas</li>
-                <li id="d13.11">Military/Armed Forces</li>
-                <li id="d13.12">Other Public and Government Services</li>
-            </ul>
-        </li>
-        <li id="c14">
-            <div>Arts and entertainment</div>
-            <ul>
-                <li id="d14.01">Museums</li>
-                <li id="d14.02">Zoos and Aquariums</li>
-                <li id="d14.03">Live theater and plays</li>
-                <li id="d14.04">Movie Theaters</li>
-                <li id="d14.05">Rental halls, Party planning, and Catering</li>
-                <li id="d14.06">Clubs, Lounges, and Bars</li>
-                <li id="d14.07">Social clubs</li>
-                <li id="d14.08">Performers and arts instructors</li>
-                <li id="d14.09">Amusement centers</li>
-                <li id="d14.10">Movie rentals</li>
-                <li id="d14.11">Stadiums</li>
-                <li id="d14.12">Golf courses</li>
-                <li id="d14.13">Travel agents</li>
-                <li id="d14.14">Other Entertainment</li>
-            </ul>
-        </li>
-        <li id="c15">
-            <div>Gyms and exercise</div>
-            <ul>
-                <li id="d15.01">Dance, yoga, Pilates, and martial arts</li>
-                <li id="d15.02">Gyms/Field houses</li>
-                <li id="d15.03">Trainers</li>
-                <li id="d15.04">Sport teams</li>
-                <li id="d15.05">Weight loss centers</li>
-                <li id="d15.06">Other Fitness</li>
-            </ul>
-        </li>
-        <li id="c16">
-            <div>Transportation</div>
-            <ul>
+              </ul>
+            </li>
+            <li id="c16" class="category">
+              <div>Transportation</div>
+              <ul>
                 <li id="d2.17">Cars, Trucks, and Motorcycles</li>
                 <li id="d2.19">Gas Stations</li>
                 <li id="d3.01">Auto Repair, Body Shops, Car Wash, and Detailing</li>
                 <li id="d3.11">Bike Shops</li>
                 <li id="d6.12">Ambulances</li>
-                <li id="d8.03">Taxi and limo</li>
-                <li id="d8.04">Public transit</li>
-                <li id="d8.05">Shipping and delivery services</li>
+                <li id="d8.03">Taxi and Limo</li>
+                <li id="d8.04">Public Transit</li>
+                <li id="d8.05">Shipping and Delivery Services</li>
                 <li id="d8.06">Parking</li>
-                <li id="d8.07">Car rental</li>
-                <li id="d8.08">Car emissions test centers</li>
-            </ul>
-        </li>
-        <li id="c17">
-            <div>Other</div>
-            <ul>
-                <li id="d16.01">Community Event Groups</li>
-                <li id="d16.02">Community gardens</li>
-                <li id="d16.03">Research groups</li>
-                <li id="d16.04">Other</li>
-            </ul>
-        </li>
-        </ul>
-        </div>
-<!-- END MAP SEARCH MENU -->
+                <li id="d8.07">Car Rental</li>
+                <li id="d8.08">Car Emissions Test Centers</li>
+              </ul>
+            </li>
+            <li id="c9" class="category">
+              <div>Wholesale and manufacturing</div>
+              <ul>
+                <li id="d9.01">Food Processing Plants</li>
+                <li id="d9.02">Chemical Production Or Processing</li>
+                <li id="d9.03">Parts Manufacturers</li>
+                <li id="d9.04">Finished Goods</li>
+                <li id="d9.05">Other Manufacturing</li>
+              </ul>
+          </ul>
+        </div><!-- /search-menu -->
+<!-- END MAP SEARCH MENU WORK -->
       </div>
     </main>
     <footer class="site-footer" role="contentinfo">
