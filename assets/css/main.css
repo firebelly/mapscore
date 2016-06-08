@@ -533,9 +533,26 @@ ul, ol {
 }
 .categories .category {
   background: #f4f4f7;
+  position: relative;
+}
+.categories .category .icon-triangle {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+.categories .category .icon-category {
+  position: absolute;
+  left: -36px;
+  top: 17px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 .categories .category.open .category-name {
   font-weight: bold;
+}
+.categories .category.open .icon-triangle {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .services {
@@ -563,4 +580,46 @@ ul, ol {
 }
 .services .service.selected:before {
   content: '-';
+}
+
+.icon-category.-default {
+  width: 28px;
+  height: 32px;
+  fill: #52c9eb;
+}
+
+.icon-category.-education {
+  width: 28px;
+  height: 27px;
+  fill: #65bc46;
+}
+
+.icon-category.-financial {
+  width: 28px;
+  height: 21px;
+  fill: #1f1c57;
+}
+
+.icon-category.-food {
+  width: 22px;
+  height: 32px;
+  fill: #f56e19;
+}
+
+.icon-category.-gyms {
+  width: 28px;
+  height: 15px;
+  fill: #ff3666;
+}
+
+.icon-category.-health {
+  width: 30px;
+  height: 31px;
+  fill: #ff371e;
+}
+
+.icon-triangle {
+  width: 7px;
+  height: 3.5px;
+  fill: #1f1c57;
 }

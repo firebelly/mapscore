@@ -22,6 +22,12 @@ var Main = (function($) {
     // Init functions
     _testInit();
 
+    // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
+    _injectSvgSprite();
+
+    // Handle interactivity and init of service categories for map search
+    _initServiceCategories();
+
     // Esc handlers
     $(document).keyup(function(e) {
       if (e.keyCode === 27) {
@@ -62,6 +68,11 @@ var Main = (function($) {
     console.log('Testing testing...is this thing on?');
   }
 
+  // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
+  function _injectSvgSprite() {
+    boomsvgloader.load('/assets/svgs/build/svgs-defs.svg'); 
+  }
+
   // Track ajax pages in Analytics
   function _trackPage() {
     if (typeof ga !== 'undefined') { ga('send', 'pageview', document.location.href); }
@@ -71,6 +82,13 @@ var Main = (function($) {
   function _trackEvent(category, action) {
     if (typeof ga !== 'undefined') { ga('send', 'event', category, action); }
   }
+
+  // Handle interactivity and init of service categories for map search
+  function _initServiceCategories() {
+    // Add svg toggles
+    $('.category').prepend('<svg class="icon-triangle" role="img"><use xlink:href="#icon-triangle"></use></svg>');
+  }
+
 
   // Called in quick succession as window is resized
   function _resize() {
