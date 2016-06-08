@@ -879,8 +879,8 @@ var Main = (function($) {
     // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
     _injectSvgSprite();
 
-    // Handle interactivity and init of service categories for map search
-    _initServiceCategories();
+    // Handle interactivity for map search menu
+    _initMapSearchMenu();
 
     // Esc handlers
     $(document).keyup(function(e) {
@@ -937,13 +937,10 @@ var Main = (function($) {
     if (typeof ga !== 'undefined') { ga('send', 'event', category, action); }
   }
 
-  // Handle interactivity and init of service categories for map search
-  function _initServiceCategories() {
+  // Handle interactivity for map search menu
+  function _initMapSearchMenu() {
     // Add svg toggles to categories
     $('.category').prepend('<svg class="icon-triangle toggle-category" role="img"><use xlink:href="#icon-triangle"></use></svg>');
-
-    // Close all services 
-    $('.services').velocity('slideUp',{duration: 0});
 
     // Make categories open and close via Velocity.js
     $('.toggle-category').each(function() {

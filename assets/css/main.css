@@ -572,13 +572,12 @@ img {
 .map-search-menu-page .search-menu .services {
   color: #fff;
   background: #bcbbcd;
+  display: none;
 }
 .map-search-menu-page .search-menu .services .service {
   position: relative;
   padding-left: 10px;
   padding-top: 5px;
-  -webkit-transition: color .25s;
-          transition: color .25s;
 }
 .map-search-menu-page .search-menu .services .service:first-child {
   padding-top: 0;
