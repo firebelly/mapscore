@@ -374,28 +374,56 @@ table {
   border-spacing: 0;
 }
 
-.amp {
-  font-family: Georgia, serif;
+.h1, h1, .vision-section .vision-primary {
+  line-height: 1;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.h2, .page-section h3 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 1.142857143;
+}
+
+.h3, .vision-section .vision-secondary {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.166666667;
+}
+
+.h4, .page-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: .1em;
+}
+
+.h5 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .grid {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+}
+
+.grid-item {
+  max-width: 100%;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
 }
 
 .one-half-right, .two-thirds-right, .one-third-right, .one-third-middle, .one-fourth-right {
   margin-top: 1em;
 }
 
-@media screen and (min-width: 43.75em) {
-  .flex-item {
+@media screen and (min-width: 700px) {
+  .grid {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto;
   }
 
   .one-fourth {
@@ -422,6 +450,28 @@ table {
     max-width: 66.6666667%;
   }
 }
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.sr-only,
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .visually-hidden button {
+  display: none !important;
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -431,13 +481,15 @@ html {
 }
 
 body {
+  color: #1e1c56;
   font-size: 16px;
-  font-size: 100%;
+  background: #fff;
+  font-family: "Karla", Helvetica, sans-serif;
 }
 
 p {
-  font-size: 1em;
-  line-height: 1.25em;
+  font-size: 15px;
+  line-height: 1.333333333;
 }
 
 a {
@@ -449,22 +501,70 @@ img {
   max-width: 100%;
 }
 
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  list-style: none;
+}
+
 .wrap {
   width: 100%;
   margin: 0 auto;
-  padding: 0 10px;
-  max-width: 1600px;
+  padding: 0 20px;
+  max-width: 1080px;
   position: relative;
-  *zoom: 1;
 }
 .wrap:before, .wrap:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  overflow: hidden;
+  content: "";
+  display: table;
 }
 .wrap:after {
   clear: both;
+}
+@media screen and (min-width: 700px) {
+  .wrap {
+    padding: 0 100px;
+  }
+}
+
+.site-header:before, .site-header:after {
+  content: "";
+  display: table;
+}
+.site-header:after {
+  clear: both;
+}
+@media screen and (min-width: 700px) {
+  .site-header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    position: absolute;
+  }
+  .site-header nav {
+    float: right;
+  }
+  .site-header nav ul:before, .site-header nav ul:after {
+    content: "";
+    display: table;
+  }
+  .site-header nav ul:after {
+    clear: both;
+  }
+  .site-header nav li {
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+.site-nav a {
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 1.307692308;
+  text-transform: uppercase;
 }
 
 body {
@@ -563,4 +663,73 @@ ul, ol {
 }
 .services .service.selected:before {
   content: '-';
+}
+
+.page-section h2 {
+  margin: 0;
+  color: #ff3666;
+  text-transform: uppercase;
+}
+.page-section h3 {
+  margin-top: 0;
+}
+
+.section-image {
+  height: 0;
+  position: relative;
+  background-size: cover;
+  padding-bottom: 52.6171875%;
+  background-position: center center;
+}
+.section-image::before {
+  left: 0;
+  bottom: 0;
+  content: '';
+  width: 50%;
+  position: absolute;
+  border-bottom: 33px solid #fff;
+  border-right: 18px solid transparent;
+}
+.section-image::after {
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  content: '';
+  position: absolute;
+  border-bottom: 33px solid #fff;
+  border-left: 18px solid transparent;
+}
+
+.section-main {
+  padding: 50px 0;
+}
+@media screen and (min-width: 700px) {
+  .section-main {
+    padding: 100px 0;
+  }
+}
+
+.vision-section {
+  height: 80vh;
+  color: #fff;
+  min-height: 600px;
+  background: url("../images/vision-background.jpg") no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 700px) {
+  .vision-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .vision-section .wrap {
+    margin: auto;
+  }
+  .vision-section p {
+    max-width: 66.66667%;
+  }
+}
+
+.communities-section .section-image {
+  background-image: url("../images/communities-background.jpg");
 }

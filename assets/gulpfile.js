@@ -100,7 +100,7 @@ gulp.task('watch', function() {
   // Init BrowserSync
   browserSync.init({
     files: ['*.html', '*.php'],
-    proxy: 'starthere.static',
+    proxy: 'mapscore.static',
     notify: false,
   });
   // Kick it off with a build

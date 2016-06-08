@@ -1,5 +1,80 @@
-// Home page
+// Landing Page
 
-.home {
-  // styles
+.page-section {
+  h2 {
+    margin: 0;
+    @extend .h4;
+    color: $pink;
+    text-transform: uppercase;
+  }
+  h3 {
+    @extend .h2;
+    margin-top: 0;
+  }
+}
+
+.section-image {
+  height: 0;
+  position: relative;
+  background-size: cover;
+  padding-bottom: 52.6171875%;
+  background-position: center center;
+  &::before {
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 50%;
+    position: absolute;
+    border-bottom: 33px solid #fff;
+    border-right: 18px solid transparent;
+  }
+  &::after {
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    content: '';
+    position: absolute;
+    border-bottom: 33px solid #fff;
+    border-left: 18px solid transparent;
+  }
+}
+
+.section-main {
+  padding: 50px 0;
+  @include media-md {
+    padding: 100px 0;
+  }
+}
+
+.vision-section {
+  height: 80vh;
+  color: $white;
+  min-height: 600px;
+  background: url('../images/vision-background.jpg') no-repeat;
+  background-size: cover;
+
+  .vision-primary {
+    @extend .h1;
+  }
+  .vision-secondary {
+    @extend .h3;
+  }
+
+  @include media-md {
+    display: flex;
+    
+    .wrap {
+      margin: auto;
+    }
+
+    p {
+      max-width: 100% * 2 / 3;
+    }
+  }
+}
+
+.communities-section {
+  .section-image {
+    background-image: url('../images/communities-background.jpg');
+  }
 }

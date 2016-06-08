@@ -5,16 +5,18 @@ $padding: 1em;
 
 .grid {
   width: 100%;
-  display: flex;
+}
+.grid-item {
+  max-width: 100%;
+  flex-basis: 100%;
 }
 
 .one-half-right, .two-thirds-right, .one-third-right, .one-third-middle, .one-fourth-right  {margin-top: $margin;}
 
 
-@include min-screen($bpMd) {
-  .flex-item {
+@include media-md {
+  .grid {
     display: flex;
-    flex-basis: auto;
   }
   .one-fourth {
     max-width: 25%;

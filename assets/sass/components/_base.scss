@@ -8,13 +8,19 @@ html {
 }
 
 body {
-	font-size: 16px; //Em base unit
-	font-size: 100%;
+  color: $blue;
+	font-size: 16px;
+  background: $white;
+  font-family: $font-base;
+}
+
+h1 {
+  @extend .h1;
 }
 
 p {
-  font-size: 1em;
-  line-height: 1.25em;
+  font-size: 15px;
+  line-height: 1.333333333;
 }
 
 a {
@@ -26,14 +32,24 @@ img {
 	max-width: 100%;
 }
 
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
 .wrap {
   width: 100%;
   margin: 0 auto;
-  padding: 0 10px;
-  max-width: 1600px; // change to whatever 
+  padding: 0 20px;
+  max-width: 1080px;
   position: relative;
   @include clearfix();
-  @include min-screen($bpMd) {
-    // set breakpoints on a per-module basis when possible
+  @include media-md {
+    padding: 0 100px;
   }
 }
