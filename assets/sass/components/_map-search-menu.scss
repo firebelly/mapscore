@@ -147,7 +147,7 @@ $white: #fff; //rgb(255,255,255);
           left: 0px;
           content: '+';
         }
-        transition: color .25s,
+        transition: color .25s;
         &.selected {
           color: $dark-blue;
           &:before {
