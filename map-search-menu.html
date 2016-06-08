@@ -29,7 +29,7 @@
 
 
   </head>
-  <body>
+  <body class="map-search-menu-page">
     <!-- include svg-defs with whatever (php,ruby,etc.), ex: <?php include_once("assets/svgs/build/svgs-defs.svg"); ?> -->
     <header class="site-header" role="banner">
       <div class="wrap">
@@ -45,7 +45,7 @@
         <div class="search-menu">
           <ol class="steps">
             <li class="step">
-              <select>
+              <select class="communities">
                 <option selected>Select Your Community</option>
                 <option value="Archer Heights" label="Archer Heights">Archer Heights</option>
                 <option value="Armour Square" label="Armour Square">Armour Square</option>
@@ -102,8 +102,8 @@
           
           <ul class="categories">
             <li id="c14" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Arts and Entertainment</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Arts and Entertainment</div>
               <ul class="services">
                 <li id="d14.01" class="service">Museums</li>
                 <li id="d14.02" class="service">Zoos and Aquariums</li>
@@ -122,8 +122,8 @@
               </ul>
             </li>
             <li id="c11" class="category">
-              <svg class="icon-category -education" role="img"><use xlink:href="#icon-category-education"></use></svg>
-              <div class="category-name">Education, Schools, Childcare</div>
+              <svg class="toggle-category icon-category -education" role="img"><use xlink:href="#icon-category-education"></use></svg>
+              <div class="category-name toggle-category">Education, Schools, Childcare</div>
               <ul class="services">
                 <li id="d11.01" class="service">Home Daycares</li>
                 <li id="d11.02" class="service">Kid Centers</li>
@@ -138,8 +138,8 @@
               </ul>
             </li>
             <li id="c5" class="category">
-              <svg class="icon-category -financial" role="img"><use xlink:href="#icon-category-financial"></use></svg>
-              <div class="category-name">Financial, Insurance, Legal, Taxes</div>
+              <svg class="toggle-category icon-category -financial" role="img"><use xlink:href="#icon-category-financial"></use></svg>
+              <div class="category-name toggle-category">Financial, Insurance, Legal, Taxes</div>
               <ul class="services">
                 <li id="d5.01" class="service">Banks</li>
                 <li id="d5.02" class="service">Accountant and Tax Services</li>
@@ -157,8 +157,8 @@
               </ul>
             </li>
             <li id="c1" class="category">
-              <svg class="icon-category -food" role="img"><use xlink:href="#icon-category-food"></use></svg>
-              <div class="category-name">Food, Groceries, Restaurants</div>
+              <svg class="toggle-category icon-category -food" role="img"><use xlink:href="#icon-category-food"></use></svg>
+              <div class="category-name toggle-category">Food, Groceries, Restaurants</div>
               <ul class="services">
                 <li id="d1.01" class="service">Fast Food</li>
                 <li id="d1.02" class="service">Restaurants</li>
@@ -170,9 +170,9 @@
                 <li id="d1.05" class="service">Other</li>
               </ul>
             </li>
-            <li id="c15" class="category open">
-              <svg class="icon-category -gyms" role="img"><use xlink:href="#icon-category-gyms"></use></svg>
-              <div class="category-name">Gyms and Exercise</div>
+            <li id="c15" class="category">
+              <svg class="toggle-category icon-category -gyms" role="img"><use xlink:href="#icon-category-gyms"></use></svg>
+              <div class="category-name toggle-category">Gyms and Exercise</div>
               <ul class="services">
                 <li id="d15.01" class="service">Dance, Yoga, Pilates, and Martial Arts</li>
                 <li id="d15.02" class="service">Gyms/Field Houses</li>
@@ -183,8 +183,8 @@
               </ul>
             </li>
             <li id="c6" class="category">
-              <svg class="icon-category -health" role="img"><use xlink:href="#icon-category-health"></use></svg>
-              <div class="category-name">Health services</div>
+              <svg class="toggle-category icon-category -health" role="img"><use xlink:href="#icon-category-health"></use></svg>
+              <div class="category-name toggle-category">Health services</div>
               <ul class="services">
                 <li id="d6.01" class="service">Hospitals</li>
                 <li id="d6.02" class="service">Emergency Rooms</li>
@@ -205,8 +205,8 @@
               </ul>
             </li>
             <li id="c12" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Housing, Real Estate, Hotels</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Housing, Real Estate, Hotels</div>
               <ul class="services">
                 <li id="d12.01" class="service">Hotels</li>
                 <li id="d12.02" class="service">Shelters</li>
@@ -219,8 +219,8 @@
               </ul>
             </li>
             <li id="c8" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Moving, Storage, Shipping</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Moving, Storage, Shipping</div>
               <ul class="services">
                 <li id="d8.01" class="service">Warehouses</li>
                 <li id="d8.02" class="service">Public Storage</li>
@@ -237,8 +237,8 @@
               </ul>
             </li>
             <li id="c17" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Other</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Other</div>
               <ul class="services">
                 <li id="d16.01" class="service">Community Event Groups</li>
                 <li id="d16.02" class="service">Community Gardens</li>
@@ -247,8 +247,8 @@
               </ul>
             </li>
             <li id="c4" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Personal Services</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Personal Services</div>
               <ul class="services">
                 <li id="d4.01" class="service">Beauty and Barber Shops</li>
                 <li id="d4.02" class="service">Tattoos and Body Piercing</li>
@@ -260,8 +260,8 @@
               </ul>
             </li>
             <li id="c3" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Professional and Home Services</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Professional and Home Services</div>
               <ul class="services">
                 <li id="d3.01" class="service">Auto Repair, Body Shops, Car Wash, and Detailing</li>
                 <li id="d3.02" class="service">Home Repair/improvement</li>
@@ -283,8 +283,8 @@
               </ul>
             </li>
             <li id="c13" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Public and Government Services</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Public and Government Services</div>
               <ul class="services">
                 <li id="d13.01" class="service">Post Offices</li>
                 <li id="d13.02" class="service">Fire Departments</li>
@@ -302,8 +302,8 @@
             </li>
             </li>
             <li id="c10" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Religious and Places of Worship</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Religious and Places of Worship</div>
               <ul class="services">
                 <li id="d10.01" class="service">Churches</li>
                 <li id="d10.02" class="service">Mosques</li>
@@ -313,8 +313,8 @@
               </ul>
             </li>
              <li id="c2" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Shopping</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Shopping</div>
               <ul class="services">
                 <li id="d2.01" class="service">Convenience Stores</li>
                 <li id="d2.02" class="service">Grocery</li>
@@ -345,8 +345,8 @@
               </ul>
             </li>
             <li id="c7" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Social Services, Advocacy, Political</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Social Services, Advocacy, Political</div>
               <ul class="services">
                 <li id="d7.01" class="service">Social Service Centers</li>
                 <li id="d7.02" class="service">Food Pantries</li>
@@ -363,8 +363,8 @@
               </ul>
             </li>
             <li id="c16" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Transportation</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Transportation</div>
               <ul class="services">
                 <li id="d2.17" class="service">Cars, Trucks, and Motorcycles</li>
                 <li id="d2.19" class="service">Gas Stations</li>
@@ -380,8 +380,8 @@
               </ul>
             </li>
             <li id="c9" class="category">
-              <svg class="icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
-              <div class="category-name">Wholesale and Manufacturing</div>
+              <svg class="toggle-category icon-category -default" role="img"><use xlink:href="#icon-category-default"></use></svg>
+              <div class="category-name toggle-category">Wholesale and Manufacturing</div>
               <ul class="services">
                 <li id="d9.01" class="service">Food Processing Plants</li>
                 <li id="d9.02" class="service">Chemical Production Or Processing</li>

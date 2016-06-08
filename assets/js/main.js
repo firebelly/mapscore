@@ -85,8 +85,36 @@ var Main = (function($) {
 
   // Handle interactivity and init of service categories for map search
   function _initServiceCategories() {
-    // Add svg toggles
-    $('.category').prepend('<svg class="icon-triangle" role="img"><use xlink:href="#icon-triangle"></use></svg>');
+    // Add svg toggles to categories
+    $('.category').prepend('<svg class="icon-triangle toggle-category" role="img"><use xlink:href="#icon-triangle"></use></svg>');
+
+    // Close all services 
+    $('.services').velocity('slideUp',{duration: 0});
+
+    // Make categories open and close via Velocity.js
+    $('.toggle-category').each(function() {
+      var $category = $(this).closest('.category');
+      var $services = $category.find('.services');
+      $(this).click(function() {
+        if ($category.hasClass('open')) {
+          $category.removeClass('open');
+          $services.velocity('slideUp',{duration: 250});
+        } else {
+          $category.addClass('open');
+          $services.velocity('slideDown',{duration: 250});
+        }
+      });
+    });
+
+    // Make services selectable 
+    $('.service').click(function(){
+      if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+      } else {
+        $(this).addClass('selected');
+      }
+    });
+
   }
 
 
