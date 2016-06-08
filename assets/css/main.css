@@ -467,12 +467,10 @@ img {
   clear: both;
 }
 
-.map-search-menu-page body, .map-search-menu-page .search-menu .communities {
+.map-search-menu-page {
   font-family: 'Karla', sans-serif;
   color: #1f1c57;
-}
-.map-search-menu-page .search-menu .categories .category .toggle-category:hover, .map-search-menu-page .search-menu .services .service:hover {
-  cursor: pointer;
+  letter-spacing: 0;
 }
 .map-search-menu-page h2 {
   color: #ff3666;
@@ -492,20 +490,42 @@ img {
   padding-left: 0;
   margin: 0;
 }
-.map-search-menu-page .search-menu select {
-  border: none;
+.map-search-menu-page .search-menu .select-wrap {
+  position: relative;
+}
+.map-search-menu-page .search-menu .select-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 10px;
+  height: 14px;
+  background: url(/assets/svgs/select-bg.svg);
+  top: 1px;
+  right: 0;
+  pointer-events: none;
+}
+.map-search-menu-page .search-menu .select-wrap select {
+  border: 0;
   box-shadow: none;
   border-radius: 0;
-  padding-right: 18px;
   background-color: transparent;
   background-image: none;
   -webkit-appearance: none;
+  font-size: 15px;
+  line-height: 20px;
+  width: 100%;
+  padding-right: 10px;
+  font-family: 'Karla', sans-serif;
+  color: #1f1c57;
+  letter-spacing: 0;
 }
-.map-search-menu-page .search-menu select::-ms-expand {
+.map-search-menu-page .search-menu .select-wrap select::-ms-expand {
   display: none;
 }
 .map-search-menu-page .search-menu .category-name, .map-search-menu-page .search-menu .step, .map-search-menu-page .search-menu .services {
   padding: 9px 10px 5px 10px;
+}
+.map-search-menu-page .search-menu .category-name {
+  padding-right: 30px;
 }
 .map-search-menu-page .search-menu .step, .map-search-menu-page .search-menu .category {
   margin-top: 10px;
@@ -535,13 +555,6 @@ img {
   padding-top: 8px;
   font-weight: bold;
 }
-.map-search-menu-page .search-menu .communities {
-  outline: none;
-  border: none;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-}
 .map-search-menu-page .search-menu .categories {
   font-size: 13px;
   margin-top: 30px;
@@ -549,6 +562,9 @@ img {
 .map-search-menu-page .search-menu .categories .category {
   background: #f4f4f7;
   position: relative;
+}
+.map-search-menu-page .search-menu .categories .category .toggle-category:hover {
+  cursor: pointer;
 }
 .map-search-menu-page .search-menu .categories .category .icon-triangle {
   position: absolute;
@@ -578,6 +594,9 @@ img {
   position: relative;
   padding-left: 10px;
   padding-top: 5px;
+}
+.map-search-menu-page .search-menu .services .service:hover {
+  cursor: pointer;
 }
 .map-search-menu-page .search-menu .services .service:first-child {
   padding-top: 0;
@@ -624,7 +643,7 @@ img {
   fill: #ff371e;
 }
 .map-search-menu-page .icon-triangle {
-  width: 7px;
-  height: 3.5px;
+  width: 10px;
+  height: 5px;
   fill: #1f1c57;
 }

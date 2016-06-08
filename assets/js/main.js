@@ -88,6 +88,25 @@ var Main = (function($) {
     // Add svg toggles to categories
     $('.category').prepend('<svg class="icon-triangle toggle-category" role="img"><use xlink:href="#icon-triangle"></use></svg>');
 
+    // Alphabetize services within category
+    // Adapted from: http://stackoverflow.com/questions/304396/what-is-the-easiest-way-to-order-a-ul-ol-in-jquery
+    $('.services').each(function() {
+      var $ul = $(this);
+      var $items = $ul.find('li');
+      $items.sort(function(a,b){
+        var keyA = $(a).text();
+        var keyB = $(b).text();
+
+        if (keyA < keyB) return -1;
+        if (keyA > keyB) return 1;
+        return 0;
+      });
+      $.each($items, function(i, $li){
+        $ul.append($li);
+      });
+    });
+
+
     // Make categories open and close via Velocity.js
     $('.toggle-category').each(function() {
       var $category = $(this).closest('.category');
@@ -111,7 +130,6 @@ var Main = (function($) {
         $(this).addClass('selected');
       }
     });
-
   }
 
 
