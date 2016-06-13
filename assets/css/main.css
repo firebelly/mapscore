@@ -947,6 +947,23 @@ nav ul li {
   margin-top: 20px;
 }
 
+.gm-style-iw h4 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.133333333;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 700px) {
+  .gm-style-iw h4 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+}
+.gm-style-iw p {
+  font-size: 14px;
+}
+
 .map-search-menu-page {
   font-family: 'Karla', sans-serif;
   color: #1f1c57;
