@@ -148,8 +148,8 @@ var Main = (function($) {
     var parterMaps = [];
 
     var chicago = {
-      partnerLat: 41.861379,
-      partnerLng: -87.660485,
+      partnerLat: 41.7837192,
+      partnerLng: -87.6325996,
       partnerLocations: [
         ['Greater Auburn-Gresham Development Corporation', 'undefined', '+1 773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
         ['Centers For New Horizons Inc', 'undefined', '+1 773-373-5700', 'undefined', 'http://cnh.org/', 41.8186204, -87.61735729999998, 'undefined'],
@@ -165,23 +165,29 @@ var Main = (function($) {
     };
 
     var nyc = {
-      partnerLat: 40.7053111,
-      partnerLng: -74.258188,
-      partnerLocations: [],
+      partnerLat: 40.7993063,
+      partnerLng: -73.937144,
+      partnerLocations: [
+        ['Mount Sinai Adolescent Health Center', 'undefined', 'undefined', 'undefined', 'undefined', 40.7823722, -73.94719570000001, 'undefined'],['Claremont Healthy Village', 'undefined', 'undefined', 'undefined', 'undefined', 40.8313933, -73.90273730000001, 'undefined'],['Urban Health Plan, Inc', 'undefined', 'undefined', 'undefined', 'undefined', 40.825011, -73.89228300000002, 'undefined'],['Two Bridges Neighborhood Council', 'undefined', 'undefined', 'undefined', 'undefined', 40.71093169999999, -73.98848079999999, 'undefined']
+      ],
       elementID: 'nyc-partners'
     };
 
     var niagara = {
-      partnerLat: 43.0994841,
-      partnerLng: -79.0787808,
-      partnerLocations: [],
+      partnerLat: 43.1132875,
+      partnerLng: -79.0355104,
+      partnerLocations: [
+        ['Planned Parenthood of Central and Western New York', 'undefined', 'undefined', 'undefined', 'undefined', 42.940527, -78.83722399999999, 'undefined'],['Niagara Employment &amp; Training', 'undefined', 'undefined', 'undefined', 'undefined', 43.09876599999999, -79.04935499999999, 'undefined'],['Community Health Center of Niagara Falls', 'undefined', 'undefined', 'undefined', 'undefined', 43.11303599999999, -79.048565, 'undefined'],['Mount Saint Marys Hospital', 'undefined', 'undefined', 'undefined', 'undefined', 43.15394819999999, -79.03311889999998, 'undefined'],['Niagara Falls Memorial Medical Center', 'undefined', 'undefined', 'undefined', 'undefined', 43.09383820000001, -79.05033229999998, 'undefined'],['Niagara University', 'undefined', 'undefined', 'undefined', 'undefined', 43.1383605, -79.03766719999999, 'undefined']
+      ],
       elementID: 'niagara-partners'
     };
 
     var nashEdgecombe = {
       partnerLat: 35.8893318,
       partnerLng: -77.9239492,
-      partnerLocations: [],
+      partnerLocations: [
+        ['Resourceful Communities', 'undefined', 'undefined', 'undefined', 'undefined', 38.8938808, -77.0715055, 'undefined'],['UNC Center for Health Equity Research', 'undefined', 'undefined', 'undefined', 'undefined', 35.9049122, -79.0469134, 'undefined'],['Project Momentum', 'undefined', 'undefined', 'undefined', 'undefined', 35.9419921, -77.79512299999999, 'undefined']
+      ],
       elementID: 'nash-edgecombe-partners'
     };
 
