@@ -1,0 +1,10 @@
+// Map styles
+
+.gm-style-iw {
+  h4 {
+    @include h4();
+  }
+  p {
+    font-size: 14px;
+  }
+}
