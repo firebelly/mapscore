@@ -34,4 +34,14 @@ $padding: 1em;
     flex-basis: 66.6666667%;
     max-width: 66.6666667%;
   }
+  .-left {
+    padding-right: 10px;
+  }
+  .-right {
+    padding-left: 10px;
+  }
+  .-center {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

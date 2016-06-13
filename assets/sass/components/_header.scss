@@ -1,17 +1,92 @@
 // Header
 
 .site-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  color: $white;
   @include clearfix;
+  padding-top: 20px;
+  position: absolute;
 
-  @include media-md {
+  &.-sticky {
     top: 0;
     left: 0;
     width: 100%;
-    color: $white;
-    position: absolute;
+    z-index: 100;
+    position: fixed;
+    padding-top: 4px;
+    padding-bottom: 0;
+    background: rgba($white,.9);
+    animation: slideDown .5s forwards;
+    .icon-logo {
+      .logo-words {
+        fill: $blue;
+      }
+      .logo-pin {
+        fill: $pink;
+      }
+    }
+
+    .menu-toggle {
+      top: 10px;
+      span,
+      &::before,
+      &::after {
+        background: $pink;
+      }
+      &.menu-open {
+       &::before,
+       &::after {
+         background: $yellow;
+       } 
+      }
+    }
+
+    .site-nav {
+      padding-top: 44px;
+    }
+
+    @include media-md {
+      color: $blue;
+      padding-top: 10px;
+
+      .site-nav {
+        padding-top: 14px;
+        a span::after {
+          background: $pink;
+        }
+      }
+    }
+  }
+
+  .logo {
+    margin: 0;
+    float: left;
+    a {
+      display: block;
+    }
+  }
+  .icon-logo {
+    width: 133px;
+    height: 30px;
+    display: block;
+    vertical-align: top;
+    .logo-words {
+      fill: $white;
+    }
+    .logo-pin {
+      fill: $yellow;
+    }
+  }
+
+  @include media-md {
+    padding-top: 30px;
 
     nav {
       float: right;
+      padding-top: 14px;
       ul {
         @include clearfix;
       }
@@ -25,10 +100,177 @@
 }
 
 .site-nav {
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  background: $blue;
+  padding: 64px 20px 20px;
+  transform: translateX(100%);
+  transition: transform .2s ease-out, padding .2s ease-out;
+
+  &.-active {
+    transform: translateX(0);
+  }
+
+  li {
+    margin-bottom: .5em;
+  }
+
   a {
+    display: block;
     font-size: 13px;
+    font-weight: 700;
+    text-align: right;
+    position: relative;
     text-decoration: none;
     line-height: 1.307692308;
     text-transform: uppercase;
+    span {
+      position: relative;
+      &::after {
+        left: 0;
+        right: 0;
+        opacity: 0;
+        height: 2px;
+        content: '';
+        bottom: -2px;
+        position: absolute;
+        background: $yellow;
+        transition: opacity .1s ease-out;
+      }
+    }
+
+    &:hover {
+      span::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  li.-active {
+    a span::after {
+      opacity: 1;
+    }
+  }
+
+  .contact-nav-item {
+    margin-top: 20px;
+    padding-top: 20px;
+    position: relative;
+    &::before {
+      top: 0;
+      right: 0;
+      width: 30px;
+      content: '';
+      height: 2px;
+      position: absolute;
+      background: $yellow;
+    }
+  }
+
+  @include media-md {
+    top: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+    background: none;
+    transition: none;
+    position: relative;
+    padding: 0 0 12px 0;
+    transform: translateX(0);
+
+    a {
+      text-align: left;
+      display: inline-block;
+      span::after {
+        bottom: -13px;
+      }
+    }
+
+    li {
+      margin-bottom: 0;
+    }
+
+    .contact-nav-item {
+      display: none;
+    }
+  }
+}
+
+.menu-toggle {
+  top: 28px;
+  right: 20px;
+  width: 22px;
+  z-index: 200;
+  height: 20px; 
+  border: none;
+  padding: 8px 0;
+  cursor: pointer;
+  position: fixed;
+  background: none;
+  transition: transform .2s ease-out, top .2s ease-out;
+  &:focus {
+    outline: none;
+  }
+  @include min-screen($breakpoint-nav) {
+    display: none;
+  }
+
+  span {
+    height: 2px;
+    display: block;
+    overflow: hidden;
+    text-indent: 100%;
+    background: $yellow;
+    white-space: nowrap;
+    transition: background 0.3s ease-in-out;
+  }
+  &::before, &::after {
+    left: 0;
+    content: '';
+    width: 22px;
+    height: 2px;
+    position: absolute;
+    background: $yellow;
+    transform-origin: center center;
+    transition: all 0.2s ease-in-out;
+  }
+  &::before {
+    top: 0;
+  }
+  &::after {
+    bottom: 0;
+  }
+  &.menu-open {
+    span {
+      background: rgba(255,255,255,0);
+    }
+    &::before {
+      top: 10px;
+      transform: rotate(-45deg);
+    }
+    &::after {
+      bottom: 8px;
+      transform: rotate(45deg);
+    }
+    &::before, &::after {
+      width: 26px;
+      background: $yellow;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &:not(.menu-open):hover {
+    &::before {
+      top: -1px;
+    }
+    &::after {
+      bottom: -1px;
+    }
   }
 }

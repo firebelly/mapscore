@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-  @extend .h1;
+  @include h1;
 }
 
 p {
@@ -25,6 +25,9 @@ p {
 
 a {
 	color: inherit;
+  &:focus {
+    outline: none;
+  }
 }
 
 img {
@@ -52,4 +55,4 @@ nav {
   @include media-md {
     padding: 0 100px;
   }
-}
+} 

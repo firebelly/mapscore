@@ -3,12 +3,12 @@
 .page-section {
   h2 {
     margin: 0;
-    @extend .h4;
+    @include h4;
     color: $pink;
     text-transform: uppercase;
   }
   h3 {
-    @extend .h2;
+    @include h2;
     margin-top: 0;
   }
 }
@@ -16,8 +16,8 @@
 .section-image {
   height: 0;
   position: relative;
+  padding-bottom: 100%;
   background-size: cover;
-  padding-bottom: 52.6171875%;
   background-position: center center;
   &::before {
     left: 0;
@@ -37,6 +37,10 @@
     border-bottom: 33px solid #fff;
     border-left: 18px solid transparent;
   }
+
+  @include media-md {
+    padding-bottom: 52.6171875%;
+  }
 }
 
 .section-main {
@@ -47,28 +51,96 @@
 }
 
 .vision-section {
-  height: 80vh;
   color: $white;
-  min-height: 600px;
-  background: url('../images/vision-background.jpg') no-repeat;
+  position: relative;
+  padding: 160px 0 115px;
+  background: url('../images/vision-background.jpg') no-repeat center center;
   background-size: cover;
 
   .vision-primary {
-    @extend .h1;
+    @include h1;
   }
   .vision-secondary {
-    @extend .h3;
+    @include h3;
+    max-width: 300px;
+  }
+
+  .scroll-down {
+    left: 50%;
+    right: 50%;
+    bottom: 40px;
+    position: absolute;
   }
 
   @include media-md {
+    padding: 0;
+    height: 80vh;
     display: flex;
+    min-height: 600px;
     
     .wrap {
       margin: auto;
     }
 
-    p {
+    .vision-primary,
+    .vision-secondary {
       max-width: 100% * 2 / 3;
+    }
+  }
+}
+
+.mission-section {
+
+  h4 {
+    @include h4;
+  }
+
+  .buildings-display {
+    padding: 50px 0;
+    background: $yellow;
+
+    svg {
+      width: 100%;
+    }
+
+    @include media-md {
+      padding: 100px 0;
+    }
+  }
+} 
+
+.history-section {
+
+  p {
+    @include h5;
+  }
+
+  .statistic {
+    color: $yellow;
+    padding: 50px 0;
+    overflow: hidden;
+    position: relative;
+    background: $purple;
+
+    @include media-md {
+      padding: 100px 0;
+    }
+
+    .history-pattern {
+      top: -40px;
+      left: -40px;
+      right: -40px;
+      bottom: -40px;
+      position: absolute;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    h3 {
+      margin: 0;
+      @include h1;
     }
   }
 }
@@ -76,5 +148,340 @@
 .communities-section {
   .section-image {
     background-image: url('../images/communities-background.jpg');
+  }
+
+  .section-copy {  
+    p {
+      @include h5;
+    }
+  }
+} 
+
+.map-grid {
+  margin-top: 50px;
+  
+  @include media-md {
+    margin-top :100px;
+    .grid {
+      display: block;
+    }
+    .grid-item {
+      width: 100%;
+      max-width: 100%;
+      &.-left {
+        padding-right: 0;
+      }
+      &.-right {
+        padding-left: 0;
+      }
+    }
+  }
+
+  @include media-lg {
+    .grid {
+      display: flex;
+    }
+    .grid-item {
+      max-width: 50%;
+      flex-basis: 50%;
+      &.-left {
+        padding-right: 10px;
+      }
+      &.-right {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+
+  .grid {
+    flex-wrap: wrap;
+  }
+
+  .map {
+    margin-bottom: 20px;
+  }
+
+  .map-wrapper {
+    height: 100%;
+    display: flex;
+    position: relative;
+    padding: 50px 25px;
+    background-size: cover;
+    &::before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      content: '';
+      position: absolute;
+      background: rgba($white,.5);
+    }
+
+    @include media-md {
+      padding: 100px 50px;
+    }
+  }
+
+  .map-content {
+    z-index: 1;
+    margin: auto;    
+    text-align: center;
+    position: relative;
+    h3 {
+      @include h1;
+    }
+  }
+
+  .chicago .map-wrapper {
+    background-image: url('../images/map-chicago.jpg');
+  }
+  .new-york .map-wrapper {
+    background-image: url('../images/map-nyc.jpg');
+  }
+  .niagra .map-wrapper {
+    background-image: url('../images/map-chicago.jpg');
+  }
+  .nash-edgecombe .map-wrapper {
+    background-image: url('../images/map-nyc.jpg');
+  }
+}
+
+.statement-section {
+  color: $yellow;
+  overflow: hidden;
+  position: relative;
+  background: $blue-lite;
+
+  h3 {
+    margin: 0;
+    @include h1-shorthand;
+
+    @include media-md {
+      width: 100% * 5 / 6;
+    }
+  }
+
+  .statement-pattern {
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
+    position: absolute;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.partners-section {
+  .section-image {
+    background-image: url('../images/partners-background.jpg');
+  }
+
+  .maps {
+    margin-top: 50px;
+    ul {
+      li {
+        list-style: none;
+      }
+    }
+  }
+
+  .maps-list {
+    padding: 0;
+
+    a {
+      @extend .btn;
+      @extend .-blue;
+      display: block;
+    }
+
+    @include media-md {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        max-width: 24%;
+        flex-basis: 24%;
+        display: inline-block;
+        &:not(.-active) {
+          a {
+            color: $blue;
+            background: $yellow;
+            &:hover {
+              color: $pink;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .maps-images {
+    height: 0;
+    width: 100%;
+    padding-left: 0;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 61.875%;
+    li {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      position: absolute;
+      &.-active {
+        display: block;
+      }
+
+      iframe,
+      .map {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .gm-style-iw * {
+          display: block;
+          width: 100%;
+      }
+      .gm-style-iw h4, .gm-style-iw p {
+          margin: 0;
+          padding: 0;
+      }
+      .gm-style-iw a {
+          color: #4272db;
+      }
+    }
+  }
+
+}
+
+.impact-section {
+  .section-image {
+    background-image: url('../images/impact-background.jpg');
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .btn {
+    &:hover, &:focus {
+      color: $pink;
+    }
+  }
+
+  .statement {
+    color: $yellow;
+    padding: 50px 0;
+    overflow: hidden;
+    background: $pink;
+    position: relative;
+
+    .impact-pattern {
+      top: -20px;
+      z-index: 0;
+      left: -40px;
+      right: -40px;
+      bottom: -40px;
+      position: absolute;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    h3 {
+      @include h1-shorthand;
+    }
+
+    @include media-md {
+      padding: 100px 0;
+
+      h3 {
+        width: 100% * 5 / 6;
+      }
+    }
+
+    &::before {
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 50%;
+      content: '';
+      position: absolute;
+      border-bottom: 33px solid #fff;
+      border-right: 18px solid transparent;
+    }
+    &::after {
+      bottom: 0;
+      left: 50%;
+      width: 50%;
+      z-index: 1;
+      content: '';
+      position: absolute;
+      border-bottom: 33px solid #fff;
+      border-left: 18px solid transparent;
+    }
+  }
+
+  .grid-item {
+    margin-top: 38px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+    p:first-of-type {
+      margin-top: 0;
+    }
+
+    @include media-md {
+      margin-top: 0;
+    }
+  }
+
+  .-top {
+    margin-bottom: 50px;
+
+    h3 {
+      @include h2;
+    }
+
+    p {
+      @include h5;
+    }
+  }
+
+  .-bottom {
+    h3 {
+      @include h4;
+    }
+
+    @include media-md {
+      flex-wrap: wrap;
+
+      .one-third {      
+        max-width: 50%;
+        flex-basis: 50%;
+      }
+    }
+
+    @include media-lg {
+      .one-third {
+        max-width: 33.3333%;
+        flex-basis: 33.3333%;
+      }
+    }
   }
 }

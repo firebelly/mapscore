@@ -5,31 +5,59 @@ $font-base: 'Karla', Helvetica, sans-serif;
 $serif: Georgia, serif;
 
 // Font classes for @extend use
-.h1 {
+@mixin h1 {
   line-height: 1;
-  font-size: 50px;
-  font-weight: 700;
-}
-.h2 {
   font-size: 35px;
   font-weight: 700;
-  line-height: 1.142857143;
+  @include media-md {
+    font-size: 50px;
+  }
 }
-.h3 {
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 1.166666667;
-}
-.h4 {
-  font-size: 20px;
+@mixin h1-shorthand {
+  line-height: 1;
+  font-size: 35px;
   font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: .1em;
+  @include media-md {
+    font-size: 70px;
+  }
 }
-.h5 {
-  font-size: 20px;
+@mixin h2 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  @include media-md {
+    font-size: 35px;
+    line-height: 1.142857143;
+  }
+}
+@mixin h3 {
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.133333333;
+  @include media-md {
+    font-size: 30px;
+    line-height: 1.166666667;
+  }
+}
+@mixin h4 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.133333333;
+  text-transform: uppercase;
+  @include media-md {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+}
+@mixin h5 {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333333333;
+  @include media-md {
+    font-size: 20px;
+    line-height: 1.5;
+  }
 }
 
 //sizes

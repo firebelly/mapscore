@@ -7,101 +7,204 @@ $light-gray: #f4f4f7; //rgb(244,244,247);
 $blue-gray: #bcbbcd; //rgb(188,187,205); 
 $white: #fff; //rgb(255,255,255);
 
-// A few "global elements" to be redone in master code.
-body{
+@mixin body-font {
   font-family: 'Karla', sans-serif;
   color: $dark-blue;
+  letter-spacing: 0;
 }
-
-h2 {
-  color: $pink;
-  text-transform: uppercase;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: .1em;
-  margin: 0;
-}
-
-// Override base styles
-ul,ol { 
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-// Map Search Menu Styling
-.search-menu {
-  width: 280px;
-  line-height: 20px;
-  margin-top: 10px;
-}
-
-.category-name, .step, .services {
-  padding: 9px 10px 5px 10px;
-}
-
-.step, .category {
-  margin-top: 10px;
-  margin-left: 36px;
-  width: 246px;
-}
-
-.steps {
-  font-size: 15px;
-  counter-reset: step-counter;
-  .step {
-    background: $yellow;
-    position: relative;
-    &:before{
-      position: absolute;
-      left: -36px;
-      top: 0;
-      width: 36px;
-      height: 34px;
-      content: counter(step-counter)".";
-      counter-increment: step-counter;
-      background: $pink;
-      font-size: 20px;
-      letter-spacing: .1em;
-      padding-left: 10px;
-      padding-top: 8px;
-      font-weight: bold;
-    }
+@mixin clickable {
+  &:hover{
+    cursor: pointer
   }
-}
+} 
+.map-search-menu-page {
 
-.categories{
-  font-size: 13px;
-  margin-top: 30px;
-  .category {
-    background: $light-gray;
-    &.open .category-name {
-      font-weight: bold;
-    }
+  // A few "global elements" to be redone in master code.
+  @include body-font;
+
+  h2 {
+    color: $pink;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: .1em;
+    margin: 0;
   }
-}
 
-.services {
-  color: $white;
-  background: $blue-gray;
-  .service {
-    position: relative;
-    padding-left: 10px;
-    padding-top: 5px;
-    &:first-child { padding-top: 0; }
-    &:hover {
-      cursor: pointer;
+  // Map Search Menu Styling
+  .search-menu {
+    width: 280px;
+    line-height: 20px;
+    margin-top: 10px;
+
+    // Override List Styles
+    ul,ol { //de-list
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
     }
-    &:before {
-      position: absolute;
-      left: 0px;
-      content: '+';
-    }
-    &.selected {
-      color: $dark-blue;
-      &:before {
-        content: '-';
+
+    // Form Styling
+    .select-wrap { // A wrapper to put around <select>'s
+      position: relative;
+      &:after{ // Add our custom arrow icon
+        position: absolute;
+        content: ' ';
+        width: 10px;
+        height: 14px;
+        background: url(/assets/svgs/select-bg.svg); 
+        top: 1px;
+        right: 0;
+        pointer-events: none;
+      }
+      select { 
+        // Override default select styles
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: transparent;
+        background-image: none;
+        appearance: none;
+        &::-ms-expand {
+          display: none;
+        }
+        // Add Our Style
+        font-size: 15px;
+        line-height: 20px;
+        width: 100%;
+        padding-right: 10px;
+        @include body-font;
       }
     }
+
+    // Section Styling
+    .category-name, .step, .services {
+      padding: 9px 10px 5px 10px;
+    }
+    .category-name {
+      padding-right: 30px;
+    }
+
+    .step, .category {
+      margin-top: 10px;
+      margin-left: 36px;
+      width: 246px;
+    }
+
+    .steps {
+      font-size: 15px;
+      counter-reset: step-counter;
+      .step {
+        background: $yellow;
+        position: relative;
+        &:before{
+          position: absolute;
+          left: -36px;
+          top: 0;
+          width: 36px;
+          height: 34px;
+          content: counter(step-counter)".";
+          counter-increment: step-counter;
+          background: $pink;
+          font-size: 20px;
+          letter-spacing: .1em;
+          padding-left: 10px;
+          padding-top: 8px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .categories {
+      font-size: 13px;
+      margin-top: 30px;
+      .category {
+        background: $light-gray;
+        position: relative;
+        .toggle-category {
+          @include clickable;
+        }
+        .icon-triangle {
+          position: absolute;
+          top: 15px;
+          right: 10px;
+        }
+        .icon-category {
+          position: absolute;
+          left: -36px;
+          top: 17px; // 34/2
+          transform: translateY(-50%);
+        }
+        &.open {
+          .category-name {
+            font-weight: bold;
+          }
+          .icon-triangle{
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    .services {
+      color: $white;
+      background: $blue-gray;
+      display: none;
+      .service {
+        position: relative;
+        padding-left: 10px;
+        padding-top: 5px;
+        @include clickable;
+        &:first-child { padding-top: 0; }
+        &:before {
+          position: absolute;
+          left: 0px;
+          content: '+';
+        }
+        &.selected {
+          color: $dark-blue;
+          &:before {
+            content: '-';
+          }
+        }
+      }
+    }
+  }
+
+  //Icon sizing and colors
+  .icon-category.-default {
+    width: 28px;
+    height: 32px;
+    fill: #52c9eb; //rgb(82,201,235);
+  }
+  .icon-category.-education {
+    width: 28px;
+    height: 27px;
+    fill: #65bc46; //rgb(101,188,70);
+  }
+  .icon-category.-financial {
+    width: 28px;
+    height: 21px;
+    fill: #1f1c57; //rgb(31,28,87);
+  }
+  .icon-category.-food {
+    width: 22px;
+    height: 32px;
+    fill: #f56e19; //rgb(245,110,25);
+  }
+  .icon-category.-gyms {
+    width: 28px;
+    height: 15px;
+    fill: #ff3666; //rgb(255,54,102);
+  }
+  .icon-category.-health {
+    width: 30px;
+    height: 31px;
+    fill: #ff371e; //rgb(255,55,30);
+  }
+  .icon-triangle {
+    width: 10px;
+    height: 5px;
+    fill: $dark-blue; 
   }
 }

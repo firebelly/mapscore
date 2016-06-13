@@ -8,11 +8,13 @@
 @import "helpers/variables";
 @import "helpers/typography";
 @import "helpers/grid";
-@import "helpers/accessibility";
+@import "helpers/accessibility"; 
+@import "helpers/animations";
 
 // Vendor
 
 // Components
+@import "components/ui-components";
 @import "components/base";
 @import "components/header";
 @import "components/footer";

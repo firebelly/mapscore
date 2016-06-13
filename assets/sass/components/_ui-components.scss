@@ -1,0 +1,54 @@
+// UI Components
+
+.btn {
+  color: $blue;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  background: $yellow;
+  letter-spacing: .1em;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 16px 10px;
+  text-transform: uppercase;
+  transition: color .1s ease-out;
+  &:hover, &:focus {
+    color: $blue-lite;
+  }
+
+  &.-blue {
+    color: $yellow;
+    background: $blue;
+    &:hover, &:focus {
+      color: $pink;
+    }
+  }
+
+  &.-disabled {
+    color: $blue;
+    background: $gray;
+    &:hover, &:focus {
+      color: $blue;
+      background: $gray;
+    }
+  }
+}
+
+.scroll-down {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 2px solid $yellow;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+  transform-origin: center center;
+  transition: transform .2s ease-out;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    transform: rotate(45deg) scale(1.1);
+  }
+}

@@ -72,13 +72,16 @@ gulp.task('svgs', function() {
             removeViewBox: false
         }, {
             removeEmptyAttrs: false
+        },{
+            mergePaths: false
+        },{
+            cleanupIDs: false
         }]
     }))
-    .pipe(gulp.dest('svgs'))
+    .pipe(gulp.dest('svgs/min'))
     .pipe(svgstore({ inlineSvg: true }))
-    .pipe(rename({suffix: '-defs'}))
+    .pipe(rename('svgs-defs.svg'))
     .pipe(gulp.dest('svgs/build'))
-    .pipe(browserSync.stream());
 });
 // convert to png for fallback
 gulp.task('svgfallback', function() {
