@@ -171,11 +171,11 @@ var Main = (function($) {
       elementID: 'nyc-partners'
     };
 
-    var niagra = {
+    var niagara = {
       partnerLat: 43.0994841,
       partnerLng: -79.0787808,
       partnerLocations: [],
-      elementID: 'niagra-partners'
+      elementID: 'niagara-partners'
     };
 
     var nashEdgecombe = {
@@ -185,7 +185,7 @@ var Main = (function($) {
       elementID: 'nash-edgecombe-partners'
     };
 
-    partnerMaps = [chicago, nyc, niagra, nashEdgecombe];
+    partnerMaps = [chicago, nyc, niagara, nashEdgecombe];
  
 
     $.each(partnerMaps, function(i) { 
