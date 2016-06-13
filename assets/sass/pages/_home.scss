@@ -306,23 +306,40 @@
       display: block;
     }
 
-    @include media-md {
+    li {
+      margin-bottom: 10px;
+      
+      &:not(.-active) {
+        a {
+          color: $blue;
+          background: $yellow;
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+
+    @include min-screen(600px) {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
+
+      li {
+        max-width: 49%;
+        flex-basis: 49%;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+    }
+
+    @include min-screen(1086px) {
 
       li {
         max-width: 24%;
         flex-basis: 24%;
-        display: inline-block;
-        &:not(.-active) {
-          a {
-            color: $blue;
-            background: $yellow;
-            &:hover {
-              color: $pink;
-            }
-          }
-        }
+        margin-bottom: 0;
       }
     }
   }
@@ -333,7 +350,12 @@
     padding-left: 0;
     overflow: hidden;
     position: relative;
-    padding-bottom: 61.875%;
+    padding-bottom: 100%;
+
+    @include media-md {
+      padding-bottom: 61.875%;
+    }
+
     li {
       top: 0;
       left: 0;

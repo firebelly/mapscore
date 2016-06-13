@@ -37,10 +37,13 @@
         background: $pink;
       }
       &.menu-open {
-       &::before,
-       &::after {
+        span {
+          background: rgba($yellow,0);
+        }
+        &::before,
+        &::after {
          background: $yellow;
-       } 
+        } 
       }
     }
 
