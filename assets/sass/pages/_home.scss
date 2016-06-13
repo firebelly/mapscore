@@ -339,10 +339,12 @@
       left: 0;
       right: 0;
       bottom: 0;
-      display: none;
+      z-index: -1;
+      visibility: hidden;
       position: absolute;
       &.-active {
-        display: block;
+        z-index: 1;
+        visibility: visible;
       }
 
       iframe,

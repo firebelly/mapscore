@@ -1530,11 +1530,13 @@ nav ul li {
   left: 0;
   right: 0;
   bottom: 0;
-  display: none;
+  z-index: -1;
+  visibility: hidden;
   position: absolute;
 }
 .partners-section .maps-images li.-active {
-  display: block;
+  z-index: 1;
+  visibility: visible;
 }
 .partners-section .maps-images li iframe,
 .partners-section .maps-images li .map {

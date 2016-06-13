@@ -999,101 +999,100 @@ var Main = (function($) {
   }
 
   function _initMaps() {
+    var parterMaps = [];
 
-        var chicago = {
-          LatLng: '41.861379,-87.660485',
-          locations: [
-            ['Greater Auburn-Gresham Development Corporation', 'undefined', '+1 773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
-            ['Centers For New Horizons Inc', 'undefined', '+1 773-373-5700', 'undefined', 'http://cnh.org/', 41.8186204, -87.61735729999998, 'undefined'],
-            ['Claretian Associate', 'undefined', 'undefined', 'undefined', 'undefined', 41.7296735, -87.54732000000001, 'undefined'],
-            ['Hyde Park Neighborhood Club', 'undefined', 'undefined', 'undefined', 'undefined', 41.7958986, -87.59401860000003, 'undefined'],
-            ['Demoiselle 2 Femme', 'undefined', 'undefined', 'undefined', 'undefined', 41.7224835, -87.6817249, 'undefined'],
-            ['Sinai Community Institute', 'undefined', 'undefined', 'undefined', 'undefined', 41.8621073, -87.6927976, 'undefined'],
-            ['Near West Side Community Development Corporation', 'undefined', 'undefined', 'undefined', 'undefined', 41.8781545, -87.67924619999997, 'undefined'],
-            ['Enlace Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.7234694, 41.8407009, 'undefined'],
-            ['BUILD Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.75370459999999, 41.8731717, 'undefined']
-          ],
-          elementID: 'chicago-partners'
-        };
+    var chicago = {
+      partnerLat: 41.861379,
+      partnerLng: -87.660485,
+      partnerLocations: [
+        ['Greater Auburn-Gresham Development Corporation', 'undefined', '+1 773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
+        ['Centers For New Horizons Inc', 'undefined', '+1 773-373-5700', 'undefined', 'http://cnh.org/', 41.8186204, -87.61735729999998, 'undefined'],
+        ['Claretian Associate', 'undefined', 'undefined', 'undefined', 'undefined', 41.7296735, -87.54732000000001, 'undefined'],
+        ['Hyde Park Neighborhood Club', 'undefined', 'undefined', 'undefined', 'undefined', 41.7958986, -87.59401860000003, 'undefined'],
+        ['Demoiselle 2 Femme', 'undefined', 'undefined', 'undefined', 'undefined', 41.7224835, -87.6817249, 'undefined'],
+        ['Sinai Community Institute', 'undefined', 'undefined', 'undefined', 'undefined', 41.8621073, -87.6927976, 'undefined'],
+        ['Near West Side Community Development Corporation', 'undefined', 'undefined', 'undefined', 'undefined', 41.8781545, -87.67924619999997, 'undefined'],
+        ['Enlace Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.7234694, 41.8407009, 'undefined'],
+        ['BUILD Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.75370459999999, 41.8731717, 'undefined']
+      ],
+      elementID: 'chicago-partners'
+    };
 
-        var nyc = {
-          LatLng: '40.7053111,-74.258188',
-          locations: [
-            ['Greater Auburn-Gresham Development Corporation', 'undefined', '+1 773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
-            ['Centers For New Horizons Inc', 'undefined', '+1 773-373-5700', 'undefined', 'http://cnh.org/', 41.8186204, -87.61735729999998, 'undefined'],
-            ['Claretian Associate', 'undefined', 'undefined', 'undefined', 'undefined', 41.7296735, -87.54732000000001, 'undefined'],
-            ['Hyde Park Neighborhood Club', 'undefined', 'undefined', 'undefined', 'undefined', 41.7958986, -87.59401860000003, 'undefined'],
-            ['Demoiselle 2 Femme', 'undefined', 'undefined', 'undefined', 'undefined', 41.7224835, -87.6817249, 'undefined'],
-            ['Sinai Community Institute', 'undefined', 'undefined', 'undefined', 'undefined', 41.8621073, -87.6927976, 'undefined'],
-            ['Near West Side Community Development Corporation', 'undefined', 'undefined', 'undefined', 'undefined', 41.8781545, -87.67924619999997, 'undefined'],
-            ['Enlace Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.7234694, 41.8407009, 'undefined'],
-            ['BUILD Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.75370459999999, 41.8731717, 'undefined']
-          ],
-          elementID: 'nyc-partners'
-        };
-        
-        var maps = [chicago, nyc];
+    var nyc = {
+      partnerLat: 40.7053111,
+      partnerLng: -74.258188,
+      partnerLocations: [],
+      elementID: 'nyc-partners'
+    };
 
-        // $.each(maps, function(i) {
+    var niagra = {
+      partnerLat: 43.0994841,
+      partnerLng: -79.0787808,
+      partnerLocations: [],
+      elementID: 'niagra-partners'
+    };
 
-        google.maps.event.addDomListener(window, 'load', init);
-        var map;
-        function init() {
-            var mapOptions = {
-                center: new google.maps.LatLng(41.861379,-87.660485),
-                zoom: 11,
-                zoomControl: true,
-                zoomControlOptions: {
-                    style: google.maps.ZoomControlStyle.DEFAULT,
-                },
-                disableDoubleClickZoom: true,
-                mapTypeControl: false,
-                scaleControl: false,
-                scrollwheel: false,
-                panControl: true,
-                streetViewControl: false,
-                draggable : true,
-                overviewMapControl: true,
-                overviewMapControlOptions: {
-                    opened: false,
-                },
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                styles: [{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] }, {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] }, {"featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{"color": "#d8d8d8"} ] }, {"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] }, {"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 }, {"lightness": 45 } ] }, {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] }, {"featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{"color": "#ff3566"} ] }, {"featureType": "road.highway", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{"color": "#f2ff3d"} ] }, {"featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.local", "elementType": "geometry.fill", "stylers": [{"color": "#f2ff3d"} ] }, {"featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.local", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"} ] }, {"featureType": "water", "elementType": "geometry.fill", "stylers": [{"color": "#51c9ea"} ] }, {"featureType": "water", "elementType": "labels", "stylers": [{"visibility": "off"} ] }],
-            };
-            var mapElement = document.getElementById('chicago-partners');
-            var map = new google.maps.Map(mapElement, mapOptions);
-            var locations = [
-    ['Greater Auburn-Gresham Development Corporation', 'undefined', '+1 773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
-    ['Centers For New Horizons Inc', 'undefined', '+1 773-373-5700', 'undefined', 'http://cnh.org/', 41.8186204, -87.61735729999998, 'undefined'],
-    ['Claretian Associate', 'undefined', 'undefined', 'undefined', 'undefined', 41.7296735, -87.54732000000001, 'undefined'],
-    ['Hyde Park Neighborhood Club', 'undefined', 'undefined', 'undefined', 'undefined', 41.7958986, -87.59401860000003, 'undefined'],
-    ['Demoiselle 2 Femme', 'undefined', 'undefined', 'undefined', 'undefined', 41.7224835, -87.6817249, 'undefined'],
-    ['Sinai Community Institute', 'undefined', 'undefined', 'undefined', 'undefined', 41.8621073, -87.6927976, 'undefined'],
-    ['Near West Side Community Development Corporation', 'undefined', 'undefined', 'undefined', 'undefined', 41.8781545, -87.67924619999997, 'undefined'],
-    ['Enlace Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.7234694, 41.8407009, 'undefined'],
-    ['BUILD Chicago', 'undefined', 'undefined', 'undefined', 'undefined', -87.75370459999999, 41.8731717, 'undefined']
-            ];
-            for (i = 0; i < locations.length; i++) {
-                if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
-                if (locations[i][2] =='undefined'){ telephone ='';} else { telephone = locations[i][2];}
-                if (locations[i][3] =='undefined'){ email ='';} else { email = locations[i][3];}
-               if (locations[i][4] =='undefined'){ web ='';} else { web = locations[i][4];}
-               if (locations[i][7] =='undefined'){ markericon ='/assets/images/pin-sm.png';} else { markericon = locations[i][7];}
-                marker = new google.maps.Marker({
-                    icon: markericon,
-                    position: new google.maps.LatLng(locations[i][5], locations[i][6]),
-                    map: map,
-                    title: locations[i][0],
-                    desc: description,
-                    tel: telephone,
-                    email: email,
-                    web: web
-                });
-    link = '';     }
+    var nashEdgecombe = {
+      partnerLat: 35.8893318,
+      partnerLng: -77.9239492,
+      partnerLocations: [],
+      elementID: 'nash-edgecombe-partners'
+    };
+
+    partnerMaps = [chicago, nyc, niagra, nashEdgecombe];
+ 
+
+    $.each(partnerMaps, function(i) { 
+     console.log(this.partnerLat, this.partnerLng, this.elementID, this.partnerLocations);
+     google.maps.event.addDomListener(window, 'load', init(this.partnerLat, this.partnerLng, this.elementID, this.partnerLocations));
+    });
+
+    var map;
+    function init(partnerLat, partnerLng, id, partnerLocations) {
+      var mapOptions = {
+          center: new google.maps.LatLng(partnerLat, partnerLng),
+          zoom: 11,
+          zoomControl: true,
+          zoomControlOptions: {
+              style: google.maps.ZoomControlStyle.DEFAULT,
+          },
+          disableDoubleClickZoom: true,
+          mapTypeControl: false,
+          scaleControl: false,
+          scrollwheel: false,
+          panControl: true,
+          streetViewControl: false,
+          draggable : true,
+          overviewMapControl: true,
+          overviewMapControlOptions: {
+              opened: false,
+          },
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] }, {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] }, {"featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{"color": "#d8d8d8"} ] }, {"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] }, {"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 }, {"lightness": 45 } ] }, {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] }, {"featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{"color": "#ff3566"} ] }, {"featureType": "road.highway", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{"color": "#f2ff3d"} ] }, {"featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.local", "elementType": "geometry.fill", "stylers": [{"color": "#f2ff3d"} ] }, {"featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.local", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"} ] }, {"featureType": "water", "elementType": "geometry.fill", "stylers": [{"color": "#51c9ea"} ] }, {"featureType": "water", "elementType": "labels", "stylers": [{"visibility": "off"} ] }]
+      };
+      var mapElement = document.getElementById(id);
+      var map = new google.maps.Map(mapElement, mapOptions);
+      var locations = partnerLocations;
+      for (i = 0; i < locations.length; i++) {
+        if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
+        if (locations[i][2] =='undefined'){ telephone ='';} else { telephone = locations[i][2];}
+        if (locations[i][3] =='undefined'){ email ='';} else { email = locations[i][3];}
+        if (locations[i][4] =='undefined'){ web ='';} else { web = locations[i][4];}
+        if (locations[i][7] =='undefined'){ markericon ='/assets/images/pin-sm.png';} else { markericon = locations[i][7];}
+        marker = new google.maps.Marker({
+            icon: markericon,
+            position: new google.maps.LatLng(locations[i][5], locations[i][6]),
+            map: map,
+            title: locations[i][0],
+            desc: description,
+            tel: telephone,
+            email: email,
+            web: web
+        });
+        link = '';    
+      }
 
     }
-
-    // });
 
   }
 
