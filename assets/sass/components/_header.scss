@@ -175,7 +175,7 @@
     }
   }
 
-  @include media-md {
+  @include min-screen($breakpoint-nav) {
     top: auto;
     right: auto;
     width: auto;

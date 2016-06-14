@@ -910,7 +910,7 @@ nav ul li {
   position: absolute;
   background: #f2ff3d;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 900px) {
   .site-nav {
     top: auto;
     right: auto;

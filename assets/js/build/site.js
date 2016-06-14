@@ -928,9 +928,32 @@ var Main = (function($) {
 
   function _initMobileNav() {
     $('.menu-toggle').on('click', function() {
-      $(this).toggleClass('menu-open');
-      $nav.toggleClass('-active');
+
+      if ($nav.is('.-active')) {
+        _hideNav();
+      } else {
+        _showNav();
+      }
+
+      // $document.on('click', function(e) {
+      //   if (!$(e.target).hasClass('.menu-toggle') && $('.site-nav').is('.-active')) {
+      //     _hideNav();
+      //   }
+      // });
+
     });
+  }
+
+  function _showNav() {
+    $('.menu-toggle').addClass('menu-open');
+    $('body').addClass('nav-active');
+    $nav.addClass('-active');
+  }
+
+  function _hideNav() {
+    $('.menu-toggle').removeClass('menu-open');
+    $nav.removeClass('-active');
+    $('body').removeClass('nav-active');
   }
 
   function _stickyNav() {
