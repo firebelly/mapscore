@@ -8,3 +8,75 @@
     transform: translateY(0);
   }
 }
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeInOutHistory {
+  0% {
+    opacity: .08;
+  }
+  25% {
+    opacity: .08;
+  }
+  40% {
+    opacity: .20;
+  }
+  60% {
+    opacity: .20;
+  }
+  75% {
+    opacity: .08;
+  }
+  100% {
+    opacity: .08;
+  }
+}
+
+@keyframes fadeInOutStatement {
+  0% {
+    opacity: .23;
+  }
+  25% {
+    opacity: .23;
+  }
+  40% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .23;
+  }
+  100% {
+    opacity: .23;
+  }
+}
+
+@keyframes fadeInOutImpact {
+  0% {
+    opacity: .20;
+  }
+  25% {
+    opacity: .20;
+  }
+  40% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .20;
+  }
+  100% {
+    opacity: .20;
+  }
+}

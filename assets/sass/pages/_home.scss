@@ -308,7 +308,7 @@
 
     li {
       margin-bottom: 10px;
-      
+
       &:not(.-active) {
         a {
           color: $blue;
@@ -508,4 +508,92 @@
       }
     }
   }
+}
+
+// History svg pattern
+#historyPatternAnimated .icon,
+#cloud-2,
+#cloud-2_1_ {
+  opacity: .08;
+}
+
+#sun,
+#tower_1_,
+#cloud {
+  animation: fadeInOutHistory 6s 0s linear forwards infinite;
+}
+
+#flowers,
+#store_1_,
+#sun_1_ {
+  animation: fadeInOutHistory 6s 4s linear forwards infinite;
+}
+
+#apple,
+#sun_2_,
+#pin_1_ {
+  animation: fadeInOutHistory 6s 8s linear forwards infinite;
+}
+
+#lake_1_,
+#graph,
+#plants {
+  animation: fadeInOutHistory 6s 12s linear forwards infinite;
+}
+
+// Statement svg pattern
+#statementPatternAnimated .icon {
+  opacity: .23;
+}
+
+#pond,
+#house_1_,
+#cloud-3_2_ {
+  animation: fadeInOutStatement 6s 0s linear forwards infinite;
+}
+
+#pin-2_1_,
+#pond_2_,
+#weight_1_ {
+  animation: fadeInOutStatement 6s 4s linear forwards infinite;
+}
+
+#sun-2_2_,
+#health,
+#trees_1_ {
+  animation: fadeInOutStatement 6s 8s linear forwards infinite;
+}
+
+#graph-2_2_,
+#bridge_1_,
+#train {
+  animation: fadeInOutStatement 6s 12s linear forwards infinite;
+}
+
+#impactPatternAnimated .icon {
+  opacity: .2;
+}
+
+#waves,
+#health-2_1_,
+#trees-2 {
+  animation: fadeInOutImpact 6s 0s linear forwards infinite;
+}
+
+#graph-3_1_,
+#barn-2_2_,
+#weight {
+  animation: fadeInOutImpact 6s 4s linear forwards infinite;
+}
+
+#forest_1_,
+#crops_2_,
+#cup {
+  animation: fadeInOutImpact 6s 8s linear forwards infinite;
+}
+
+#pin-3,
+#tractor_1_,
+#sunflower_2_ {
+  animation: fadeInOutImpact 6s 12s linear forwards infinite;
 }

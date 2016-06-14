@@ -475,6 +475,146 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
             transform: translateY(0);
   }
 }
+@-webkit-keyframes moveRight {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@keyframes moveRight {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@-webkit-keyframes fadeInOutHistory {
+  0% {
+    opacity: .08;
+  }
+  25% {
+    opacity: .08;
+  }
+  40% {
+    opacity: .20;
+  }
+  60% {
+    opacity: .20;
+  }
+  75% {
+    opacity: .08;
+  }
+  100% {
+    opacity: .08;
+  }
+}
+@keyframes fadeInOutHistory {
+  0% {
+    opacity: .08;
+  }
+  25% {
+    opacity: .08;
+  }
+  40% {
+    opacity: .20;
+  }
+  60% {
+    opacity: .20;
+  }
+  75% {
+    opacity: .08;
+  }
+  100% {
+    opacity: .08;
+  }
+}
+@-webkit-keyframes fadeInOutStatement {
+  0% {
+    opacity: .23;
+  }
+  25% {
+    opacity: .23;
+  }
+  40% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .23;
+  }
+  100% {
+    opacity: .23;
+  }
+}
+@keyframes fadeInOutStatement {
+  0% {
+    opacity: .23;
+  }
+  25% {
+    opacity: .23;
+  }
+  40% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .23;
+  }
+  100% {
+    opacity: .23;
+  }
+}
+@-webkit-keyframes fadeInOutImpact {
+  0% {
+    opacity: .20;
+  }
+  25% {
+    opacity: .20;
+  }
+  40% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .20;
+  }
+  100% {
+    opacity: .20;
+  }
+}
+@keyframes fadeInOutImpact {
+  0% {
+    opacity: .20;
+  }
+  25% {
+    opacity: .20;
+  }
+  40% {
+    opacity: .5;
+  }
+  60% {
+    opacity: .5;
+  }
+  75% {
+    opacity: .20;
+  }
+  100% {
+    opacity: .20;
+  }
+}
 .btn, .partners-section .maps-list a {
   color: #1e1c56;
   line-height: 1;
@@ -961,6 +1101,11 @@ nav ul li {
   .gm-style-iw h4 {
     font-size: 20px;
     line-height: 1.25;
+  }
+}
+@media screen and (min-width: 700px) {
+  .gm-style-iw h4 {
+    font-size: 15px;
   }
 }
 .gm-style-iw p {
@@ -1730,4 +1875,102 @@ nav ul li {
     -ms-flex-preferred-size: 33.3333%;
         flex-basis: 33.3333%;
   }
+}
+
+#historyPatternAnimated .icon,
+#cloud-2,
+#cloud-2_1_ {
+  opacity: .08;
+}
+
+#sun,
+#tower_1_,
+#cloud {
+  -webkit-animation: fadeInOutHistory 6s 0s linear forwards infinite;
+          animation: fadeInOutHistory 6s 0s linear forwards infinite;
+}
+
+#flowers,
+#store_1_,
+#sun_1_ {
+  -webkit-animation: fadeInOutHistory 6s 4s linear forwards infinite;
+          animation: fadeInOutHistory 6s 4s linear forwards infinite;
+}
+
+#apple,
+#sun_2_,
+#pin_1_ {
+  -webkit-animation: fadeInOutHistory 6s 8s linear forwards infinite;
+          animation: fadeInOutHistory 6s 8s linear forwards infinite;
+}
+
+#lake_1_,
+#graph,
+#plants {
+  -webkit-animation: fadeInOutHistory 6s 12s linear forwards infinite;
+          animation: fadeInOutHistory 6s 12s linear forwards infinite;
+}
+
+#statementPatternAnimated .icon {
+  opacity: .23;
+}
+
+#pond,
+#house_1_,
+#cloud-3_2_ {
+  -webkit-animation: fadeInOutStatement 6s 0s linear forwards infinite;
+          animation: fadeInOutStatement 6s 0s linear forwards infinite;
+}
+
+#pin-2_1_,
+#pond_2_,
+#weight_1_ {
+  -webkit-animation: fadeInOutStatement 6s 4s linear forwards infinite;
+          animation: fadeInOutStatement 6s 4s linear forwards infinite;
+}
+
+#sun-2_2_,
+#health,
+#trees_1_ {
+  -webkit-animation: fadeInOutStatement 6s 8s linear forwards infinite;
+          animation: fadeInOutStatement 6s 8s linear forwards infinite;
+}
+
+#graph-2_2_,
+#bridge_1_,
+#train {
+  -webkit-animation: fadeInOutStatement 6s 12s linear forwards infinite;
+          animation: fadeInOutStatement 6s 12s linear forwards infinite;
+}
+
+#impactPatternAnimated .icon {
+  opacity: .2;
+}
+
+#waves,
+#health-2_1_,
+#trees-2 {
+  -webkit-animation: fadeInOutImpact 6s 0s linear forwards infinite;
+          animation: fadeInOutImpact 6s 0s linear forwards infinite;
+}
+
+#graph-3_1_,
+#barn-2_2_,
+#weight {
+  -webkit-animation: fadeInOutImpact 6s 4s linear forwards infinite;
+          animation: fadeInOutImpact 6s 4s linear forwards infinite;
+}
+
+#forest_1_,
+#crops_2_,
+#cup {
+  -webkit-animation: fadeInOutImpact 6s 8s linear forwards infinite;
+          animation: fadeInOutImpact 6s 8s linear forwards infinite;
+}
+
+#pin-3,
+#tractor_1_,
+#sunflower_2_ {
+  -webkit-animation: fadeInOutImpact 6s 12s linear forwards infinite;
+          animation: fadeInOutImpact 6s 12s linear forwards infinite;
 }
