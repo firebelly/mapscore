@@ -36,7 +36,9 @@ var Main = (function($) {
     // Esc handlers
     $(document).keyup(function(e) {
       if (e.keyCode === 27) {
-
+        if($('body').is('.nav-active')) {
+          _hideNav();
+        }
       }
     });
 
