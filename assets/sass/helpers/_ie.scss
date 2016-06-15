@@ -1,0 +1,53 @@
+// IE fixes
+
+.lt-ie9 {
+
+  .site-header,
+  .site-footer {
+    .logo {
+      a {
+        width: 133px;
+        height: 29px;
+        display: block;
+        background: url('../images/logo-light.png');
+        background-size: 100%;
+      }
+    }
+  }
+
+  .site-header.-sticky {
+    background: $white;
+    .logo {
+      a {
+        background: url('../images/logo-dark.png');
+      }
+    }
+  }
+
+  .site-footer {
+    .logo {
+      a {
+        background: url('../images/logo-footer.png');
+      }
+    }
+  }
+}
+
+.lt-ie10 {
+  .grid {
+    @include clearfix;
+
+    @include media-md {
+      .grid-item {
+        float: left;
+
+        &.one-half {
+          width: 50%;
+        }
+        &.one-third {
+          width: 33.333%;
+        }
+      }
+    }
+  }
+}

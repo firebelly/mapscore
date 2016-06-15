@@ -615,6 +615,43 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
     opacity: .20;
   }
 }
+.lt-ie9 .site-header .logo a,
+.lt-ie9 .site-footer .logo a {
+  width: 133px;
+  height: 29px;
+  display: block;
+  background: url("../images/logo-light.png");
+  background-size: 100%;
+}
+.lt-ie9 .site-header.-sticky {
+  background: #fff;
+}
+.lt-ie9 .site-header.-sticky .logo a {
+  background: url("../images/logo-dark.png");
+}
+.lt-ie9 .site-footer .logo a {
+  background: url("../images/logo-footer.png");
+}
+
+.lt-ie10 .grid:before, .lt-ie10 .grid:after {
+  content: "";
+  display: table;
+}
+.lt-ie10 .grid:after {
+  clear: both;
+}
+@media screen and (min-width: 700px) {
+  .lt-ie10 .grid .grid-item {
+    float: left;
+  }
+  .lt-ie10 .grid .grid-item.one-half {
+    width: 50%;
+  }
+  .lt-ie10 .grid .grid-item.one-third {
+    width: 33.333%;
+  }
+}
+
 .btn, .partners-section .maps-list a {
   color: #1e1c56;
   line-height: 1;
