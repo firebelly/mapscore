@@ -52,14 +52,15 @@
 
   .-top {
     color: $yellow;
-    padding: 30px 0;
     background: $purple;
+    padding: 30px 0 15px;
 
     ul {
       margin: 0;
       padding: 0;
       li {
         list-style: none;
+        margin-bottom: 15px;
       }
     }
   }
