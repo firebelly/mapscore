@@ -72,8 +72,6 @@ var Main = (function($) {
       delay: delay,
       offset: -setOffset
     }, "easeOutSine");
-
-    console.log(setOffset);
   }
 
   function _initMobileNav() {
@@ -85,11 +83,11 @@ var Main = (function($) {
         _showNav();
       }
 
-      // $document.on('click', function(e) {
-      //   if (!$(e.target).hasClass('.menu-toggle') && $('.site-nav').is('.-active')) {
-      //     _hideNav();
-      //   }
-      // });
+      $document.on('click', function(e) {
+        if (!$(e.target).is('.menu-toggle') && !$(e.target).is('.site-nav') && $('.site-nav').is('.-active')) {
+          _hideNav();
+        }
+      });
 
     });
   }
