@@ -303,6 +303,9 @@ var Main = (function($) {
         }); 
       }
 
+      google.maps.event.addDomListener(window, 'resize', function() {
+          map.setCenter(new google.maps.LatLng(partnerLat, partnerLng));
+      });
 
     }
 
