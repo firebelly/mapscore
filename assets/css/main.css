@@ -1430,7 +1430,7 @@ nav ul li {
   }
 }
 .mission-section .buildings-display {
-  padding: 50px 0;
+  padding: 50px 20px;
   background: #f2ff3d;
 }
 .mission-section .buildings-display svg {
@@ -1438,7 +1438,7 @@ nav ul li {
 }
 @media screen and (min-width: 700px) {
   .mission-section .buildings-display {
-    padding: 100px 0;
+    padding: 100px 20px;
   }
 }
 
