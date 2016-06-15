@@ -982,7 +982,7 @@ var Main = (function($) {
     var lastId,
         headerHeight = $header.outerHeight(),
         // All list items
-        menuItems = $header.find(".site-nav ul a"),
+        menuItems = $header.find(".site-nav ul a:not(.no-scrollspy)"),
         // Anchors corresponding to menu items
         scrollItems = menuItems.map(function(){
           var item = $($(this).attr("href"));
