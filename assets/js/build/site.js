@@ -1066,7 +1066,7 @@ var Main = (function($) {
       partnerLat: 43.1132875,
       partnerLng: -79.0355104,
       partnerLocations: [
-        ['Creat a Healthier Niagara Falls Collaborative', '1385 Broadway, 23rd Floor, New York, NY 10018', '212-664-7656', 'undefined', 'http://nyshealthfoundation.org/our-grantees/grantee-profile/create-a-healthier-niagara-falls-collaborative', 40.7528622, -73.987863], 'undefined',
+        ['Creat a Healthier Niagara Falls Collaborative', '1385 Broadway, 23rd Floor, New York, NY 10018', '212-664-7656', 'undefined', 'http://nyshealthfoundation.org/our-grantees/grantee-profile/create-a-healthier-niagara-falls-collaborative', 40.7528622, -73.987863, 'undefined'],
         ['Planned Parenthood of Central and Western New York', '2697 Main Street, Buffalo 14214', '716-831-2200', 'undefined', 'https://www.plannedparenthood.org/planned-parenthood-central-western-new-york', 42.940527, -78.83722399999999, 'undefined'],
         ['Niagara Employment &amp; Training', '1001 Eleventh Street, Niagara Falls, NY 14301', '716.278.8108', 'undefined', 'http://worksource1.com/', 43.09876599999999, -79.04935499999999, 'undefined'],
         ['Community Health Center of Niagara Falls', '2715 Highland Avenue, Niagara Falls, New York 14305', '716-278-4418', 'undefined', 'http://www.chcb.net/outreach/read.php?id=19', 43.11303599999999, -79.048565, 'undefined'],
