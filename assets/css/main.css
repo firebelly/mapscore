@@ -765,7 +765,7 @@ nav ul li {
   z-index: 100;
   position: fixed;
   padding-top: 4px;
-  padding-bottom: 0;
+  padding-bottom: 5px;
   background: rgba(255, 255, 255, 0.9);
   -webkit-animation: slideDown .5s forwards;
           animation: slideDown .5s forwards;
@@ -795,6 +795,7 @@ nav ul li {
   .site-header.-sticky {
     color: #1e1c56;
     padding-top: 10px;
+    padding-bottom: 0;
   }
   .site-header.-sticky .site-nav {
     padding-top: 14px;
