@@ -73,10 +73,9 @@
   }
 
   @include media-md {
-    padding: 0;
-    height: 80vh;
     display: flex;
-    min-height: 600px;
+    padding: 115px 0;
+    min-height: 80vh;
     
     .wrap {
       margin: auto;

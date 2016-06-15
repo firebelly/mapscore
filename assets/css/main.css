@@ -1401,12 +1401,11 @@ nav ul li {
 }
 @media screen and (min-width: 700px) {
   .vision-section {
-    padding: 0;
-    height: 80vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    min-height: 600px;
+    padding: 115px 0;
+    min-height: 80vh;
   }
   .vision-section .wrap {
     margin: auto;
