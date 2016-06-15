@@ -1040,7 +1040,10 @@ var Main = (function($) {
         ['Sinai Community Institute', '2653 West Ogden Avenue, Chicago, Illinois 60608', '773-257-6508', 'undefined', 'http://www.sinai.org/content/sinai-community-institute-0', 41.8621073, -87.6927976, 'undefined'],
         ['Near West Side Community Development Corporation', '216 South Hoyne Avenue, Chicago, IL 60612', '312-738-2280', 'undefined', 'http://nearwestsidecdc.org/', 41.8781545, -87.67924619999997, 'undefined'],
         ['Enlace Chicago', '2756 S. Harding Avenue, Chicago, IL 60623', '773-542-9233', 'info@enlacechicago.org', 'http://www.enlacechicago.org/', 41.8407009, -87.7234694, 'undefined'],
-        ['BUILD Chicago', '5100 W. Harrison, Chicago IL 60644', '773-227-2880', 'undefined', 'http://www.buildchicago.org/', 41.8731717, -87.75370459999999, 'undefined']
+        ['BUILD Chicago', '5100 W. Harrison, Chicago IL 60644', '773-227-2880', 'undefined', 'http://www.buildchicago.org/', 41.8731717, -87.75370459999999, 'undefined'],
+        ['After School Matters', '66 East Randolph Street, Chicago, IL 60601', '312-742-4182', 'undefined', 'http://www.afterschoolmatters.org/', 41.8848207, -87.6276737, 'undefined'],
+        ['University of Chicago Metcalf Internship Program', '1212 E. 59th Street, Chicago, IL 60637', '773-702-7040', 'undefined', 'https://careeradvancement.uchicago.edu/jobs-internships-research/metcalf-internship', 41.7882112, -87.5977685, 'undefined'],
+        ['City Colleges of Chicago', '226 W. Jackson, Chicago, IL 60606', '312-553-2500', 'undefined', 'http://www.ccc.edu/', 41.8784226, -87.6370685, 'undefined']
       ],
       elementID: 'chicago-partners',
       partnerZoom: 11
