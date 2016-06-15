@@ -46,8 +46,10 @@ var Main = (function($) {
       var href = $(this).attr('href');
       if ($(this).attr('data-offset') !== '') {
         var offset = $(this).data('offset');
+        _scrollBody($(href), 250, 0, offset);
+      } else {
+        _scrollBody($(href), 250, 0);
       }
-      _scrollBody($(href), 250, 0, offset);
     });
 
     // Scroll down to hash afer page load
@@ -70,6 +72,8 @@ var Main = (function($) {
       delay: delay,
       offset: -setOffset
     }, "easeOutSine");
+
+    console.log(setOffset);
   }
 
   function _initMobileNav() {
@@ -138,7 +142,7 @@ var Main = (function($) {
        
        // Get id of current scroll item
        var cur = scrollItems.map(function(){
-         if ($(this).offset().top < fromTop)
+         if ($(this).offset().top < fromTop + $header.outerHeight())
            return this;
        });
        // Get the id of the current element
