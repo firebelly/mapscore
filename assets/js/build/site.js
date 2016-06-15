@@ -1028,15 +1028,15 @@ var Main = (function($) {
       partnerLat: 41.7837192,
       partnerLng: -87.6325996,
       partnerLocations: [
-        ['Greater Auburn-Gresham Development Corporation', '1159 West 79th Street Chicago, IL', '773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001],
-        ['Centers For New Horizons Inc', 'undefined', '773-373-5700', 'undefined', 'http://cnh.org', 41.8186204, -87.61735729999998],
-        ['Claretian Associate', '9108 South Brandon Avenue, Chicago, IL', '773-734-9181', 'portera@claretianassociates.org', 'https://www.claretianassociates.org', 41.7296735, -87.54732000000001],
-        ['Hyde Park Neighborhood Club', '5480 S. KENWOOD AVENUE, CHICAGO, IL 60615', '773-643-4062', 'info@hpnclub.org', 'http://hpnclub.org', 41.7958986, -87.59401860000003],
-        ['Demoiselle 2 Femme', 'undefined', '773-660-1677', 'undefined', 'http://demoiselle2femme.org', 41.7224835, -87.6817249],
-        ['Sinai Community Institute', '2653 West Ogden Avenue, Chicago, Illinois 60608', '773-257-6508', 'undefined', 'http://www.sinai.org/content/sinai-community-institute-0', 41.8621073, -87.6927976],
-        ['Near West Side Community Development Corporation', '216 South Hoyne Avenue, Chicago, IL 60612', '312-738-2280', 'undefined', 'http://nearwestsidecdc.org/', 41.8781545, -87.67924619999997],
-        ['Enlace Chicago', '773-542-9233', 'info@enlacechicago.org', 'http://www.enlacechicago.org/', -87.7234694, 41.8407009],
-        ['BUILD Chicago', '5100 W. Harrison, Chicago IL 60644', '773-227-2880', 'undefined', 'http://www.buildchicago.org/', -87.75370459999999, 41.8731717]
+        ['Greater Auburn-Gresham Development Corporation', '1159 West 79th Street Chicago, IL', '773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
+        ['Centers For New Horizons Inc', 'undefined', '773-373-5700', 'undefined', 'http://cnh.org', 41.8186204, -87.61735729999998, 'undefined'],
+        ['Claretian Associate', '9108 South Brandon Avenue, Chicago, IL', '773-734-9181', 'portera@claretianassociates.org', 'https://www.claretianassociates.org', 41.7296735, -87.54732000000001, 'undefined'],
+        ['Hyde Park Neighborhood Club', '5480 S. KENWOOD AVENUE, CHICAGO, IL 60615', '773-643-4062', 'info@hpnclub.org', 'http://hpnclub.org', 41.7958986, -87.59401860000003, 'undefined'],
+        ['Demoiselle 2 Femme', 'undefined', '773-660-1677', 'undefined', 'http://demoiselle2femme.org', 41.7224835, -87.6817249, 'undefined'],
+        ['Sinai Community Institute', '2653 West Ogden Avenue, Chicago, Illinois 60608', '773-257-6508', 'undefined', 'http://www.sinai.org/content/sinai-community-institute-0', 41.8621073, -87.6927976, 'undefined'],
+        ['Near West Side Community Development Corporation', '216 South Hoyne Avenue, Chicago, IL 60612', '312-738-2280', 'undefined', 'http://nearwestsidecdc.org/', 41.8781545, -87.67924619999997, 'undefined'],
+        ['Enlace Chicago', '2756 S. Harding Avenue, Chicago, IL 60623', '773-542-9233', 'info@enlacechicago.org', 'http://www.enlacechicago.org/', 41.8407009, -87.7234694, 'undefined'],
+        ['BUILD Chicago', '5100 W. Harrison, Chicago IL 60644', '773-227-2880', 'undefined', 'http://www.buildchicago.org/', 41.8731717, -87.75370459999999, 'undefined']
       ],
       elementID: 'chicago-partners',
       partnerZoom: 11
@@ -1072,15 +1072,15 @@ var Main = (function($) {
     };
 
     var nashEdgecombe = {
-      partnerLat: 35.8893318,
-      partnerLng: -77.9239492,
+      partnerLat: 38.0001018,
+      partnerLng: -77.7146688,
       partnerLocations: [
         ['Resourceful Communities', '1655 N. Fort Myer Drive, Suite 1300, Arlington, Virginia 22209', '703-525-6300', 'webmaster@conservationfund.org', 'http://www.conservationfund.org/what-we-do/resourceful-communities', 38.8938808, -77.0715055],
         ['UNC Center for Health Equity Research', '323 MacNider Hall, Campus Box 7240, 333 South Columbia Street, Chapel Hill, NC 27599-7240', '919.843.8271', 'cher@unc.edu', 'http://cher.unc.edu/', 35.9049122, -79.0469134],
         ['Project Momentum', 'undefined', 'undefined', 'undefined', 35.9419921, -77.79512299999999]
       ],
       elementID: 'nash-edgecombe-partners',
-      partnerZoom: 9
+      partnerZoom: 6
     };
 
     partnerMaps = [chicago, nyc, niagara, nashEdgecombe];
