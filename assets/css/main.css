@@ -822,7 +822,7 @@ nav ul li {
 .site-header .icon-logo .logo-pin {
   fill: #f2ff3d;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 900px) {
   .site-header {
     padding-top: 30px;
   }
