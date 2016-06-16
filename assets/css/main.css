@@ -1905,6 +1905,13 @@ nav ul li {
     max-width: 50%;
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
+    margin-bottom: 50px;
+  }
+  .impact-section .-bottom .one-third.-center {
+    padding-right: 0;
+  }
+  .impact-section .-bottom .one-third.-right {
+    padding-left: 0;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -1912,6 +1919,12 @@ nav ul li {
     max-width: 33.3333%;
     -ms-flex-preferred-size: 33.3333%;
         flex-basis: 33.3333%;
+  }
+  .impact-section .-bottom .one-third.-center {
+    padding-right: 10px;
+  }
+  .impact-section .-bottom .one-third.-right {
+    padding-left: 10px;
   }
 }
 

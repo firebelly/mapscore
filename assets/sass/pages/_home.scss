@@ -497,6 +497,14 @@
       .one-third {      
         max-width: 50%;
         flex-basis: 50%;
+        margin-bottom: 50px;
+
+        &.-center {
+          padding-right: 0;
+        }
+        &.-right {
+          padding-left: 0;
+        }
       }
     }
 
@@ -504,6 +512,12 @@
       .one-third {
         max-width: 33.3333%;
         flex-basis: 33.3333%;
+        &.-center {
+          padding-right: 10px;
+        }
+        &.-right {
+          padding-left: 10px;
+        }
       }
     }
   }
