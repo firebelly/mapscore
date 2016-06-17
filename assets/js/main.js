@@ -31,7 +31,6 @@ var Main = (function($) {
     _initScrollspy();
     _stickyNav();
     _initPartnersTabs();
-    _initMaps();
 
     // Esc handlers
     $(document).keyup(function(e) {
@@ -388,6 +387,7 @@ var Main = (function($) {
   return {
     init: _init,
     resize: _resize,
+    initMaps: _initMaps,
     scrollBody: function(section, duration, delay, offset) {
       _scrollBody(section, duration, delay, offset);
     }
