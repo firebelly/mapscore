@@ -224,15 +224,13 @@ var Main = (function($) {
     };
 
     var nashEdgecombe = {
-      partnerLat: 38.0001018,
-      partnerLng: -77.7146688,
+      partnerLat: 35.9424136,
+      partnerLng: -77.7970862,
       partnerLocations: [
-        ['Resourceful Communities', '1655 N. Fort Myer Drive, Suite 1300, Arlington, Virginia 22209', '703-525-6300', 'webmaster@conservationfund.org', 'http://www.conservationfund.org/what-we-do/resourceful-communities', 38.8938808, -77.0715055, 'undefined'],
-        ['UNC Center for Health Equity Research', '323 MacNider Hall, Campus Box 7240, 333 South Columbia Street, Chapel Hill, NC 27599-7240', '919.843.8271', 'cher@unc.edu', 'http://cher.unc.edu/', 35.9049122, -79.0469134, 'undefined'],
-        ['Project Momentum', 'undefined', 'undefined', 'undefined', 35.9419921, -77.79512299999999, 'undefined']
+        ['Project Momentum', '107 SE Main Street, Rocky Mount, NC 27801', 'undefined', 'undefined', 'undefined', 35.9424136, -77.7970862, 'undefined']
       ],
       elementID: 'nash-edgecombe-partners',
-      partnerZoom: 6
+      partnerZoom: 11
     };
 
     partnerMaps = [chicago, nyc, niagara, nashEdgecombe];
