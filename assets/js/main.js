@@ -211,13 +211,7 @@ var Main = (function($) {
       partnerLat: 43.1132875,
       partnerLng: -79.0355104,
       partnerLocations: [
-        ['Creat a Healthier Niagara Falls Collaborative', '1385 Broadway, 23rd Floor, New York, NY 10018', '212-664-7656', 'undefined', 'http://nyshealthfoundation.org/our-grantees/grantee-profile/create-a-healthier-niagara-falls-collaborative', 40.7528622, -73.987863, 'undefined'],
-        ['Planned Parenthood of Central and Western New York', '2697 Main Street, Buffalo 14214', '716-831-2200', 'undefined', 'https://www.plannedparenthood.org/planned-parenthood-central-western-new-york', 42.940527, -78.83722399999999, 'undefined'],
-        ['Niagara Employment &amp; Training', '1001 Eleventh Street, Niagara Falls, NY 14301', '716.278.8108', 'undefined', 'http://worksource1.com/', 43.09876599999999, -79.04935499999999, 'undefined'],
-        ['Community Health Center of Niagara Falls', '2715 Highland Avenue, Niagara Falls, New York 14305', '716-278-4418', 'undefined', 'http://www.chcb.net/outreach/read.php?id=19', 43.11303599999999, -79.048565, 'undefined'],
-        ['Mount Saint Marys Hospital', '3101 Ninth Street, Niagara Falls, NY 14305', '716-284-8917', 'undefined', 'http://www.chsbuffalo.org/Facilities/PrimaryCare/MountStMarysNeighborhoodHealthCenter', 43.1158483, -79.0525589, 'undefined'],
-        ['Niagara Falls Memorial Medical Center', '621 Tenth Street, Niagara Falls, NY 14302', '716-278-4000', 'undefined', 'http://nfmmc.org/', 43.09383820000001, -79.05033229999998, 'undefined'],
-        ['Niagara University', 'Niagara University, NY 14109', '800-462-2111', 'undefined', 'http://www.niagara.edu/', 43.1383605, -79.03766719999999, 'undefined']
+        ['Planned Parenthood of Central and Western New York', '1700 Main Street, Niagara Falls, NY 14305', '716-831-2200', 'undefined', 'https://www.plannedparenthood.org/planned-parenthood-central-western-new-york', 43.104703, -79.0554837, 'undefined']
       ],
       elementID: 'niagara-partners',
       partnerZoom: 12
