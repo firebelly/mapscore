@@ -209,10 +209,9 @@
   }
 
   .map-wrapper {
-    height: 100%;
-    display: flex;
+    height: 0;
     position: relative;
-    padding: 50px 25px;
+    padding-bottom: 56.25%;
     background-size: cover;
     &::before {
       top: 0;
@@ -224,10 +223,16 @@
       position: absolute;
       background: rgba($white,.5);
     }
+  }
 
-    @include media-md {
-      padding: 100px 50px;
-    }
+  .map-inner {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    padding: 0 50px;
+    position: absolute;
   }
 
   .map-content {
@@ -237,6 +242,10 @@
     position: relative;
     h3 {
       @include h1;
+      margin: 0 0 .5em;
+    }
+    p {
+      margin: 0;
     }
   }
 
@@ -247,10 +256,10 @@
     background-image: url('../images/map-nyc.jpg');
   }
   .niagara .map-wrapper {
-    background-image: url('../images/map-chicago.jpg');
+    background-image: url('../images/map-niagara.jpg');
   }
   .nash-edgecombe .map-wrapper {
-    background-image: url('../images/map-nyc.jpg');
+    background-image: url('../images/map-nash-edgecombe.jpg');
   }
 }
 
