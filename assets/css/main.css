@@ -1259,9 +1259,11 @@ nav ul li {
   margin: 0;
 }
 .map-search-menu-page .search-menu {
+  float: left;
   width: 280px;
   line-height: 20px;
   margin-top: 10px;
+  margin-right: 20px;
 }
 .map-search-menu-page .search-menu ul, .map-search-menu-page .search-menu ol {
   list-style: none;
@@ -1392,40 +1394,71 @@ nav ul li {
 .map-search-menu-page .search-menu .services .service.selected:before {
   content: '-';
 }
-.map-search-menu-page .icon-category.-default {
-  width: 28px;
-  height: 32px;
-  fill: #52c9eb;
+.map-search-menu-page .icon-category {
+  width: 32px;
+  height: 30px;
+}
+.map-search-menu-page .icon-category.-arts-and-entertainment {
+  fill: #49ce4f;
 }
 .map-search-menu-page .icon-category.-education {
-  width: 28px;
-  height: 27px;
-  fill: #65bc46;
+  fill: #000084;
 }
 .map-search-menu-page .icon-category.-financial {
-  width: 28px;
-  height: 21px;
-  fill: #1f1c57;
+  fill: #cfdb28;
 }
-.map-search-menu-page .icon-category.-food {
-  width: 22px;
-  height: 32px;
-  fill: #f56e19;
+.map-search-menu-page .icon-category.-foods {
+  fill: #e22225;
 }
 .map-search-menu-page .icon-category.-gyms {
-  width: 28px;
-  height: 15px;
-  fill: #ff3666;
+  fill: #0000ff;
 }
 .map-search-menu-page .icon-category.-health {
-  width: 30px;
-  height: 31px;
-  fill: #ff371e;
+  fill: #871649;
+}
+.map-search-menu-page .icon-category.-housing {
+  fill: #007344;
+}
+.map-search-menu-page .icon-category.-manufacturing {
+  fill: #201d58;
+}
+.map-search-menu-page .icon-category.-moving {
+  fill: #ff8800;
+}
+.map-search-menu-page .icon-category.-other {
+  fill: #495599;
+}
+.map-search-menu-page .icon-category.-personal-services {
+  fill: #00432f;
+}
+.map-search-menu-page .icon-category.-professional-and-home {
+  fill: #51c8eb;
+}
+.map-search-menu-page .icon-category.-public-and-gov {
+  fill: #009173;
+}
+.map-search-menu-page .icon-category.-shopping {
+  fill: #ff3666;
+}
+.map-search-menu-page .icon-category.-social-services {
+  fill: #0086ff;
+}
+.map-search-menu-page .icon-category.-transport {
+  fill: #007187;
+}
+.map-search-menu-page .icon-category.-worship {
+  fill: #ffc033;
 }
 .map-search-menu-page .icon-triangle {
   width: 10px;
   height: 5px;
   fill: #1f1c57;
+}
+
+#map {
+  float: right;
+  width: 580px;
+  margin-top: 20px;
 }
 
 .page-section h2 {

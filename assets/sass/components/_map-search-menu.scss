@@ -1,12 +1,34 @@
-//Base Fonts + Colors
+// Fonts
 @import url(https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
-$dark-blue: #1f1c57; //rgb(31,28,87);
-$yellow: #f2ff3d; //rgb(242,255,61);
-$pink: #ff3666; //rgb(255,54,102);
-$light-gray: #f4f4f7; //rgb(244,244,247);
-$blue-gray: #bcbbcd; //rgb(188,187,205); 
-$white: #fff; //rgb(255,255,255);
 
+// Document Colors
+$dark-blue: #1f1c57;
+$yellow: #f2ff3d;
+$pink: #ff3666;
+$light-gray: #f4f4f7;
+$blue-gray: #bcbbcd;
+$white: #fff;
+
+// Category Colors
+$category-arts-and-entertainment: #49ce4f;
+$category-education: #000084;
+$category-financial: #cfdb28;
+$category-foods: #e22225;
+$category-gyms: #0000ff;
+$category-health: #871649;
+$category-manufacturing: #201d58;
+$category-moving: #ff8800;
+$category-other: #495599;
+$category-personal-services: #00432f; 
+$category-professional-and-home: #51c8eb;
+$category-public-and-gov: #009173;
+$category-shopping: #ff3666;
+$category-social-services: #0086ff;
+$category-transport: #007187;
+$category-worship: #ffc033;
+$category-housing: #007344;
+
+// Mixins
 @mixin body-font {
   font-family: 'Karla', sans-serif;
   color: $dark-blue;
@@ -17,9 +39,11 @@ $white: #fff; //rgb(255,255,255);
     cursor: pointer
   }
 } 
+
+// Page Stylings
 .map-search-menu-page {
 
-  // A few "global elements" to be redone in master code.
+  // A few "global elements" to be possibly redone in master code.
   @include body-font;
 
   h2 {
@@ -33,9 +57,11 @@ $white: #fff; //rgb(255,255,255);
 
   // Map Search Menu Styling
   .search-menu {
+    float: left;
     width: 280px;
     line-height: 20px;
     margin-top: 10px;
+    margin-right: 20px;
 
     // Override List Styles
     ul,ol { //de-list
@@ -172,39 +198,71 @@ $white: #fff; //rgb(255,255,255);
   }
 
   //Icon sizing and colors
-  .icon-category.-default {
-    width: 28px;
-    height: 32px;
-    fill: #52c9eb; //rgb(82,201,235);
+  .icon-category {
+    width: 32px;
+    height: 30px;
+  }
+  .icon-category.-arts-and-entertainment {
+    fill: $category-arts-and-entertainment;
   }
   .icon-category.-education {
-    width: 28px;
-    height: 27px;
-    fill: #65bc46; //rgb(101,188,70);
+    fill: $category-education;
   }
   .icon-category.-financial {
-    width: 28px;
-    height: 21px;
-    fill: #1f1c57; //rgb(31,28,87);
+    fill: $category-financial;
   }
-  .icon-category.-food {
-    width: 22px;
-    height: 32px;
-    fill: #f56e19; //rgb(245,110,25);
+  .icon-category.-foods {
+    fill: $category-foods;
   }
   .icon-category.-gyms {
-    width: 28px;
-    height: 15px;
-    fill: #ff3666; //rgb(255,54,102);
+    fill: $category-gyms;
   }
   .icon-category.-health {
-    width: 30px;
-    height: 31px;
-    fill: #ff371e; //rgb(255,55,30);
+    fill: $category-health;
+  }
+  .icon-category.-housing {
+    fill: $category-housing;
+  }
+  .icon-category.-manufacturing {
+    fill: $category-manufacturing;
+  }
+  .icon-category.-moving {
+    fill: $category-moving;
+  }
+  .icon-category.-other {
+    fill: $category-other;
+  }
+  .icon-category.-personal-services {
+    fill: $category-personal-services; 
+  }
+  .icon-category.-professional-and-home {
+    fill: $category-professional-and-home;
+  }
+  .icon-category.-public-and-gov {
+    fill: $category-public-and-gov;
+  }
+  .icon-category.-shopping {
+    fill: $category-shopping;
+  }
+  .icon-category.-social-services {
+    fill: $category-social-services;
+  }
+  .icon-category.-transport {
+    fill: $category-transport;
+  }
+  .icon-category.-worship {
+    fill: $category-worship;
   }
   .icon-triangle {
     width: 10px;
     height: 5px;
     fill: $dark-blue; 
   }
+}
+
+// Map
+#map {
+  float: right;
+  width: 580px;
+  margin-top: 20px;
 }
