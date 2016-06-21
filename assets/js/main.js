@@ -7,6 +7,7 @@ var Main = (function($) {
       breakpoint_array = [480,1000,1200],
       $header = $('.site-header'),
       $nav = $('.site-nav'),
+      $donateMessage = $('#donate'),
       $document,
       loadingTimer;
 
@@ -30,6 +31,7 @@ var Main = (function($) {
     _initMobileNav();
     _initScrollspy();
     _stickyNav();
+    _initDonateMessage();
     _initPartnersTabs();
 
     // Esc handlers
@@ -106,14 +108,14 @@ var Main = (function($) {
   }
 
   function _stickyNav() {
-    var $visionSection = $('#vision');
+    var $introSection = $('.intro-section');
 
-    if($(window).scrollTop() >= $visionSection.offset().top + $visionSection.outerHeight()) {
+    if($(window).scrollTop() >= $introSection.offset().top + $introSection.outerHeight()) {
       $header.addClass('-sticky');
     }
 
     $(window).on('scroll', function() {
-      if($(window).scrollTop() >= $visionSection.offset().top + $visionSection.outerHeight()) {
+      if($(window).scrollTop() >= $introSection.offset().top + $introSection.outerHeight()) {
         $header.addClass('-sticky');
       } else {
         $header.removeClass('-sticky');
@@ -156,6 +158,29 @@ var Main = (function($) {
              .end().filter("[href='#"+id+"']").parent().addClass("-active");
        }                   
     });
+  }
+
+  function _initDonateMessage() {
+
+    $document.on('click', '.donate-toggle', function(e) {
+      e.preventDefault();
+      _showDonateMessage();
+    });
+
+    $document.on('click', '.donate-close', function(e) {
+      e.preventDefault();
+      _hideDonateMessage();
+    })
+  }
+
+  function _showDonateMessage() {
+    $donateMessage.addClass('-active');
+    $donateMessage.focus();
+  }
+
+  function _hideDonateMessage() {
+    $donateMessage.removeClass('-active');
+    $donateMessage.blur();
   }
 
   function _initPartnersTabs() {

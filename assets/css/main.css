@@ -708,6 +708,40 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
           transform: rotate(45deg) scale(1.1);
 }
 
+.close {
+  border: none;
+  outline: none;
+  background: none;
+}
+.close:focus {
+  outline: none;
+}
+.close .x {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: inline-block;
+}
+.close .x::before, .close .x::after {
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  width: 24px;
+  content: '';
+  background: #1e1c56;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.close .x::before {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+.close .x::after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -776,6 +810,33 @@ nav ul li {
 @media screen and (min-width: 700px) {
   .wrap {
     padding: 0 100px;
+  }
+}
+
+.page-section.intro-section {
+  color: #fff;
+  position: relative;
+  padding: 160px 0 115px;
+  background: url("Images/vision-background.jpg") no-repeat top center;
+  background-size: cover;
+}
+.page-section.intro-section h2 {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: #fff;
+  text-transform: none;
+}
+@media screen and (min-width: 700px) {
+  .page-section.intro-section h2 {
+    font-size: 35px;
+    line-height: 1.142857143;
+  }
+}
+@media screen and (min-width: 700px) {
+  .page-section.intro-section {
+    padding: 115px 0;
   }
 }
 
@@ -1151,6 +1212,39 @@ nav ul li {
   font-size: 14px;
 }
 
+.donate-message {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  color: #fff;
+  padding: 50px 0;
+  position: fixed;
+  background: rgba(255, 53, 102, 0.95);
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(1, 0.25, 0.25, 1);
+          transition: transform 0.2s cubic-bezier(1, 0.25, 0.25, 1);
+}
+.donate-message.-active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.donate-message .close {
+  top: 0;
+  right: 20px;
+  position: absolute;
+}
+.donate-message h2 {
+  color: #1e1c56;
+  margin-top: 0;
+}
+@media screen and (min-width: 700px) {
+  .donate-message .close {
+    right: 100px;
+  }
+}
+
 .map-search-menu-page {
   font-family: 'Karla', sans-serif;
   color: #1f1c57;
@@ -1403,54 +1497,54 @@ nav ul li {
   }
 }
 
-.vision-section {
+.vision-section.page-section.intro-section {
   color: #fff;
   position: relative;
   padding: 160px 0 115px;
   background: url("../images/vision-background.jpg") no-repeat center center;
   background-size: cover;
 }
-.vision-section .vision-primary {
+.vision-section.page-section.intro-section .vision-primary {
   line-height: 1;
   font-size: 35px;
   font-weight: 700;
 }
 @media screen and (min-width: 700px) {
-  .vision-section .vision-primary {
+  .vision-section.page-section.intro-section .vision-primary {
     font-size: 50px;
   }
 }
-.vision-section .vision-secondary {
+.vision-section.page-section.intro-section .vision-secondary {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.133333333;
   max-width: 300px;
 }
 @media screen and (min-width: 700px) {
-  .vision-section .vision-secondary {
+  .vision-section.page-section.intro-section .vision-secondary {
     font-size: 30px;
     line-height: 1.166666667;
   }
 }
-.vision-section .scroll-down {
+.vision-section.page-section.intro-section .scroll-down {
   left: 50%;
   right: 50%;
   bottom: 40px;
   position: absolute;
 }
 @media screen and (min-width: 700px) {
-  .vision-section {
+  .vision-section.page-section.intro-section {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     padding: 115px 0;
     min-height: 80vh;
   }
-  .vision-section .wrap {
+  .vision-section.page-section.intro-section .wrap {
     margin: auto;
   }
-  .vision-section .vision-primary,
-  .vision-section .vision-secondary {
+  .vision-section.page-section.intro-section .vision-primary,
+  .vision-section.page-section.intro-section .vision-secondary {
     max-width: 66.66667%;
   }
 }

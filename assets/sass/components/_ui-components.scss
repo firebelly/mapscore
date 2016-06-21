@@ -52,3 +52,36 @@
     transform: rotate(45deg) scale(1.1);
   }
 }
+
+.close {
+  border: none;
+  outline: none;
+  background: none;
+  &:focus {
+    outline: none;
+  }
+  .x {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+    &::before,
+    &::after {
+      top: 50%;
+      left: 50%;
+      height: 2px;
+      width: 24px;
+      content: '';
+      background: $blue;
+      position: absolute;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
