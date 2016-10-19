@@ -36,7 +36,7 @@
 
         <button class="menu-toggle"><span>Menu</span></button>
 
-        <nav class="site-nav" role="navigation"> 
+        <nav class="site-nav" role="navigation">
           <ul>
             <li><a href="#vision" class="smoothscroll"><span>Vision</span></a></li>
             <li><a href="#mission" class="smoothscroll" data-offset="-1"><span>Mission</span></a></li>
@@ -53,12 +53,24 @@
 
     <main class="site-main" role="main">
 
-      <div id="vision" class="vision-section intro-section page-section">
-        <div class="wrap">
-          <p class="vision-primary">Cultivating scientific minds, healthy people and invested citizens from the assets of our communities.</p>
-          <p class="vision-secondary">Our lives depend on our neighborhoods. But we lack high quality information about where to go for the resources we need most. MAPSCorps engages youth to close the information gap so we can access the resources we all need to do good, stay well and live long.</p>
+      <div id="vision" class="vision-section page-section">
+        <div class="intro-section vision-banner">
+          <div class="wrap">
+            <p class="vision-primary">Cultivating scientific minds, healthy people and invested citizens from the assets of our communities.</p>
+          </div>
+          <a href="#vision-statement" class="smoothscroll scroll-down" data-offset="-1" aria-hidden="true"></a>
         </div>
-        <a href="#mission" class="smoothscroll scroll-down" data-offset="-1" aria-hidden="true"></a>
+
+        <div id="vision-statement" class="statement">
+          <div class="vision-pattern">
+            <svg class="pattern">
+              <rect x="0" y="0" width="100%" height="100%" fill="url(#impactPatternAnimated)"></rect>
+            </svg>
+          </div>
+          <div class="wrap">
+            <p class="vision-secondary">Our lives depend on our neighborhoods. But we lack high quality information about where to go for the resources we need most. MAPSCorps engages youth to close the information gap so we can access the resources we all need to do good, stay well and live long.</p>
+          </div>
+        </div>
       </div>
 
       <section id="mission" class="mission-section page-section">
@@ -86,8 +98,8 @@
       </section>
 
       <section id="history" class="history-section page-section">
-        <div class="statistic">
-          <div class="history-pattern">          
+        <div class="statistic statement-section">
+          <div class="history-pattern">
             <svg class="pattern">
               <rect width="100%" height="100%" fill="url(#historyPatternAnimated)"></rect>
             </svg>
@@ -96,7 +108,7 @@
             <h3>500+ Meaningful, Active, Productive work experiences for local high school youth and college-age mentors since 2009</h3>
           </div>
         </div>
-        
+
         <div class="section-main">
           <div class="wrap">
             <h2>History</h2>
@@ -148,7 +160,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="grid-item one-half -left map niagara"> 
+                <li class="grid-item one-half -left map niagara">
                   <div class="map-wrapper">
                     <div class="map-inner">
                       <div class="map-content">
@@ -175,7 +187,7 @@
       </section>
 
       <div class="statement-section">
-        <div class="statement-pattern">          
+        <div class="statement-pattern">
           <svg class="pattern">
             <rect x="0" y="0" width="100%" height="100%" fill="url(#statementPatternAnimated)"></rect>
           </svg>
@@ -216,8 +228,8 @@
       <section class="impact-section page-section">
         <div class="section-image"></div>
 
-        <div id="impact" class="statement">      
-          <div class="impact-pattern">          
+        <div id="impact" class="statement statement-section">
+          <div class="impact-pattern">
             <svg class="pattern">
               <rect x="0" y="0" width="100%" height="100%" fill="url(#impactPatternAnimated)"></rect>
             </svg>
@@ -292,16 +304,120 @@
             </ul>
           </nav>
           <p class="copyright">© Copyright 2016 MAPSCorps</p>
-        </div>  
+        </div>
       </div>
     </footer>
 
-    <section id="donate" class="donate-message">
+    <section id="donate" class="donate-message -active">
       <div class="wrap">
         <button class="donate-close close"><span class="x"></span></button>
-        <h2>Donate</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sed fugit rerum, reprehenderit quae qui expedita libero aspernatur laborum quis, sequi facere! Dolorum adipisci odit saepe error ea hic vero.</p>
-        <p><a href="mailto:info@mapscorps.org?subject=Donations" class="btn -blue">Donate</a></p>
+        <form action="/your-charge-code" method="POST" id="payment-form">
+          <div class="intro">
+            <h4>Donate</h4>
+            <p>Your tax deductible gift at any level will help us achieve our vision of cultivating scientific minds, healthy people and invested citizens. Your contributions help us provide underserved youth access to meaningful summer work opportunities and a unique STEM learning experience.</p>
+          </div>
+
+          <div class="grid">
+            <div class="two-thirds -left">
+
+              <div class="grid">
+                <div class="grid-item one-half -left">
+                  <label>First Name</label>
+                  <input id="inFirstName" type="text">
+                </div>
+                <div class="grid-item one-half -right">
+                  <label>Last Name</label>
+                  <input id="inLastName" type="text">
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="grid-item one-half -left">
+                  <label>Address 1</label>
+                  <input id="inAddress1" type="text" >
+                </div>
+                <div class="grid-item one-half -right">
+                  <label>Address 2</label>
+                  <input id="inAddress2" type="text">
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="grid-item one-half -left">
+                  <label>City</label>
+                  <input id="inCity" type="text">
+                </div>
+                <div class="grid-item one-half -right">
+                  <div class="grid">
+                    <div class="grid-item one-half -left">
+                      <label>Zip</label>
+                      <input type="text" id="inZip">
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <label>State</label>
+                      <input type="text" id="inState">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="grid-item one-half -left">
+                  <label>Email</label>
+                  <input id="inEmail" type="text" >
+                </div>
+                <div class="grid-item one-half -right">
+                  <label>Company / Organization</label>
+                  <input id="inComp" type="text" >
+                </div>
+              </div>
+
+              <label>Message</label>
+              <textarea id="txtMessage"></textarea>
+
+            </div><!-- END .two-thirds.-left  -->
+            <div class="one-third -right">
+
+              <label>Choose an amount</label>
+              <div class="radios">
+                <label><input type="radio" name="optradio" value="20"> $20</label>
+                <label><input type="radio" name="optradio" value="50"> $50</label>
+                <label><input type="radio" name="optradio" value="100"> $100</label>
+                <label><input type="radio" name="optradio" value="1000"> $1,000</label>
+                <label class="other-amount"><input type="radio" name="optradio" value="other"> <input id="inOther" type="text" placeholder="Other Amount"></label>
+              </div>
+              <input type="hidden" id="hidAmount">
+
+              <label>Card Number</label>
+              <input type="text" size="20" data-stripe="number" class="cc-num" >
+
+              <div class="grid">
+                <div class="grid-item one-half -left">
+                  <label>CVV</label>
+                  <input type="text" maxlength="4" data-stripe="cvc" class="cc-cvc">
+                </div>
+                <div class="grid-item one-half -right">
+                  <label>Expiration</label>
+                  <input type="text" maxlength="7" data-stripe="exp" class="cc-exp" placeholder="MM/YY">
+                </div>
+              </div>
+
+              <input id="inProcess" type="submit" class="btn submit" value="Submit">
+              <div class="label btn-reverse" id="lblResult" style="display: none;"></div>
+
+              <p class="do-not-store">We do not store your credit/debit card information.</p>
+
+              <div class="extra-info">
+                <p>For all other donation inquiries, please email us at <a href="mailto:info@mapscorps.org?subject=Donations">info@mapscorps.org</a>.</p>
+                <p>Thank you for your support! We appreciate your donation at any level. Your contributions help us provide STEM oriented meaningful work opportunities for youth and shine a light on community assets.  </p>
+              </div>
+
+
+
+              </div><!-- END .one-third -->
+            </div><!-- END .grid -->
+          </form>
+
       </div>
     </section>
 

@@ -7,12 +7,74 @@
   z-index: 100;
   color: $white;
   padding: 50px 0;
-  position: fixed;
-  background: rgba($pink,.95);
+  position: absolute;
+  background: rgba($blue,.95);
   transform: translateY(-100%);
   transition: transform .2s cubic-bezier(1,.25,.25,1);
   &.-active {
     transform: translateY(0);
+  }
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .intro p {
+    max-width: 560px;
+  }
+  label {
+    font-size: 20px;
+    line-height: 1;
+    color: $yellow;
+    display: block;
+    margin: 16px 0 8px;
+    -webkit-font-smoothing: antialiased;
+  }
+  input[type=text],
+  input[type=email],
+  textarea {
+    background: rgba($white, .3);
+    border: none;
+    padding: 4px;
+    color: #fff;
+    width: 100%;
+  }
+  textarea {
+    height: 85px;
+  }
+  // amount radio buttons
+  .radios {
+    input[type=text],
+    label {
+      font-size: 15px;
+      line-height: 1;
+      margin: 0 0 4px;
+      color: $white;
+    }
+    input[type=radio] {
+      margin-right: 8px;
+    }
+  }
+  .other-amount {
+    input[type=text] {
+      width: 130px;
+      padding: 0 4px;
+    }
+  }
+  input.btn.submit {
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    padding: 0;
+    margin-top: 44px;
+    width: 100%;
+  }
+  .do-not-store {
+    text-transform: uppercase;
+  }
+  .extra-info p {
+    font-size: 12px;
+    line-height: 15px;
   }
 
   .close {
@@ -21,9 +83,10 @@
     position: absolute;
   }
 
-  h2 {
-    color: $blue;
-    margin-top: 0;
+  h4 {
+    @include h4;
+    color: $yellow;
+    margin: 0;
   }
 
   @include media-md {
