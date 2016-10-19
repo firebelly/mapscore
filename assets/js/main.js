@@ -14,9 +14,6 @@ var Main = (function($) {
     $document = $(document);
     $('body').addClass('loaded');
 
-    // Set screen size vars
-    _resize();
-
     // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
     _injectSvgSprite();
 
@@ -389,7 +386,6 @@ var Main = (function($) {
   // Public functions
   return {
     init: _init,
-    resize: _resize,
     initMaps: _initMaps,
     scrollBody: function(section, duration, delay, offset) {
       _scrollBody(section, duration, delay, offset);
