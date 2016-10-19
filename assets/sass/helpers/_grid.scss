@@ -13,11 +13,7 @@ $padding: 1em;
 
 .one-half-right, .two-thirds-right, .one-third-right, .one-third-middle, .one-fourth-right  {margin-top: $margin;}
 
-
-@include media-md {
-  .grid {
-    display: flex;
-  }
+@mixin gridz() {
   .one-fourth {
     max-width: 25%;
     flex-basis: 25%;
@@ -44,4 +40,15 @@ $padding: 1em;
     padding-left: 10px;
     padding-right: 10px;
   }
+}
+
+.grid.-persist {
+  display: flex;
+  @include gridz;
+}
+@include media-md {
+  .grid {
+    display: flex;
+  }
+  @include gridz;
 }
