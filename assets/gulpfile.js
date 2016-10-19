@@ -82,17 +82,12 @@ gulp.task('svgs', function() {
     .pipe(rename('svgs-defs.svg'))
     .pipe(gulp.dest('svgs/build'))
 });
-// convert to png for fallback
-gulp.task('svgfallback', function() {
-  return gulp.src(paths.svgSrc)
-    .pipe(gulp.dest('../'));
-});
 
 // Do the build
 gulp.task('build', function(callback) {
   runSequence('styles',
               'scripts',
-              ['images', 'svgs', 'svgfallback'],
+              ['images', 'svgs'],
               callback);
 });
 
@@ -111,7 +106,7 @@ gulp.task('watch', function() {
   // Watch js files
   gulp.watch(['js/libs/*.js', 'js/main.js'], ['scripts']);
   // Watch SVGs
-  gulp.watch(paths.svgSrc, ['svgs', 'svgfallback']);
+  gulp.watch(paths.svgSrc, ['svgs']);
 });
 
 // Make watch the default task
