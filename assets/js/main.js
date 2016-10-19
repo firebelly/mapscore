@@ -1,13 +1,14 @@
-var Main = (function($) {
+var MapsCorps = (function($) {
 
   var $header = $('.site-header'),
       $nav = $('.site-nav'),
       $donateMessage = $('#donate'),
       $document,
-      loadingTimer;
+      loadingTimer,
+      $paymentForm;
 
   function _init() {
-    // touch-friendly fast clicks
+    // Touch-friendly fast clicks
     FastClick.attach(document.body);
 
     // Cache some common DOM queries
@@ -53,6 +54,8 @@ var Main = (function($) {
         _scrollBody($(window.location.hash));
       }
     });
+
+    _initStripe();
 
   } // end init()
 
@@ -383,10 +386,210 @@ var Main = (function($) {
     });
   }
 
+  function _initStripe() {
+    // Test Key
+    Stripe.setPublishableKey('pk_test_fchY3vnT8N63k3zcpGKKBFbu');
+    // Live Key
+    // Stripe.setPublishableKey('pk_live_FGOFvyNZ1AFNuvDvYAq6KOIG');
+
+    var params = {};
+    $paymentForm = $('#payment-form');
+
+    // Init jquery.payment field types
+    $('input.cc-num').payment('formatCardNumber');
+    $('input.cc-exp').payment('formatCardExpiry');
+
+    // Hide feedback
+    $('#formFeedback').hide();
+
+    function verifyInfo() {
+      var firstName = $('#inFirstName').val();
+      var lastName = $('#inLastName').val();
+      var email = $('#inEmail').val();
+      var address1 = $('#inAddress1').val();
+      var city = $('#inCity').val();
+      var zip = $('#inZip').val();
+      var state = $('#inState').val();
+
+      var result = '';
+      if (firstName === null || firstName === '')
+        result = "Please enter your first name";
+      else if (lastName === null || lastName === '')
+        result = "Please enter your last name";
+      else if (email === null || email === '')
+        result = "Please enter your email";
+      else if (address1 === null || address1 === '')
+        result = "Please enter your address";
+      else if (city === null || city === '')
+        result = "Please enter your address";
+      else if (zip === null || zip === '')
+        result = "Please enter your address";
+      else if (state === null || state === '')
+        result = "Please enter your address";
+
+      return result;
+    }
+
+    function verifyCardNumber() {
+      var error = '';
+      var cardNumValid = $.payment.validateCardNumber($('input.cc-num').val());
+      if (cardNumValid) {
+        var exp = $('input.cc-exp').payment('cardExpiryVal');
+        var cardExpValid = $.payment.validateCardExpiry(exp.month, exp.year);
+        if (cardExpValid) {
+          var cardType = $.payment.cardType($('input.cc-num').val());
+          var cardCVCValid = false;
+          console.log(cardType);
+          if (cardType != null) {
+            switch (cardType) {
+              case 'amex':
+              cardCVCValid = $.payment.validateCardCVC($('input.cc-cvc').val(), 'amex');
+              break;
+              default:
+              cardCVCValid = $.payment.validateCardCVC($('input.cc-cvc').val());
+            }
+            if (!cardCVCValid)
+              error = 'CVV invalid'
+            else {
+              var zip = $('input.cc-zip').val();
+              if (zip === null || zip === '')
+                error = 'Billing Zip invalid'
+            }
+          }
+          else
+            error = 'Card is not recognized'
+        }
+        else
+          error = 'Expiration date invalid'
+      }
+      else
+        error = 'Card Number Invalid'
+      return error;
+    }
+
+    function verifyAmount () {
+      var selectedAmount = $('input[type="radio"]:checked').val();
+      var result = '';
+      var amount = '';
+      if (typeof selectedAmount !== "undefined" && selectedAmount !== null) {
+        if (selectedAmount === 'other') {
+          var enteredAmount = $('#inOther').val();
+          if (enteredAmount === null || enteredAmount === '') {
+            result = 'You need to enter an amount';
+          }
+          else {
+            if (!$.isNumeric(enteredAmount))
+              result = 'Amount must be numeric.';
+            else
+              $('#hidAmount').val(enteredAmount);
+          }
+        }
+        else
+          $('#hidAmount').val(selectedAmount);
+      }
+      else
+        result = 'You need to select an amount';
+
+      return result;
+    }
+
+    $paymentForm.submit(function(e) {
+      e.preventDefault();
+      $('#formFeedback').text('Processing...');
+      $('#formFeedback').show();
+      var error = '';
+      error = verifyInfo();
+      if (error !== '') {
+        $('#formFeedback').text(error);
+        return false;
+      }
+
+      error = verifyAmount();
+      if (error !== '') {
+        $('#formFeedback').text(error);
+        return false;
+      }
+
+      error = verifyCardNumber();
+      if (error !== '') {
+        $('#formFeedback').text(error);
+        return false;
+      }
+
+      if (error === '') {
+        Stripe.card.createToken($paymentForm, MapsCorps.stripeResponseHandler);
+        return false;
+      }
+    });
+
+    function myCallback(json) {
+      $('#formFeedback').text(json);
+      $('#inProcess').hide();
+      var amount = '';
+
+      params.firstName = $('#inFirstName').val();
+      params.lastName = $('#inLastName').val();
+      params.comp = $('#inComp').val();
+      params.email = $('#inEmail').val();
+      params.comments = $('#txtMessage').val()
+      params.amount = $('#hidAmount').val();
+      params.address1 = $('#inAddress1').val();
+      params.address2 = $('#inAddress2').val();
+      params.city = $('#inCity').val();
+      params.state = $('#inState').val();
+      params.zip = $('#inZip').val();
+
+      var param = JSON.stringify(params);
+
+      $.ajax({
+        url: '/Tool/SendPaymentInfo/',
+        type: 'POST',
+        data: param,
+        dataType: 'json',
+        contentType: 'application/json'
+      })
+    }
+
+  }
+
+  function _stripeResponseHandler(status, response) {
+    var $paymentForm = $('#payment-form');
+    if (response.error) {
+
+        // Show the errors on the form:
+        $paymentForm.find('.payment-errors').text(response.error.message);
+        $paymentForm.find('.submit').prop('disabled', false); // Re-enable submission
+
+      } else { // Token was created!
+
+        var token = response.id;
+        var amount = $('#hidAmount').val();
+
+        // Submit the form:
+        if (token !== null && token !== '') {
+          $.ajax({
+            url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
+              //url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
+              type: 'GET',
+              dataType: 'jsonp',
+              jsonp: 'callback',
+              jsonpCallback: 'myCallback',
+              contentType: 'application/json',
+              crossDomain: true
+            });
+        } else {
+          $('#formFeedback').text('Error processing payment. Please try again.');
+        }
+      }
+    }
+
   // Public functions
   return {
     init: _init,
     initMaps: _initMaps,
+    stripeResponseHandler: function(status, response) {
+      _stripeResponseHandler(status, response);
+    },
     scrollBody: function(section, duration, delay, offset) {
       _scrollBody(section, duration, delay, offset);
     }
@@ -395,4 +598,4 @@ var Main = (function($) {
 })(jQuery);
 
 // Fire up the mothership
-jQuery(document).ready(Main.init);
+jQuery(document).ready(MapsCorps.init);
