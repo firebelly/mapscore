@@ -388,6 +388,42 @@ table {
   margin-top: 1em;
 }
 
+.grid.-persist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.grid.-persist .one-fourth {
+  max-width: 25%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+.grid.-persist .one-third {
+  -ms-flex-preferred-size: 33.3333333%;
+      flex-basis: 33.3333333%;
+  max-width: 33.3333333%;
+}
+.grid.-persist .one-half {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50%;
+}
+.grid.-persist .two-thirds {
+  -ms-flex-preferred-size: 66.6666667%;
+      flex-basis: 66.6666667%;
+  max-width: 66.6666667%;
+}
+.grid.-persist .-left {
+  padding-right: 10px;
+}
+.grid.-persist .-right {
+  padding-left: 10px;
+}
+.grid.-persist .-center {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 @media screen and (min-width: 700px) {
   .grid {
     display: -webkit-box;
