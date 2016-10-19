@@ -350,12 +350,12 @@
                 <div class="grid-item one-half -right">
                   <div class="grid">
                     <div class="grid-item one-half -left">
-                      <label>Zip</label>
-                      <input type="text" id="inZip">
-                    </div>
-                    <div class="grid-item one-half -right">
                       <label>State</label>
                       <input type="text" id="inState">
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <label>Zip</label>
+                      <input type="text" id="inZip">
                     </div>
                   </div>
                 </div>
@@ -374,6 +374,79 @@
 
               <label>Message</label>
               <textarea id="txtMessage"></textarea>
+
+              <div class="expandable-group collapsed">
+                <h2>Add a Spouse/Partner to your donation</h2>
+                <div class="fields">
+                  <div class="grid">
+                    <div class="grid-item one-half -left">
+                      <input id="inFirstNamePartner" type="text" >
+                      <label>First Name (Spouse/Partner)</label>
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <input id="inLastNamePartner" type="text" >
+                      <label>Last Name (Spouse/Partner)</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="expandable-group collapsed">
+                <h2>Make this donation in Honor/Memory of a special person</h2>
+                <div class="fields">
+                  <div class="grid">
+                    <div class="grid-item one-half -left">
+                      <input id="inFirstNameSpecial" type="text" >
+                      <label>First Name (Special Person)</label>
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <input id="inLastNameSpecial" type="text" >
+                      <label>Last Name (Special Person)</label>
+                    </div>
+                  </div>
+
+                  <div class="grid">
+                    <div class="grid-item one-half -left">
+                      <input id="inFirstNameRecipient" type="text" >
+                      <label>First Name (Card Recipient)</label>
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <input id="inLastNameRecipient" type="text" >
+                      <label>Last Name (Card Recipient)</label>
+                    </div>
+                  </div>
+
+                  <div class="grid">
+                    <div class="grid-item one-half -left">
+                      <input id="inAddress1Recipient" type="text" >
+                      <label>Address 1</label>
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <input id="inAddress2Recipient" type="text" >
+                      <label>Address 2</label>
+                    </div>
+                  </div>
+
+                  <div class="grid">
+                    <div class="grid-item one-half -left">
+                      <input id="inCityRecipient" type="text">
+                      <label>City</label>
+                    </div>
+                    <div class="grid-item one-half -right">
+                      <div class="grid">
+                        <div class="grid-item one-half -left">
+                          <input type="text" id="inStateRecipient">
+                          <label>State</label>
+                        </div>
+                        <div class="grid-item one-half -right">
+                          <input type="text" id="inZipRecipient">
+                          <label>Zip</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- END .fields -->
+              </div><!-- END .expandable-group -->
 
             </div><!-- END .two-thirds.-left  -->
             <div class="one-third -right">
@@ -411,8 +484,6 @@
                 <p>For all other donation inquiries, please email us at <a href="mailto:info@mapscorps.org?subject=Donations">info@mapscorps.org</a>.</p>
                 <p>Thank you for your support! We appreciate your donation at any level. Your contributions help us provide STEM oriented meaningful work opportunities for youth and shine a light on community assets.  </p>
               </div>
-
-
 
               </div><!-- END .one-third -->
             </div><!-- END .grid -->
