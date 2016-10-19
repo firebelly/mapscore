@@ -50,19 +50,54 @@
   }
 }
 
-.vision-section.page-section.intro-section {
+.vision-section {
   color: $white;
-  position: relative;
-  padding: 160px 0 115px;
-  background: url('../images/vision-background.jpg') no-repeat center center;
-  background-size: cover;
+
+  .vision-banner {
+    position: relative;
+    padding: 160px 0 115px;
+    background: url('../images/vision-background.jpg') no-repeat center center;
+    background-size: cover;
+  }
+
+  .statement {
+    color: $yellow;
+    padding: 50px 0;
+    overflow: hidden;
+    background: $pink;
+    position: relative;
+
+    .vision-pattern {
+      top: -20px;
+      z-index: 0;
+      left: -40px;
+      right: -40px;
+      bottom: -40px;
+      position: absolute;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    h3 {
+      @include h1-shorthand;
+    }
+
+    @include media-md {
+      padding: 100px 0;
+
+      h3 {
+        width: 100% * 5 / 6;
+      }
+    }
+  }
 
   .vision-primary {
     @include h1;
   }
   .vision-secondary {
-    @include h3;
-    max-width: 300px;
+    @include h3;;
   }
 
   .scroll-down {
@@ -73,16 +108,19 @@
   }
 
   @include media-md {
-    display: flex;
-    padding: 115px 0;
-    min-height: 80vh;
     
     .wrap {
-      margin: auto;
+      margin: 0 auto;
     }
 
-    .vision-primary,
-    .vision-secondary {
+    .vision-banner {
+      display: flex;
+      padding: 115px 0;
+      min-height: 90vh;
+      align-items: flex-end;
+    }
+
+    .vision-primary {
       max-width: 100% * 2 / 3;
     }
   }
@@ -116,13 +154,29 @@
 
   .statistic {
     color: $yellow;
-    padding: 50px 0;
     overflow: hidden;
     position: relative;
     background: $purple;
-
-    @include media-md {
-      padding: 100px 0;
+    padding: 50px 0 83px;
+    &::before {
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 50%;
+      content: '';
+      position: absolute;
+      border-bottom: 33px solid #fff;
+      border-right: 18px solid transparent;
+    }
+    &::after {
+      bottom: 0;
+      left: 50%;
+      width: 50%;
+      z-index: 1;
+      content: '';
+      position: absolute;
+      border-bottom: 33px solid #fff;
+      border-left: 18px solid transparent;
     }
 
     .history-pattern {
@@ -139,7 +193,10 @@
 
     h3 {
       margin: 0;
-      @include h1;
+    }
+
+    @include media-md {
+      padding: 100px 0 133px;
     }
   }
 }
@@ -242,7 +299,7 @@
     position: relative;
     h3 {
       @include h1;
-      margin: 0 0 .5em;
+      margin: 0 0 .25em;
     }
     p {
       margin: 0;
@@ -261,6 +318,34 @@
   .nash-edgecombe .map-wrapper {
     background-image: url('../images/map-nash-edgecombe.jpg');
   }
+
+  .chicago,
+  .new-york {
+    .map-content {
+      a {
+        margin-bottom: 1.25em;
+      }
+    }
+    .map-wrapper::after {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      @include h4;
+      color: $yellow;
+      font-size: 10px;
+      text-align: center;
+      position: absolute;
+      padding: 10px 20px;
+      background: rgba($pink,.7);
+      content: 'Update coming soon';
+    }
+    @include media-md {
+      .map-wrapper::after {
+        font-size: 10px;
+      }
+    }
+  }
 }
 
 .statement-section {
@@ -274,6 +359,7 @@
     @include h1-shorthand;
 
     @include media-md {
+      font-size: 60px;
       width: 100% * 5 / 6;
     }
   }
@@ -417,10 +503,10 @@
 
   .statement {
     color: $yellow;
-    padding: 50px 0;
     overflow: hidden;
     background: $pink;
     position: relative;
+    padding: 50px 0 83px;
 
     .impact-pattern {
       top: -20px;
@@ -435,12 +521,8 @@
       }
     }
 
-    h3 {
-      @include h1-shorthand;
-    }
-
     @include media-md {
-      padding: 100px 0;
+      padding: 100px 0 133px;
 
       h3 {
         width: 100% * 5 / 6;
