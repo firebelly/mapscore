@@ -1,11 +1,6 @@
 var Main = (function($) {
 
-  var screen_width = 0,
-      breakpoint_small = false,
-      breakpoint_medium = false,
-      breakpoint_large = false,
-      breakpoint_array = [480,1000,1200],
-      $header = $('.site-header'),
+  var $header = $('.site-header'),
       $nav = $('.site-nav'),
       $donateMessage = $('#donate'),
       $document,
@@ -58,17 +53,17 @@ var Main = (function($) {
     // Scroll down to hash afer page load
     $(window).load(function() {
       if (window.location.hash) {
-        _scrollBody($(window.location.hash)); 
+        _scrollBody($(window.location.hash));
       }
     });
 
-  } // end init() 
+  } // end init()
 
   function _scrollBody(element, duration, delay, offset) {
     if (offset || offset !== undefined) {
       setOffset = offset;
     } else {
-      setOffset = $header.outerHeight(); 
+      setOffset = $header.outerHeight();
     }
     element.velocity("scroll", {
       duration: duration,
@@ -140,7 +135,7 @@ var Main = (function($) {
     $(window).scroll(function(){
        // Get container scroll position
        var fromTop = $(this).scrollTop()+headerHeight;
-       
+
        // Get id of current scroll item
        var cur = scrollItems.map(function(){
          if ($(this).offset().top < fromTop + $header.outerHeight())
@@ -149,14 +144,14 @@ var Main = (function($) {
        // Get the id of the current element
        cur = cur[cur.length-1];
        var id = cur && cur.length ? cur[0].id : "";
-       
+
        if (lastId !== id) {
            lastId = id;
            // Set/remove active class
            menuItems
              .parent().removeClass("-active")
              .end().filter("[href='#"+id+"']").parent().addClass("-active");
-       }                   
+       }
     });
   }
 
@@ -170,7 +165,7 @@ var Main = (function($) {
     $document.on('click', '.donate-close', function(e) {
       e.preventDefault();
       _hideDonateMessage();
-    })
+    });
   }
 
   function _showDonateMessage() {
@@ -253,9 +248,9 @@ var Main = (function($) {
     };
 
     partnerMaps = [chicago, nyc, niagara, nashEdgecombe];
- 
 
-    $.each(partnerMaps, function(i) { 
+
+    $.each(partnerMaps, function(i) {
      google.maps.event.addDomListener(window, 'load', init(this.partnerLat, this.partnerLng, this.elementID, this.partnerZoom, this.partnerLocations));
     });
 
@@ -316,7 +311,7 @@ var Main = (function($) {
             '<p>'+this.tel+'</p>';
           infowindow.setContent(partnerDetails);
           infowindow.open(map, this);
-        }); 
+        });
       }
 
       google.maps.event.addDomListener(window, 'resize', function() {
@@ -329,7 +324,7 @@ var Main = (function($) {
 
   // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
   function _injectSvgSprite() {
-    boomsvgloader.load('/assets/svgs/build/svgs-defs.svg'); 
+    boomsvgloader.load('/assets/svgs/build/svgs-defs.svg');
   }
 
   // Track ajax pages in Analytics
@@ -381,7 +376,7 @@ var Main = (function($) {
       });
     });
 
-    // Make services selectable 
+    // Make services selectable
     $('.service').click(function(){
       if ($(this).hasClass('selected')) {
         $(this).removeClass('selected');
@@ -389,15 +384,6 @@ var Main = (function($) {
         $(this).addClass('selected');
       }
     });
-  }
-
-
-  // Called in quick succession as window is resized
-  function _resize() {
-    screenWidth = document.documentElement.clientWidth;
-    breakpoint_small = (screenWidth > breakpoint_array[0]);
-    breakpoint_medium = (screenWidth > breakpoint_array[1]);
-    breakpoint_large = (screenWidth > breakpoint_array[2]);
   }
 
   // Public functions
@@ -414,6 +400,3 @@ var Main = (function($) {
 
 // Fire up the mothership
 jQuery(document).ready(Main.init);
-
-// Zig-zag the mothership
-jQuery(window).resize(Main.resize);
