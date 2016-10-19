@@ -13,8 +13,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     browserSync = require('browser-sync').create(),
     svgstore = require('gulp-svgstore'),
-    svgmin = require('gulp-svgmin'),
-    svg2png = require('gulp-svg2png')
+    svgmin = require('gulp-svgmin');
 
 // File path vars
 var paths = {
@@ -26,7 +25,7 @@ var paths = {
 // Setup browsersync
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "starthere.static"
+        proxy: "mapscorps-frontend.dev"
     });
 });
 
@@ -86,7 +85,6 @@ gulp.task('svgs', function() {
 // convert to png for fallback
 gulp.task('svgfallback', function() {
   return gulp.src(paths.svgSrc)
-    .pipe(svg2png())
     .pipe(gulp.dest('../'));
 });
 
@@ -103,7 +101,7 @@ gulp.task('watch', function() {
   // Init BrowserSync
   browserSync.init({
     files: ['*.html', '*.php'],
-    proxy: 'mapscore.static',
+    proxy: 'mapscorps-frontend.dev',
     notify: false,
   });
   // Kick it off with a build
