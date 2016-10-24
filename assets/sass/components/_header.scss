@@ -134,9 +134,12 @@
     line-height: 1.307692308;
     text-transform: uppercase;
     letter-spacing: .1em;
-    &.donate-toggle {
-      background: #1e1c56;
-      padding: 2px 6px;
+    @include min-screen($breakpoint-nav) {
+      &.donate-toggle {
+        background: #1e1c56;
+        color: $white;
+        padding: 2px 6px;
+      }
     }
     span {
       position: relative;

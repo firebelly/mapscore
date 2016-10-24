@@ -308,10 +308,10 @@
       </div>
     </footer>
 
-    <section id="donate" class="donate-message -active">
+    <section id="donate" class="donate-form -active">
       <div class="wrap">
         <button class="donate-close close"><span class="x"></span></button>
-        <form action="/your-charge-code" method="POST" id="payment-form">
+        <form action="#" method="post" id="payment-form" novalidate>
           <div class="intro">
             <h4>Donate</h4>
             <p>Your tax deductible gift at any level will help us achieve our vision of cultivating scientific minds, healthy people and invested citizens. Your contributions help us provide underserved youth access to meaningful summer work opportunities and a unique STEM learning experience.</p>
@@ -322,40 +322,40 @@
 
               <div class="grid">
                 <div class="grid-item one-half -left">
-                  <label>First Name</label>
-                  <input id="inFirstName" type="text">
+                  <label for="inFirstName">First Name</label>
+                  <input name="inFirstName" id="inFirstName" type="text" value="" required>
                 </div>
                 <div class="grid-item one-half -right">
-                  <label>Last Name</label>
-                  <input id="inLastName" type="text">
+                  <label for="inLastName">Last Name</label>
+                  <input name="inLastName" id="inLastName" type="text" value="" required>
                 </div>
               </div>
 
               <div class="grid">
                 <div class="grid-item one-half -left">
-                  <label>Address 1</label>
-                  <input id="inAddress1" type="text" >
+                  <label for="inAddress1">Address 1</label>
+                  <input name="inAddress1" id="inAddress1" type="text" required>
                 </div>
                 <div class="grid-item one-half -right">
-                  <label>Address 2</label>
-                  <input id="inAddress2" type="text">
+                  <label for="inAddress2">Address 2</label>
+                  <input name="inAddress2" id="inAddress2" type="text">
                 </div>
               </div>
 
               <div class="grid">
                 <div class="grid-item one-half -left">
-                  <label>City</label>
-                  <input id="inCity" type="text">
+                  <label for="inCity">City</label>
+                  <input name="inCity" id="inCity" type="text" required>
                 </div>
                 <div class="grid-item one-half -right">
                   <div class="grid -persist">
                     <div class="grid-item one-half -left">
-                      <label>State</label>
-                      <input type="text" id="inState">
+                      <label for="inState">State</label>
+                      <input name="inState" id="inState" type="text" required>
                     </div>
                     <div class="grid-item one-half -right">
-                      <label>Zip</label>
-                      <input type="text" id="inZip">
+                      <label for="inZip">Zip</label>
+                      <input name="inZip" id="inZip" type="text" required>
                     </div>
                   </div>
                 </div>
@@ -363,29 +363,29 @@
 
               <div class="grid">
                 <div class="grid-item one-half -left">
-                  <label>Email</label>
-                  <input id="inEmail" type="text" >
+                  <label for="inEmail">Email</label>
+                  <input name="inEmail" id="inEmail" type="email" required>
                 </div>
                 <div class="grid-item one-half -right">
-                  <label>Company / Organization</label>
-                  <input id="inComp" type="text" >
+                  <label for="inComp">Company / Organization</label>
+                  <input name="inComp" id="inComp" type="text">
                 </div>
               </div>
 
               <label>Message</label>
-              <textarea id="txtMessage"></textarea>
+              <textarea name="txtMessage" id="txtMessage"></textarea>
 
               <div class="expandable-group collapsed">
                 <h2>Add a Spouse/Partner to your donation</h2>
                 <div class="fields">
                   <div class="grid">
                     <div class="grid-item one-half -left">
-                      <input id="inFirstNamePartner" type="text" >
-                      <label>First Name (Spouse/Partner)</label>
+                      <input name="inFirstNamePartner" id="inFirstNamePartner" type="text">
+                      <label for="inFirstNamePartner">First Name (Spouse/Partner)</label>
                     </div>
                     <div class="grid-item one-half -right">
-                      <input id="inLastNamePartner" type="text" >
-                      <label>Last Name (Spouse/Partner)</label>
+                      <input name="inLastNamePartner" id="inLastNamePartner" type="text">
+                      <label for="inLastNamePartner">Last Name (Spouse/Partner)</label>
                     </div>
                   </div>
                 </div>
@@ -396,51 +396,51 @@
                 <div class="fields">
                   <div class="grid">
                     <div class="grid-item one-half -left">
-                      <input id="inFirstNameSpecial" type="text" >
-                      <label>First Name (Special Person)</label>
+                      <input name="inFirstNameSpecial" id="inFirstNameSpecial" type="text">
+                      <label for="inFirstNameSpecial">First Name (Special Person)</label>
                     </div>
                     <div class="grid-item one-half -right">
-                      <input id="inLastNameSpecial" type="text" >
-                      <label>Last Name (Special Person)</label>
+                      <input name="inLastNameSpecial" id="inLastNameSpecial" type="text">
+                      <label for="inLastNameSpecial">Last Name (Special Person)</label>
                     </div>
                   </div>
 
                   <div class="grid">
                     <div class="grid-item one-half -left">
-                      <input id="inFirstNameRecipient" type="text" >
-                      <label>First Name (Card Recipient)</label>
+                      <input name="inFirstNameRecipient" id="inFirstNameRecipient" type="text">
+                      <label for="inFirstNameRecipient">First Name (Card Recipient)</label>
                     </div>
                     <div class="grid-item one-half -right">
-                      <input id="inLastNameRecipient" type="text" >
-                      <label>Last Name (Card Recipient)</label>
+                      <input name="inLastNameRecipient" id="inLastNameRecipient" type="text">
+                      <label for="inLastNameRecipient">Last Name (Card Recipient)</label>
                     </div>
                   </div>
 
                   <div class="grid">
                     <div class="grid-item one-half -left">
-                      <input id="inAddress1Recipient" type="text" >
-                      <label>Address 1</label>
+                      <input name="inAddress1Recipient" id="inAddress1Recipient" type="text">
+                      <label for="inAddress1Recipient">Address 1</label>
                     </div>
                     <div class="grid-item one-half -right">
-                      <input id="inAddress2Recipient" type="text" >
-                      <label>Address 2</label>
+                      <input name="inAddress2Recipient" id="inAddress2Recipient" type="text">
+                      <label for="inAddress2Recipient">Address 2</label>
                     </div>
                   </div>
 
                   <div class="grid">
                     <div class="grid-item one-half -left">
-                      <input id="inCityRecipient" type="text">
+                      <input name="inCityRecipient" id="inCityRecipient" type="text">
                       <label>City</label>
                     </div>
                     <div class="grid-item one-half -right">
                       <div class="grid -persist">
                         <div class="grid-item one-half -left">
-                          <input type="text" id="inStateRecipient">
-                          <label>State</label>
+                          <input type="text" name="inStateRecipient" id="inStateRecipient">
+                          <label for="inStateRecipient">State</label>
                         </div>
                         <div class="grid-item one-half -right">
-                          <input type="text" id="inZipRecipient">
-                          <label>Zip</label>
+                          <input type="text" name="inZipRecipient" id="inZipRecipient">
+                          <label for="inZipRecipient">Zip</label>
                         </div>
                       </div>
                     </div>
@@ -457,26 +457,26 @@
                 <label><input type="radio" name="optradio" value="50"> $50</label>
                 <label><input type="radio" name="optradio" value="100"> $100</label>
                 <label><input type="radio" name="optradio" value="1000"> $1,000</label>
-                <label class="other-amount"><input type="radio" name="optradio" value="other"> <input id="inOther" type="text" placeholder="Other Amount"></label>
+                <label class="other-amount"><input type="radio" name="optradio" value="other"> <input name="inOther" id="inOther" type="text" placeholder="Other Amount"></label>
               </div>
-              <input type="hidden" id="hidAmount">
+              <input type="hidden" name="hidAmount" id="hidAmount">
 
-              <label>Card Number</label>
-              <input type="text" size="20" data-stripe="number" class="cc-num" >
+              <label for="ccNum">Card Number</label>
+              <input name="ccNum" id="ccNum" type="text" size="20" data-stripe="number" class="cc-num" required>
 
               <div class="grid -persist">
                 <div class="grid-item one-half -left">
-                  <label>CVV</label>
-                  <input type="text" maxlength="4" data-stripe="cvc" class="cc-cvc">
+                  <label for="ccCvc">CVV</label>
+                  <input name="ccCvc" id="ccCvc" type="text" maxlength="4" data-stripe="cvc" class="cc-cvc" required>
                 </div>
                 <div class="grid-item one-half -right">
-                  <label>Expiration</label>
-                  <input type="text" maxlength="7" data-stripe="exp" class="cc-exp" placeholder="MM/YY">
+                  <label for="ccExp">Expiration</label>
+                  <input name="ccExp" id="ccExp" type="text" maxlength="7" data-stripe="exp" class="cc-exp" placeholder="MM/YY" required>
                 </div>
               </div>
 
-              <input id="inProcess" type="submit" class="btn submit" value="Submit">
-              <div class="label btn-reverse" id="formFeedback" style="display: none;"></div>
+              <input name="stripeSubmit" id="stripeSubmit" type="submit" class="btn submit" value="Submit">
+              <div id="formFeedback"></div>
 
               <p class="do-not-store">We do not store your credit/debit card information.</p>
 
@@ -492,8 +492,9 @@
       </div>
     </section>
 
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script src="assets/js/build/site.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4YIfmsmKq9BLM-zzRrnF1PcJLlZyaimg&callback=Main.initMaps&libraries=places"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4YIfmsmKq9BLM-zzRrnF1PcJLlZyaimg&callback=MapsCorps.initMaps&libraries=places"></script>
     <script type="text/javascript">// Google Analytics
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-XXXXX-X']); // Replace "XXXXX-X" with your account code

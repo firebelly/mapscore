@@ -1010,9 +1010,12 @@ nav ul li {
   text-transform: uppercase;
   letter-spacing: .1em;
 }
-.site-nav a.donate-toggle {
-  background: #1e1c56;
-  padding: 2px 6px;
+@media screen and (min-width: 900px) {
+  .site-nav a.donate-toggle {
+    background: #1e1c56;
+    color: #fff;
+    padding: 2px 6px;
+  }
 }
 .site-nav a span {
   position: relative;
@@ -1252,33 +1255,40 @@ nav ul li {
   font-size: 14px;
 }
 
-.donate-message {
+body.donation-form-active {
+  overflow: hidden;
+}
+
+.donate-form {
   top: 0;
-  left: 0;
+  bottom: 0;
   right: 0;
+  left: 0;
   z-index: 100;
   color: #fff;
   padding: 50px 0;
-  position: absolute;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: rgba(30, 28, 86, 0.95);
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   -webkit-transition: -webkit-transform 0.2s cubic-bezier(1, 0.25, 0.25, 1);
           transition: transform 0.2s cubic-bezier(1, 0.25, 0.25, 1);
 }
-.donate-message.-active {
+.donate-form.-active {
   -webkit-transform: translateY(0);
           transform: translateY(0);
 }
-.donate-message fieldset {
+.donate-form fieldset {
   border: none;
   padding: 0;
   margin: 0;
 }
-.donate-message .intro p {
+.donate-form .intro p {
   max-width: 560px;
 }
-.donate-message label {
+.donate-form label {
   font-size: 20px;
   line-height: 1;
   color: #f2ff3d;
@@ -1286,33 +1296,33 @@ nav ul li {
   margin: 16px 0 8px;
   -webkit-font-smoothing: antialiased;
 }
-.donate-message input[type=text],
-.donate-message input[type=email],
-.donate-message textarea {
+.donate-form input[type=text],
+.donate-form input[type=email],
+.donate-form textarea {
   background: rgba(255, 255, 255, 0.3);
   border: none;
   padding: 4px;
   color: #fff;
   width: 100%;
 }
-.donate-message textarea {
+.donate-form textarea {
   height: 85px;
 }
-.donate-message .radios input[type=text],
-.donate-message .radios label {
+.donate-form .radios input[type=text],
+.donate-form .radios label {
   font-size: 15px;
   line-height: 1;
   margin: 0 0 4px;
   color: #fff;
 }
-.donate-message .radios input[type=radio] {
+.donate-form .radios input[type=radio] {
   margin-right: 8px;
 }
-.donate-message .other-amount input[type=text] {
+.donate-form .other-amount input[type=text] {
   width: 130px;
   padding: 0 4px;
 }
-.donate-message input.btn.submit {
+.donate-form input.btn.submit {
   border: none;
   height: 25px;
   line-height: 25px;
@@ -1320,19 +1330,19 @@ nav ul li {
   margin-top: 44px;
   width: 100%;
 }
-.donate-message .do-not-store {
+.donate-form .do-not-store {
   text-transform: uppercase;
 }
-.donate-message .extra-info p {
+.donate-form .extra-info p {
   font-size: 12px;
   line-height: 15px;
 }
-.donate-message .close {
+.donate-form .close {
   top: 0;
   right: 20px;
   position: absolute;
 }
-.donate-message h4 {
+.donate-form h4 {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -1342,12 +1352,18 @@ nav ul li {
   margin: 0;
 }
 @media screen and (min-width: 700px) {
-  .donate-message h4 {
+  .donate-form h4 {
     font-size: 20px;
     line-height: 1.25;
   }
 }
-.donate-message .expandable-group h2 {
+.donate-form label .req {
+  color: #ff3566;
+}
+.donate-form input.error {
+  outline: 1px solid #f2ff3d;
+}
+.donate-form .expandable-group h2 {
   font-size: 20px;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
@@ -1356,21 +1372,59 @@ nav ul li {
   margin: 16px 0 8px;
   border-bottom: 1px solid #f2ff3d;
   padding-bottom: 8px;
+  position: relative;
+  cursor: pointer;
 }
-.donate-message .expandable-group input {
+.donate-form .expandable-group h2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 2px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid yellow;
+  border-left: none;
+  border-top: none;
+  -webkit-transition: all .25s;
+          transition: all .25s;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+.donate-form .expandable-group.collapsed h2:after {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.donate-form .expandable-group input {
   border-bottom: 1px solid #fff;
   background: none;
 }
-.donate-message .expandable-group label {
+.donate-form .expandable-group label {
   margin: 2px 0 12px;
   font-size: 12px;
   line-height: 15px;
   color: #fff;
 }
 @media screen and (min-width: 700px) {
-  .donate-message .close {
+  .donate-form .close {
     right: 100px;
   }
+}
+
+#formFeedback {
+  margin: 10px 0;
+  background: #ff3566;
+  color: #fff;
+  font-size: 13px;
+  line-height: 17px;
+  letter-spacing: .1em;
+  padding: 10px;
+  text-transform: uppercase;
+  display: none;
+}
+#formFeedback.-active {
+  display: block;
 }
 
 .map-search-menu-page {

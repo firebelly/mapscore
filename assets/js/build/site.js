@@ -1517,16 +1517,14 @@ var MapsCorps = (function($) {
   var $header = $('.site-header'),
       $nav = $('.site-nav'),
       $donateMessage = $('#donate'),
-      $document,
+      $document = $(document),
       loadingTimer,
-      $paymentForm;
+      $paymentForm = $('#payment-form');
 
   function _init() {
     // Touch-friendly fast clicks
     FastClick.attach(document.body);
 
-    // Cache some common DOM queries
-    $document = $(document);
     $('body').addClass('loaded');
 
     // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
@@ -1535,10 +1533,11 @@ var MapsCorps = (function($) {
     // Handle interactivity for map search menu
     _initMapSearchMenu();
 
+    _initExpandables();
     _initMobileNav();
     _initScrollspy();
     _stickyNav();
-    _initDonateMessage();
+    _initDonate();
     _initPartnersTabs();
 
     // Esc handlers
@@ -1547,6 +1546,7 @@ var MapsCorps = (function($) {
         if($('body').is('.nav-active')) {
           _hideNav();
         }
+        _hideDonateForm();
       }
     });
 
@@ -1573,17 +1573,28 @@ var MapsCorps = (function($) {
 
   } // end init()
 
+  // Expandable field groups
+  function _initExpandables() {
+    $('.expandable-group').addClass('collapsed').find('.fields').slideUp(0);
+    $('.expandable-group h2').on('click', function(e) {
+      e.stopPropagation();
+      var $group = $(this).closest('.expandable-group');
+      $group.toggleClass('collapsed');
+      $(this).next('.fields').velocity(($group.hasClass('collapsed')) ? 'slideUp' : 'slideDown',{duration: 250});
+    });
+  }
+
   function _scrollBody(element, duration, delay, offset) {
     if (offset || offset !== undefined) {
       setOffset = offset;
     } else {
       setOffset = $header.outerHeight();
     }
-    element.velocity("scroll", {
+    element.velocity('scroll', {
       duration: duration,
       delay: delay,
       offset: -setOffset
-    }, "easeOutSine");
+    }, 'easeOutSine');
   }
 
   function _initMobileNav() {
@@ -1669,27 +1680,25 @@ var MapsCorps = (function($) {
     });
   }
 
-  function _initDonateMessage() {
-
+  function _initDonate() {
+    // Donate togglers
     $document.on('click', '.donate-toggle', function(e) {
       e.preventDefault();
-      _showDonateMessage();
+      _showDonateForm();
     });
-
     $document.on('click', '.donate-close', function(e) {
       e.preventDefault();
-      _hideDonateMessage();
+      _hideDonateForm();
     });
   }
 
-  function _showDonateMessage() {
+  function _showDonateForm() {
+    $('body').addClass('donation-form-active');
     $donateMessage.addClass('-active');
-    $donateMessage.focus();
   }
-
-  function _hideDonateMessage() {
+  function _hideDonateForm() {
+    $('body').removeClass('donation-form-active');
     $donateMessage.removeClass('-active');
-    $donateMessage.blur();
   }
 
   function _initPartnersTabs() {
@@ -1892,13 +1901,15 @@ var MapsCorps = (function($) {
 
     // Make services selectable
     $('.service').click(function(){
-      if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-      } else {
-        $(this).addClass('selected');
-      }
+      $(this).toggleClass('selected');
     });
-  }
+  } // end _initMapSearchMenu
+
+  // Quickie email check
+  function _isValidEmail(email) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(email);
+  };
 
   function _initStripe() {
     // Test Key
@@ -1906,201 +1917,171 @@ var MapsCorps = (function($) {
     // Live Key
     // Stripe.setPublishableKey('pk_live_FGOFvyNZ1AFNuvDvYAq6KOIG');
 
-    var params = {};
-    $paymentForm = $('#payment-form');
+    // Add * next to required input labels
+    $paymentForm.find('input[required]').each(function() {
+      var l = $(this).siblings('label:first');
+      $('<span class="req">*</span>').appendTo(l);
+    });
 
     // Init jquery.payment field types
-    $('input.cc-num').payment('formatCardNumber');
-    $('input.cc-exp').payment('formatCardExpiry');
+    $('#ccNum').payment('formatCardNumber');
+    $('#ccExp').payment('formatCardExpiry');
 
-    // Hide feedback
-    $('#formFeedback').hide();
-
-    function verifyInfo() {
-      var firstName = $('#inFirstName').val();
-      var lastName = $('#inLastName').val();
-      var email = $('#inEmail').val();
-      var address1 = $('#inAddress1').val();
-      var city = $('#inCity').val();
-      var zip = $('#inZip').val();
-      var state = $('#inState').val();
-
-      var result = '';
-      if (firstName === null || firstName === '')
-        result = "Please enter your first name";
-      else if (lastName === null || lastName === '')
-        result = "Please enter your last name";
-      else if (email === null || email === '')
-        result = "Please enter your email";
-      else if (address1 === null || address1 === '')
-        result = "Please enter your address";
-      else if (city === null || city === '')
-        result = "Please enter your address";
-      else if (zip === null || zip === '')
-        result = "Please enter your address";
-      else if (state === null || state === '')
-        result = "Please enter your address";
-
-      return result;
-    }
-
-    function verifyCardNumber() {
-      var error = '';
-      var cardNumValid = $.payment.validateCardNumber($('input.cc-num').val());
-      if (cardNumValid) {
-        var exp = $('input.cc-exp').payment('cardExpiryVal');
-        var cardExpValid = $.payment.validateCardExpiry(exp.month, exp.year);
-        if (cardExpValid) {
-          var cardType = $.payment.cardType($('input.cc-num').val());
-          var cardCVCValid = false;
-          console.log(cardType);
-          if (cardType != null) {
-            switch (cardType) {
-              case 'amex':
-              cardCVCValid = $.payment.validateCardCVC($('input.cc-cvc').val(), 'amex');
-              break;
-              default:
-              cardCVCValid = $.payment.validateCardCVC($('input.cc-cvc').val());
-            }
-            if (!cardCVCValid)
-              error = 'CVV invalid'
-            else {
-              var zip = $('input.cc-zip').val();
-              if (zip === null || zip === '')
-                error = 'Billing Zip invalid'
-            }
-          }
-          else
-            error = 'Card is not recognized'
-        }
-        else
-          error = 'Expiration date invalid'
-      }
-      else
-        error = 'Card Number Invalid'
-      return error;
-    }
-
-    function verifyAmount () {
-      var selectedAmount = $('input[type="radio"]:checked').val();
-      var result = '';
-      var amount = '';
-      if (typeof selectedAmount !== "undefined" && selectedAmount !== null) {
-        if (selectedAmount === 'other') {
-          var enteredAmount = $('#inOther').val();
-          if (enteredAmount === null || enteredAmount === '') {
-            result = 'You need to enter an amount';
-          }
-          else {
-            if (!$.isNumeric(enteredAmount))
-              result = 'Amount must be numeric.';
-            else
-              $('#hidAmount').val(enteredAmount);
-          }
-        }
-        else
-          $('#hidAmount').val(selectedAmount);
-      }
-      else
-        result = 'You need to select an amount';
-
-      return result;
-    }
-
-    $paymentForm.submit(function(e) {
+    $paymentForm.on('submit', function(e) {
       e.preventDefault();
-      $('#formFeedback').text('Processing...');
-      $('#formFeedback').show();
+      $paymentForm.find('input,textarea').removeClass('error');
+      $('#formFeedback').text('Processing...').addClass('-active');
       var error = '';
-      error = verifyInfo();
-      if (error !== '') {
-        $('#formFeedback').text(error);
-        return false;
-      }
 
-      error = verifyAmount();
-      if (error !== '') {
-        $('#formFeedback').text(error);
-        return false;
+      if (!_verifyDonateInfo()) {
+        error = 'Please complete all required fields';
+      } else if (!_isValidEmail($('#inEmail').val())) {
+        $('#inEmail').addClass('error');
+        error = 'Please enter a valid email';
       }
-
-      error = verifyCardNumber();
-      if (error !== '') {
-        $('#formFeedback').text(error);
-        return false;
+      if (!error) {
+        error = _verifyDonateAmount();
+      }
+      if (!error) {
+        error = _verifyDonateCardNumber();
       }
 
       if (error === '') {
         Stripe.card.createToken($paymentForm, MapsCorps.stripeResponseHandler);
         return false;
+      } else {
+        $('#formFeedback').text(error);
+        return false;
       }
     });
-
-    function myCallback(json) {
-      $('#formFeedback').text(json);
-      $('#inProcess').hide();
-      var amount = '';
-
-      params.firstName = $('#inFirstName').val();
-      params.lastName = $('#inLastName').val();
-      params.comp = $('#inComp').val();
-      params.email = $('#inEmail').val();
-      params.comments = $('#txtMessage').val()
-      params.amount = $('#hidAmount').val();
-      params.address1 = $('#inAddress1').val();
-      params.address2 = $('#inAddress2').val();
-      params.city = $('#inCity').val();
-      params.state = $('#inState').val();
-      params.zip = $('#inZip').val();
-
-      var param = JSON.stringify(params);
-
-      $.ajax({
-        url: '/Tool/SendPaymentInfo/',
-        type: 'POST',
-        data: param,
-        dataType: 'json',
-        contentType: 'application/json'
-      })
-    }
-
   }
 
+  function _verifyDonateInfo() {
+    var num_errors = 0;
+    $paymentForm.find('input[required]').each(function() {
+      if ($(this).val()==='') {
+        $(this).addClass('error');
+        num_errors++;
+      }
+    });
+    return (num_errors===0);
+  }
+
+  function _verifyDonateCardNumber() {
+    var error = '';
+    var cardNumValid = $.payment.validateCardNumber($('#ccNum').val());
+
+    if (cardNumValid) {
+      var exp = $('#ccExp').payment('cardExpiryVal');
+      var cardExpValid = $.payment.validateCardExpiry(exp.month, exp.year);
+      if (cardExpValid) {
+        var cardType = $.payment.cardType($('#ccNum').val());
+        var cardCVCValid = false;
+        if (cardType != null) {
+          switch (cardType) {
+            case 'amex':
+              cardCVCValid = $.payment.validateCardCVC($('#ccCvc').val(), 'amex');
+              break;
+            default:
+              cardCVCValid = $.payment.validateCardCVC($('#ccCvc').val());
+          }
+          if (!cardCVCValid) {
+            error = 'CVV invalid';
+          }
+        } else {
+          error = 'Card is not recognized';
+        }
+      } else {
+        $('#ccExp').addClass('error');
+        error = 'Expiration date invalid';
+      }
+    } else {
+      $('#ccNum').addClass('error');
+      error = 'Card Number Invalid';
+    }
+
+    return error;
+  }
+
+  function _verifyDonateAmount() {
+    var selectedAmount = $paymentForm.find('.radios input[type=radio]:checked').val();
+    var result = '';
+    if (typeof selectedAmount !== "undefined" && selectedAmount !== null) {
+      if (selectedAmount === 'other') {
+        var enteredAmount = $('#inOther').val();
+        if (enteredAmount === null || enteredAmount === '') {
+          result = 'Please enter an amount';
+          $('#inOther').addClass('error');
+        } else {
+          if (!$.isNumeric(enteredAmount)) {
+            result = 'Amount must be numeric.';
+          } else {
+            $('#hidAmount').val(enteredAmount);
+          }
+        }
+      } else {
+        $('#hidAmount').val(selectedAmount);
+      }
+    } else {
+      result = 'Please select an amount';
+    }
+
+    return result;
+  }
+
+  // Submit donation details to backend
+  function _stripeCallback(json) {
+    $('#formFeedback').text(json);
+    $('#stripeSubmit').hide();
+    // build string from form data (minus CC fields)
+    var param = $('#payment-form').find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
+    $.ajax({
+      url: '/Tool/SendPaymentInfo/',
+      type: 'POST',
+      data: param,
+      dataType: 'json',
+      contentType: 'application/json'
+    });
+  }
+
+  // This is called after Stripe creates the payment token
   function _stripeResponseHandler(status, response) {
-    var $paymentForm = $('#payment-form');
     if (response.error) {
 
-        // Show the errors on the form:
-        $paymentForm.find('.payment-errors').text(response.error.message);
-        $paymentForm.find('.submit').prop('disabled', false); // Re-enable submission
+      // Show the errors on the form:
+      $('formFeedback').text(response.error.message);
+      $paymentForm.find('.submit').prop('disabled', false); // Re-enable submission
 
-      } else { // Token was created!
+    } else { // Token was created!
 
-        var token = response.id;
-        var amount = $('#hidAmount').val();
+      var token = response.id;
+      var amount = $('#hidAmount').val();
 
-        // Submit the form:
-        if (token !== null && token !== '') {
-          $.ajax({
-            url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
-              //url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
-              type: 'GET',
-              dataType: 'jsonp',
-              jsonp: 'callback',
-              jsonpCallback: 'myCallback',
-              contentType: 'application/json',
-              crossDomain: true
-            });
-        } else {
-          $('#formFeedback').text('Error processing payment. Please try again.');
-        }
+      // Submit the form to process payment in backend
+      if (token !== null && token !== '') {
+        $.ajax({
+          url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
+            //url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
+            type: 'GET',
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            jsonpCallback: 'myCallback',
+            contentType: 'application/json',
+            crossDomain: true
+          });
+      } else {
+        $('#formFeedback').text('Error processing payment. Please try again.');
       }
     }
+  }
 
   // Public functions
   return {
     init: _init,
     initMaps: _initMaps,
+    stripeCallback: function(json) {
+      _stripeCallback(json);
+    },
     stripeResponseHandler: function(status, response) {
       _stripeResponseHandler(status, response);
     },
@@ -2110,6 +2091,11 @@ var MapsCorps = (function($) {
   };
 
 })(jQuery);
+
+// Stripe hardcoded callback from node app
+function myCallback(json) {
+  MapsCorps.stripeCallback(json);
+}
 
 // Fire up the mothership
 jQuery(document).ready(MapsCorps.init);

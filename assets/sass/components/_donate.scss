@@ -1,13 +1,19 @@
 // Donate section
 
-.donate-message {
+body.donation-form-active {
+  overflow: hidden;
+}
+.donate-form {
   top: 0;
-  left: 0;
+  bottom: 0;
   right: 0;
+  left: 0;
   z-index: 100;
   color: $white;
   padding: 50px 0;
-  position: absolute;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: rgba($blue,.95);
   transform: translateY(-100%);
   transition: transform .2s cubic-bezier(1,.25,.25,1);
@@ -88,6 +94,12 @@
     color: $yellow;
     margin: 0;
   }
+  label .req {
+    color: $pink;
+  }
+  input.error {
+    outline: 1px solid $yellow;
+  }
 
   .expandable-group {
     h2 {
@@ -99,6 +111,26 @@
       margin: 16px 0 8px;
       border-bottom: 1px solid $yellow;
       padding-bottom: 8px;
+      position: relative;
+      cursor: pointer;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 8px;
+        right: 2px;
+        width: 13px;
+        height: 13px;
+        border: 1px solid yellow;
+        border-left: none;
+        border-top: none;
+        transition: all .25s;
+        transform: rotate(-135deg);
+      }
+    }
+    &.collapsed h2:after {
+      top: 0;
+      transform: rotate(45deg);
     }
     input {
       border-bottom: 1px solid $white;
@@ -116,5 +148,19 @@
     .close {
       right: 100px;
     }
+  }
+}
+#formFeedback {
+  margin: 10px 0;
+  background: $pink;
+  color: $white;
+  font-size: 13px;
+  line-height: 17px;
+  letter-spacing: .1em;
+  padding: 10px;
+  text-transform: uppercase;
+  display: none;
+  &.-active {
+    display: block;
   }
 }
