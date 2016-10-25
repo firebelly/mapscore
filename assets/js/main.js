@@ -529,6 +529,9 @@ var MapsCorps = (function($) {
       // Show success notice
       $('#donate').addClass('-success');
 
+      // Scroll up in case we're on mobile
+      $('#donate')[0].scrollTop = 0;
+
       // Build string from form data (minus CC fields)
       var param = $('#payment-form').find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
 
