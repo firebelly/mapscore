@@ -108,7 +108,7 @@
   }
 
   @include media-md {
-    
+
     .wrap {
       margin: 0 auto;
     }
@@ -144,7 +144,7 @@
       padding: 100px 20px;
     }
   }
-} 
+}
 
 .history-section {
 
@@ -206,16 +206,16 @@
     background-image: url('../images/communities-background.jpg');
   }
 
-  .section-copy {  
+  .section-copy {
     p {
       @include h5;
     }
   }
-} 
+}
 
 .map-grid {
   margin-top: 50px;
-  
+
   @include media-md {
     margin-top :100px;
     .grid {
@@ -294,7 +294,7 @@
 
   .map-content {
     z-index: 1;
-    margin: auto;    
+    margin: auto;
     text-align: center;
     position: relative;
     h3 {
@@ -485,7 +485,11 @@
   }
 
 }
-
+.request-data {
+  border-top: 1px solid $blue;
+  padding-top: 10px;
+  margin-top: 50px;
+}
 .impact-section {
   .section-image {
     background-image: url('../images/impact-background.jpg');
@@ -585,7 +589,7 @@
     @include media-md {
       flex-wrap: wrap;
 
-      .one-third {      
+      .one-third {
         max-width: 50%;
         flex-basis: 50%;
         margin-bottom: 50px;

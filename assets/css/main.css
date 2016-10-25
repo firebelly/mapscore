@@ -2209,6 +2209,12 @@ body.donation-form-active {
   color: #4272db;
 }
 
+.request-data {
+  border-top: 1px solid #1e1c56;
+  padding-top: 10px;
+  margin-top: 50px;
+}
+
 .impact-section .section-image {
   background-image: url("../images/impact-background.jpg");
 }
