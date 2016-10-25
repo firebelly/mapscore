@@ -1259,6 +1259,25 @@ body.donation-form-active {
   overflow: hidden;
 }
 
+.success-notice {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 1s ease-out;
+          transition: all 1s ease-out;
+}
+.success-notice h3 {
+  margin: 50px 0 0;
+  font-size: 50px;
+  line-height: 1;
+  color: #f2ff3d;
+}
+.success-notice p {
+  font-size: 30px;
+  line-height: 35px;
+  margin: 50px 0 150px;
+}
+
 .donate-form {
   top: 0;
   bottom: 0;
@@ -1279,6 +1298,13 @@ body.donation-form-active {
 .donate-form.-active {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+.donate-form.-success #payment-form {
+  display: none;
+}
+.donate-form.-success .success-notice {
+  min-height: 1000px;
+  opacity: 1;
 }
 .donate-form fieldset {
   border: none;

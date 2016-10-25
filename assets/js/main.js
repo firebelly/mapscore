@@ -2,7 +2,6 @@ var MapsCorps = (function($) {
 
   var $header = $('.site-header'),
       $nav = $('.site-nav'),
-      $donateMessage = $('#donate'),
       $document = $(document),
       loadingTimer,
       $paymentForm = $('#payment-form');
@@ -166,6 +165,7 @@ var MapsCorps = (function($) {
     });
   }
 
+  // Init donation form buttons
   function _initDonate() {
     // Donate togglers
     $document.on('click', '.donate-toggle', function(e) {
@@ -178,13 +178,14 @@ var MapsCorps = (function($) {
     });
   }
 
+  // Show/hide donation overlay
   function _showDonateForm() {
     $('body').addClass('donation-form-active');
-    $donateMessage.addClass('-active');
+    $('#donate').addClass('-active');
   }
   function _hideDonateForm() {
     $('body').removeClass('donation-form-active');
-    $donateMessage.removeClass('-active');
+    $('#donate').removeClass('-active');
   }
 
   function _initPartnersTabs() {
@@ -200,6 +201,7 @@ var MapsCorps = (function($) {
   }
 
   function _initMaps() {
+    return;
     var parterMaps = [];
 
     var chicago = {
@@ -395,10 +397,11 @@ var MapsCorps = (function($) {
   function _isValidEmail(email) {
     var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
     return pattern.test(email);
-  };
+  }
 
   function _initStripe() {
     // Test Key
+    // Stripe.setPublishableKey('pk_test_QUYqxyP4xtV4vsBbhb1WylV3');
     Stripe.setPublishableKey('pk_test_fchY3vnT8N63k3zcpGKKBFbu');
     // Live Key
     // Stripe.setPublishableKey('pk_live_FGOFvyNZ1AFNuvDvYAq6KOIG');
@@ -432,12 +435,10 @@ var MapsCorps = (function($) {
         error = _verifyDonateCardNumber();
       }
 
-      if (error === '') {
+      if (!error) {
         Stripe.card.createToken($paymentForm, MapsCorps.stripeResponseHandler);
-        return false;
       } else {
-        $('#formFeedback').text(error);
-        return false;
+        _donationError(error);
       }
     });
   }
@@ -463,7 +464,7 @@ var MapsCorps = (function($) {
       if (cardExpValid) {
         var cardType = $.payment.cardType($('#ccNum').val());
         var cardCVCValid = false;
-        if (cardType != null) {
+        if (cardType !== null) {
           switch (cardType) {
             case 'amex':
               cardCVCValid = $.payment.validateCardCVC($('#ccCvc').val(), 'amex');
@@ -516,49 +517,78 @@ var MapsCorps = (function($) {
   }
 
   // Submit donation details to backend
-  function _stripeCallback(json) {
-    $('#formFeedback').text(json);
-    $('#stripeSubmit').hide();
-    // build string from form data (minus CC fields)
-    var param = $('#payment-form').find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
-    $.ajax({
-      url: '/Tool/SendPaymentInfo/',
-      type: 'POST',
-      data: param,
-      dataType: 'json',
-      contentType: 'application/json'
-    });
+  function _stripeCallback(response) {
+    if (response.error) {
+      if (response.error.message.match(/no such token/i)) {
+        _donationError('Invalid payment token. Please try again.');
+      } else {
+        _donationError(response.error.message);
+      }
+
+    } else {
+      // Show success notice
+      $('#donate').addClass('-success');
+
+      // Build string from form data (minus CC fields)
+      var param = $('#payment-form').find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
+
+      // Send donation info to backend for emails
+      $.ajax({
+        url: '/Tool/SendPaymentInfo/',
+        type: 'POST',
+        data: param,
+        dataType: 'json',
+        contentType: 'application/json'
+      });
+
+    }
   }
 
   // This is called after Stripe creates the payment token
   function _stripeResponseHandler(status, response) {
     if (response.error) {
-
       // Show the errors on the form:
-      $('formFeedback').text(response.error.message);
+      _donationError(response.error.message);
       $paymentForm.find('.submit').prop('disabled', false); // Re-enable submission
 
     } else { // Token was created!
 
       var token = response.id;
       var amount = $('#hidAmount').val();
-
       // Submit the form to process payment in backend
       if (token !== null && token !== '') {
+
+        // Disable submit button to avoid multiple submits
+        $paymentForm.find('input.submit').prop('disabled', true);
+
+        // Send payment to backend to handle Stripe transaction
         $.ajax({
-          url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
-            //url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
+          // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
+            url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
             type: 'GET',
             dataType: 'jsonp',
             jsonp: 'callback',
             jsonpCallback: 'myCallback',
             contentType: 'application/json',
-            crossDomain: true
+            crossDomain: true,
+            timeout: 5000,
+            error: function() {
+              // Request timed out
+              _donationError('Error processing payment. Please try again.');
+            }
           });
       } else {
-        $('#formFeedback').text('Error processing payment. Please try again.');
+        _donationError('Error processing payment. Please try again.');
       }
     }
+  }
+
+  // Show donation error message and re-enable submit button
+  function _donationError(error) {
+    if (typeof error !== 'undefined' && error !== '') {
+      $('#formFeedback').text(error);
+    }
+    $paymentForm.find('input.submit').prop('disabled', false);
   }
 
   // Public functions
@@ -579,8 +609,8 @@ var MapsCorps = (function($) {
 })(jQuery);
 
 // Stripe hardcoded callback from node app
-function myCallback(json) {
-  MapsCorps.stripeCallback(json);
+function myCallback(response) {
+  MapsCorps.stripeCallback(response);
 }
 
 // Fire up the mothership
