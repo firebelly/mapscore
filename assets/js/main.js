@@ -566,8 +566,8 @@ var MapsCorps = (function($) {
 
         // Send payment to backend to handle Stripe transaction
         $.ajax({
-          // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
-            url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
+            url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
+            // url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
             type: 'GET',
             dataType: 'jsonp',
             jsonp: 'callback',
