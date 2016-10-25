@@ -1699,7 +1699,7 @@ var MapsCorps = (function($) {
   }
   function _hideDonateForm() {
     $('body').removeClass('donation-form-active');
-    $('#donate').removeClass('-active');
+    $('#donate').removeClass('-active -success');
   }
 
   function _initPartnersTabs() {
@@ -1715,7 +1715,6 @@ var MapsCorps = (function($) {
   }
 
   function _initMaps() {
-    return;
     var parterMaps = [];
 
     var chicago = {
@@ -1915,8 +1914,8 @@ var MapsCorps = (function($) {
 
   function _initStripe() {
     // Test Key
-    // Stripe.setPublishableKey('pk_test_QUYqxyP4xtV4vsBbhb1WylV3');
-    Stripe.setPublishableKey('pk_test_fchY3vnT8N63k3zcpGKKBFbu');
+    Stripe.setPublishableKey('pk_test_QUYqxyP4xtV4vsBbhb1WylV3'); // nate's stripe test key
+    // Stripe.setPublishableKey('pk_test_fchY3vnT8N63k3zcpGKKBFbu');
     // Live Key
     // Stripe.setPublishableKey('pk_live_FGOFvyNZ1AFNuvDvYAq6KOIG');
 
@@ -1932,7 +1931,9 @@ var MapsCorps = (function($) {
 
     $paymentForm.on('submit', function(e) {
       e.preventDefault();
+      // Clear out error classes
       $paymentForm.find('input,textarea').removeClass('error');
+      // Activate form feedback div and
       $('#formFeedback').text('Processing...').addClass('-active');
       var error = '';
 
@@ -2043,15 +2044,21 @@ var MapsCorps = (function($) {
       // Show success notice
       $('#donate').addClass('-success');
 
-      // Scroll up in case we're on mobile
+      // Reset form
+      $paymentForm[0].reset();
+      $('#formFeedback').text('').removeClass('-active');
+      $paymentForm.find('input.submit').prop('disabled', false);
+
+      // Scroll #donate up to show success notice (in case we're on mobile)
       $('#donate')[0].scrollTop = 0;
 
       // Build string from form data (minus CC fields)
-      var param = $('#payment-form').find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
+      var param = $paymentForm.find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
 
       // Send donation info to backend for emails
       $.ajax({
-        url: '/Tool/SendPaymentInfo/',
+        // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/donation_success',
+        url: 'http://localhost:1337/node/donation_success',
         type: 'POST',
         data: param,
         dataType: 'json',
@@ -2066,7 +2073,7 @@ var MapsCorps = (function($) {
     if (response.error) {
       // Show the errors on the form:
       _donationError(response.error.message);
-      $paymentForm.find('.submit').prop('disabled', false); // Re-enable submission
+      $paymentForm.find('input.submit').prop('disabled', false); // Re-enable submission
 
     } else { // Token was created!
 
@@ -2080,8 +2087,8 @@ var MapsCorps = (function($) {
 
         // Send payment to backend to handle Stripe transaction
         $.ajax({
-            url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
-            // url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
+            // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
+            url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
             type: 'GET',
             dataType: 'jsonp',
             jsonp: 'callback',
