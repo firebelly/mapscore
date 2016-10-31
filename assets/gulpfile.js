@@ -2,7 +2,7 @@
 
 // Load required plugins
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -33,7 +33,8 @@ gulp.task('browser-sync', function() {
 
 // Sass compilation and output
 gulp.task('styles', function() {
-  return sass('sass/main.scss', { style: 'expanded' })
+  return gulp.src(['sass/main.scss'])
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))

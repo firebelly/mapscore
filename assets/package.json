@@ -7,7 +7,9 @@
     "url": "git://github.com/poopsplat/starthere.git"
   },
   "author": "@poopsplat",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-sass": "^2.3.2"
+  },
   "devDependencies": {
     "browser-sync": "^2.12.8",
     "cheerio": "^0.18.0",
