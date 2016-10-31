@@ -56,7 +56,7 @@
   .vision-banner {
     position: relative;
     padding: 160px 0 115px;
-    background: url('Images/vision-background.jpg') no-repeat center center;
+    background: url("#{$images-dir}vision-background.jpg") no-repeat center center;
     background-size: cover;
   }
 
@@ -204,7 +204,7 @@
 
 .communities-section {
   .section-image {
-    background-image: url('Images/communities-background.jpg');
+    background-image: url("#{$images-dir}communities-background.jpg");
   }
 
   .section-copy {
@@ -308,16 +308,16 @@
   }
 
   .chicago .map-wrapper {
-    background-image: url('Images/map-chicago.jpg');
+    background-image: url("#{$images-dir}map-chicago.jpg");
   }
   .new-york .map-wrapper {
-    background-image: url('Images/map-nyc.jpg');
+    background-image: url("#{$images-dir}map-nyc.jpg");
   }
   .niagara .map-wrapper {
-    background-image: url('Images/map-niagara.jpg');
+    background-image: url("#{$images-dir}map-niagara.jpg");
   }
   .nash-edgecombe .map-wrapper {
-    background-image: url('Images/map-nash-edgecombe.jpg');
+    background-image: url("#{$images-dir}map-nash-edgecombe.jpg");
   }
 
   .chicago,
@@ -380,7 +380,7 @@
 
 .partners-section {
   .section-image {
-    background-image: url('Images/partners-background.jpg');
+    background-image: url("#{$images-dir}partners-background.jpg");
   }
 
   .maps {
@@ -495,7 +495,7 @@
 
 .impact-section {
   .section-image {
-    background-image: url('Images/impact-background.jpg');
+    background-image: url("#{$images-dir}impact-background.jpg");
     &::before,
     &::after {
       display: none;

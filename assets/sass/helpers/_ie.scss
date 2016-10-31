@@ -9,7 +9,7 @@
         width: 133px;
         height: 29px;
         display: block;
-        background: url('../images/logo-light.png');
+        background: url("#{$images-dir}logo-light.png");
         background-size: 100%;
       }
     }
@@ -19,7 +19,7 @@
     background: $white;
     .logo {
       a {
-        background: url('../images/logo-dark.png');
+        background: url("#{$images-dir}logo-dark.png");
       }
     }
   }
@@ -27,7 +27,7 @@
   .site-footer {
     .logo {
       a {
-        background: url('../images/logo-footer.png');
+        background: url("#{$images-dir}logo-footer.png");
       }
     }
   }

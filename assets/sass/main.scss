@@ -1,4 +1,4 @@
-@charset "UTF-8"; 
+@charset "UTF-8";
 
 // Reset
 @import "vendor/normalize";
@@ -8,7 +8,7 @@
 @import "helpers/variables";
 @import "helpers/typography";
 @import "helpers/grid";
-@import "helpers/accessibility"; 
+@import "helpers/accessibility";
 @import "helpers/animations";
 @import "helpers/ie";
 
@@ -20,9 +20,10 @@
 @import "components/header";
 @import "components/footer";
 @import "components/maps";
-@import "components/donate"; 
+@import "components/donate";
 
 // Pages
 @import "pages/home";
+@import "pages/legal";
 // This is the map app mockup page style
 @import "pages/map-app";
