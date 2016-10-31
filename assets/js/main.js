@@ -538,15 +538,38 @@ var MapsCorps = (function($) {
       // Scroll #donate up to show success notice (in case we're on mobile)
       $('#donate')[0].scrollTop = 0;
 
-      // Build string from form data (minus CC fields)
-      var param = $paymentForm.find('input,textarea').not('#ccNum,#ccCvc,#ccExp').serialize();
+      // Build object of donation fields
+      var params = {
+        'firstName': $('#inFirstName').val(),
+        'lastName': $('#inLastName').val(),
+        'comp': $('#inComp').val(),
+        'email': $('#inEmail').val(),
+        'comments': $('#txtMessage').val(),
+        'amount': $('#hidAmount').val(),
+        'address1': $('#inAddress1').val(),
+        'address2': $('#inAddress2').val(),
+        'city': $('#inCity').val(),
+        'state': $('#inState').val(),
+        'zip': $('#inZip').val(),
+        'message': $('#txtMessage').val(),
+        'partner_firstName': $('#inFirstNamePartner').val(),
+        'partner_lastName': $('#inLastNamePartner').val(),
+        'special_firstName': $('#inFirstNameSpecial').val(),
+        'special_lastName': $('#inLastNameSpecial').val(),
+        'recipient_firstName': $('#inFirstNameRecipient').val(),
+        'recipient_lastName': $('#inLastNameRecipient').val(),
+        'recipient_address1': $('#inAddress1Recipient').val(),
+        'recipient_address2': $('#inAddress2Recipient').val(),
+        'recipient_city': $('#inCityRecipient').val(),
+        'recipient_state': $('#inStateRecipient').val(),
+        'recipient_zip': $('#inZipRecipient').val()
+      };
 
       // Send donation info to backend for emails
       $.ajax({
-        // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/donation_success',
-        url: 'http://localhost:1337/node/donation_success',
+        url: '/Tool/SendPaymentInfo/',
         type: 'POST',
-        data: param,
+        data: JSON.stringify(params),
         dataType: 'json',
         contentType: 'application/json'
       });
@@ -610,9 +633,6 @@ var MapsCorps = (function($) {
     },
     stripeResponseHandler: function(status, response) {
       _stripeResponseHandler(status, response);
-    },
-    scrollBody: function(section, duration, delay, offset) {
-      _scrollBody(section, duration, delay, offset);
     }
   };
 
