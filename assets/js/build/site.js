@@ -1721,18 +1721,23 @@ var MapsCorps = (function($) {
       partnerLat: 41.7837192,
       partnerLng: -87.6325996,
       partnerLocations: [
-        ['Greater Auburn-Gresham Development Corporation', '1159 West 79th Street Chicago, IL', '773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined'],
-        ['Centers For New Horizons Inc', 'undefined', '773-373-5700', 'undefined', 'http://cnh.org', 41.8186204, -87.61735729999998, 'undefined'],
-        ['Claretian Associate', '9108 South Brandon Avenue, Chicago, IL', '773-734-9181', 'portera@claretianassociates.org', 'https://www.claretianassociates.org', 41.7296735, -87.54732000000001, 'undefined'],
-        ['Hyde Park Neighborhood Club', '5480 S. KENWOOD AVENUE, CHICAGO, IL 60615', '773-643-4062', 'info@hpnclub.org', 'http://hpnclub.org', 41.7958986, -87.59401860000003, 'undefined'],
-        ['Demoiselle 2 Femme', 'undefined', '773-660-1677', 'undefined', 'http://demoiselle2femme.org', 41.7224835, -87.6817249, 'undefined'],
-        ['Sinai Community Institute', '2653 West Ogden Avenue, Chicago, Illinois 60608', '773-257-6508', 'undefined', 'http://www.sinai.org/content/sinai-community-institute-0', 41.8621073, -87.6927976, 'undefined'],
-        ['Near West Side Community Development Corporation', '216 South Hoyne Avenue, Chicago, IL 60612', '312-738-2280', 'undefined', 'http://nearwestsidecdc.org/', 41.8781545, -87.67924619999997, 'undefined'],
-        ['Enlace Chicago', '2756 S. Harding Avenue, Chicago, IL 60623', '773-542-9233', 'info@enlacechicago.org', 'http://www.enlacechicago.org/', 41.8407009, -87.7234694, 'undefined'],
-        ['BUILD Chicago', '5100 W. Harrison, Chicago IL 60644', '773-227-2880', 'undefined', 'http://www.buildchicago.org/', 41.8731717, -87.75370459999999, 'undefined'],
-        ['After School Matters', '66 East Randolph Street, Chicago, IL 60601', '312-742-4182', 'undefined', 'http://www.afterschoolmatters.org/', 41.8848207, -87.6276737, 'undefined'],
-        ['University of Chicago Metcalf Internship Program', '1212 E. 59th Street, Chicago, IL 60637', '773-702-7040', 'undefined', 'https://careeradvancement.uchicago.edu/jobs-internships-research/metcalf-internship', 41.7882112, -87.5977685, 'undefined'],
-        ['City Colleges of Chicago', '226 W. Jackson, Chicago, IL 60606', '312-553-2500', 'undefined', 'http://www.ccc.edu/', 41.8784226, -87.6370685, 'undefined']
+        //host sites (blue)
+        ['Centers For New Horizons (Altgeld Gardens)', '975 E. 132nd St. Chicago, IL 60827', '773-373-5700', 'undefined', 'http://cnh.org', 41.6556662, -87.59818199999999, 'undefined', 'undefined'],
+        ['Centers For New Horizons (Bronzville)', '4150 S King Dr, Chicago, IL 60653', '773-373-5700', 'undefined', 'http://cnh.org', 41.8186204, -87.61735729999998, 'undefined', 'undefined'],
+        ['Claretian Associates', '9108 South Brandon Avenue, Chicago, IL', '773-734-9181', 'portera@claretianassociates.org', 'https://www.claretianassociates.org', 41.7296735, -87.54732000000001, 'undefined', 'undefined'],
+        ['Greater Auburn-Gresham Development Corporation', '1159 West 79th Street, Chicago, IL', '773-483-3696', 'undefined', 'http://www.gagdc.org/', 41.7503217, -87.65356170000001, 'undefined', 'undefined'],
+        ['Hyde Park Neighborhood Club', '5480 S. Kenwood Avenue, Chicago, IL 60615', '773-643-4062', 'info@hpnclub.org', 'http://hpnclub.org', 41.7958986, -87.59401860000003, 'undefined', 'undefined'],
+        ['Demoiselle 2 Femme', '10924 S. Halsted Street, Suite 7, Chicago IL, 60628', '773-660-1677', 'undefined', 'http://demoiselle2femme.org', 41.69521719999999, -87.6426738, 'undefined', 'undefined'],
+        ['Sinai Community Institute', '2653 West Ogden Avenue, Chicago, Illinois 60608', '773-257-6508', 'undefined', 'http://www.sinai.org/content/sinai-community-institute-0', 41.8621073, -87.6927976, 'undefined', 'undefined'],
+        ['Near West Side Community Development Corporation', '216 South Hoyne Avenue, Chicago, IL 60612', '312-738-2280', 'undefined', 'http://nearwestsidecdc.org/', 41.8781545, -87.67924619999997, 'undefined', 'undefined'],
+        ['Enlace Chicago', '2756 S. Harding Avenue, Chicago, IL 60623', '773-542-9233', 'info@enlacechicago.org', 'http://www.enlacechicago.org/', 41.8407009, -87.7234694, 'undefined', 'undefined'],
+        ['BUILD Chicago', '5100 W. Harrison, Chicago IL 60644', '773-227-2880', 'undefined', 'http://www.buildchicago.org/', 41.8731717, -87.75370459999999, 'undefined', 'undefined'],
+
+        //partners (yellow)
+        ['University of Chicago Lindau Lab', '860 E. 59st St. Chicago, IL 60637', 'undefined', 'undefined', 'http://obg.bsd.uchicago.edu/FacultyResearch/Lindaulab/Lindaulab.html', 41.7878853, -87.6040539, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['After School Matters', '66 East Randolph Street, Chicago, IL 60601', '312-742-4182', 'undefined', 'http://www.afterschoolmatters.org/', 41.8848207, -87.6276737, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['University of Chicago Metcalf Internship Program', '1212 E. 59th Street, Chicago, IL 60637', '773-702-7040', 'undefined', 'https://careeradvancement.uchicago.edu/jobs-internships-research/metcalf-internship', 41.7882112, -87.5977685, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['City Colleges of Chicago', '226 W. Jackson, Chicago, IL 60606', '312-553-2500', 'undefined', 'http://www.ccc.edu/', 41.8784226, -87.6370685, '/Content/Images/pin-blue-sm.png', 'undefined']
       ],
       elementID: 'chicago-partners',
       partnerZoom: 11
@@ -1742,11 +1747,26 @@ var MapsCorps = (function($) {
       partnerLat: 40.7993063,
       partnerLng: -73.937144,
       partnerLocations: [
-        ['Mount Sinai Adolescent Health Center', '312-320 East 94th Street, New York, NY 10128', '212-423-3000', 'undefined', 'http://www.mountsinai.org/patient-care/service-areas/adolescent-health-center', 40.7823722, -73.94719570000001, '/assets/images/pin-pink-sm.png'],
-        ['Claremont Healthy Village', '1276 Fulton Ave., Bronx, NY 10456', ' 718-901-8297', 'undefined', 'http://www.blhfamilymed.com/Community-Involvement/CHVI', 40.8313933, -73.90273730000001, 'undefined'],
-        ['Urban Health Plan, Inc', '1065 Southern Boulevard, Bronx, New York 10459', '718-589-2440', 'info@urbanhealthplan.org', 'http://www.urbanhealthplan.org/', 40.825011, -73.89228300000002, 'undefined'],
-        ['Two Bridges Neighborhood Council', '275 Cherry Street, New York, NY 10002', '212-566-2729  ', 'info@twobridges.org', 'http://www.twobridges.org/', 40.71093169999999, -73.98848079999999, 'undefined']
-      ],
+        //partner
+        ['New York State Health Foundation', '1385 Broadway, New York, NY 10018', 'undefined', 'undefined', 'undefined', 40.7528622, -73.98786299999999, '/Content/Images/pin-blue-sm.png', 'undefined'],
+
+        //champion/hub
+        ['Mount Sinai Adolescent Health Center', '320 East 94th Street, New York, NY 10128', '212-423-3000', 'undefined', 'http://www.mountsinai.org/patient-care/service-areas/adolescent-health-center', 40.7823722, -73.94719570000001, '/Content/Images/pin-pink-sm.png', 'MAPSCorps Hub & Champion'],
+
+        //host site
+        ['Claremont Neighborhood Center', '489 E. 169th St, Bronx, NY 10456', ' 718-901-8297', 'undefined', 'http://www.claremontcenter.org/', 40.8330233, -73.907439, 'undefined', 'undefined'],
+        ['Urban Health Plan, Inc', '1065 Southern Boulevard, Bronx, New York 10459', '718-589-2440', 'info@urbanhealthplan.org', 'http://www.urbanhealthplan.org/', 40.825011, -73.89228300000002, 'undefined', 'undefined'],
+        ['Two Bridges Neighborhood Council', '275 Cherry Street, New York, NY 10002', '212-566-2729  ', 'info@twobridges.org', 'http://www.twobridges.org/', 40.71093169999999, -73.98848079999999, 'undefined', 'undefined'],
+        ['Cypress Hills Local Development Corporation', '2930 Fulton Street, Brooklyn, NY 11207', 'undefined', 'undefined', 'undefined', 40.6792311, -73.88656410000002, 'undefined', 'undefined']
+
+        //TBD
+        //El Barrio
+        //New York City Mission Society
+        //Chinatown ManPower
+        //Police Athletic League
+        //BronxWorks
+
+        ],
       elementID: 'nyc-partners',
       partnerZoom: 11
     };
@@ -1755,20 +1775,44 @@ var MapsCorps = (function($) {
       partnerLat: 43.1132875,
       partnerLng: -79.0355104,
       partnerLocations: [
-        ['Planned Parenthood of Central and Western New York', '1700 Main Street, Niagara Falls, NY 14305', '716-831-2200', 'undefined', 'https://www.plannedparenthood.org/planned-parenthood-central-western-new-york', 43.104703, -79.0554837, 'undefined']
+        //Champion (pink)
+        ['Create a Healthier Niagara Falls Collaborative ', 'Niagara Falls, NY', 'undefined', 'undefined', 'undefined', 43.1320551, -78.9421621, '/Content/Images/pin-pink-sm.png', 'MAPSCorp Champion'],
+
+        //host (blue)
+        ['Planned Parenthood of Central and Western New York', '1700 Main Street, Niagara Falls, NY 14305', '716-831-2200', 'undefined', 'https://www.plannedparenthood.org/planned-parenthood-central-western-new-york', 43.104703, -79.0554837, 'undefined', 'undefined'],
+
+        //partners (yellow)
+        ['Niagara University Levesque Institute', '443 Roosevelt Avenue Niagara Falls, NY 14305', 'undefined', 'undefined', 'undefined', 43.1352639, -79.0404061, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['Niagara County Employment & Training Center Summer Youth Employment Program', '1001 11th Street Niagara Falls, NY 14301', 'undefined', 'undefined', 'undefined', 43.098766, -79.04935499999999, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['Community Health Center of Niagara', '2715 Highland Avenue Niagara Falls, NY 14305', 'undefined', 'undefined', 'undefined', 43.113036, -79.048565, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['Mr. Saint Mary’s Hospital & Neighborhood Health Center', '3101 9th Street Niagara Falls, NY 14305', 'undefined', 'undefined', 'undefined', 43.1158566, -79.0503702, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['Niagara Falls Memorial Medical Center', '621 10th Street Niagara Falls, NY 14301', 'undefined', 'undefined', 'undefined', 43.0946238, -79.048743, '/Content/Images/pin-blue-sm.png', 'undefined']
+
       ],
       elementID: 'niagara-partners',
       partnerZoom: 12
     };
 
     var nashEdgecombe = {
-      partnerLat: 35.9424136,
-      partnerLng: -77.7970862,
-      partnerLocations: [
-        ['Project Momentum', '107 SE Main Street, Rocky Mount, NC 27801', 'undefined', 'undefined', 'undefined', 35.9424136, -77.7970862, 'undefined']
+        partnerLat: 35.9451536,
+        partnerLng: -78.11193449999999,
+        //partnerLat: 35.9424136,
+        //partnerLng: -77.7970862,
+        partnerLocations: [
+        //Host (blue)
+        ['Project Momentum', '107 SE Main Street, Rocky Mount, NC 27801', 'undefined', 'undefined', 'undefined', 35.9424136, -77.7970862, 'undefined', 'undefined'],
+
+        //Partners (yellow)
+        ['Project Grace', 'Rocky Mount, NC', 'undefined', 'undefined', 'undefined', 36.0673691, -77.73560809999999, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['Resourceful Communities', 'Rocky Mount, NC', 'undefined', 'undefined', 'undefined', 36.0673691, -77.73560809999999, '/Content/Images/pin-blue-sm.png', 'undefined'],
+        ['Opportunities Industrialization Center', '402 E. Virginia Street, P. O. BOX 2723, Rocky Mount, NC 27802', 'undefined', 'undefined', 'undefined', 35.9509943, -77.7866018, '/Content/Images/pin-blue-sm.png', 'undefined'],
+
+        //Champion
+        ['University of North Carolina at Chapel Hill, Center for Health Equity Research', '333 South Columbia Street, Chapel Hill, NC 27599-7240', 'undefined', 'undefined', 'undefined', 35.9080741, -79.05281119999999, '/Content/Images/pin-pink-sm.png', 'MAPSCorps Champion']
+
       ],
       elementID: 'nash-edgecombe-partners',
-      partnerZoom: 11
+      partnerZoom: 9
     };
 
     partnerMaps = [chicago, nyc, niagara, nashEdgecombe];
@@ -1803,23 +1847,26 @@ var MapsCorps = (function($) {
               opened: false,
           },
           mapTypeId: google.maps.MapTypeId.ROADMAP,
-          styles: [{"featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{"color": "#444444"} ] }, {"featureType": "landscape", "elementType": "all", "stylers": [{"color": "#f2f2f2"} ] }, {"featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{"color": "#d8d8d8"} ] }, {"featureType": "poi", "elementType": "all", "stylers": [{"visibility": "off"} ] }, {"featureType": "road", "elementType": "all", "stylers": [{"saturation": -100 }, {"lightness": 45 } ] }, {"featureType": "road.highway", "elementType": "all", "stylers": [{"visibility": "simplified"} ] }, {"featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{"color": "#ff3566"} ] }, {"featureType": "road.highway", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{"color": "#f2ff3d"} ] }, {"featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.local", "elementType": "geometry.fill", "stylers": [{"color": "#f2ff3d"} ] }, {"featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{"visibility": "off"} ] }, {"featureType": "road.local", "elementType": "labels", "stylers": [{"visibility": "off"} ] }, {"featureType": "transit", "elementType": "all", "stylers": [{"visibility": "off"} ] }, {"featureType": "water", "elementType": "all", "stylers": [{"color": "#46bcec"}, {"visibility": "on"} ] }, {"featureType": "water", "elementType": "geometry.fill", "stylers": [{"color": "#51c9ea"} ] }, {"featureType": "water", "elementType": "labels", "stylers": [{"visibility": "off"} ] }]
+          styles: [
+              { "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#444444" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#d8d8d8" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ff3566" }] }, { "featureType": "road.highway", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#51c9ea" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "off" }] }]
       };
       var mapElement = document.getElementById(id);
       var map = new google.maps.Map(mapElement, mapOptions);
       var locations = partnerLocations;
       for (i = 0; i < locations.length; i++) {
         // if (locations[i][1] == 'undefined'){ description ='';} else { description = locations[i][1];}
-        if (locations[i][1] == 'undefined'){ address ='';} else { address = locations[i][1];}
-        if (locations[i][2] == 'undefined'){ telephone ='';} else { telephone = locations[i][2];}
-        if (locations[i][3] == 'undefined'){ email ='';} else { email = locations[i][3];}
-        if (locations[i][4] == 'undefined'){ web ='';} else { web = locations[i][4];}
-        if (locations[i][7] == 'undefined'){ markericon ='/assets/images/pin-sm.png';} else { markericon = locations[i][7];}
+        if (locations[i][1] === 'undefined'){ address ='';} else { address = locations[i][1];}
+        if (locations[i][2] === 'undefined'){ telephone ='';} else { telephone = locations[i][2];}
+        if (locations[i][3] === 'undefined'){ email ='';} else { email = locations[i][3];}
+        if (locations[i][4] === 'undefined'){ web ='';} else { web = locations[i][4];}
+        if (locations[i][7] === 'undefined') { markericon = '/Content/Images/pin-sm.png'; } else { markericon = locations[i][7]; }
+        if (locations[i][8] === 'undefined') {subtitle = '';} else { subtitle = locations[i][8];}
         marker = new google.maps.Marker({
             icon: markericon,
             position: new google.maps.LatLng(locations[i][5], locations[i][6]),
             map: map,
             title: locations[i][0],
+            subtitle: subtitle,
             // desc: description,
             address: address,
             tel: telephone,
@@ -1827,12 +1874,18 @@ var MapsCorps = (function($) {
             web: web
         });
 
-        google.maps.event.addListener(marker, 'click', function(){
-          var partnerDetails = '<h4>'+this.title+'</h4>'+
+        google.maps.event.addListener(marker, 'click', function () {
+            var localTitle = "<h4>" + this.title + "</h4>";
+            if (this.subtitle !== "")
+                localTitle = "<h4 class=\"hub-or-champion\">" + this.subtitle + "</h3>" + localTitle;
+
+          var partnerDetails = localTitle +
             '<p>'+this.address+'</p><br>'+
             '<p><a href="'+this.web+'" target="_blank">'+this.web+'</a></p>'+
             '<p><a href="mailto:'+this.email+'">'+this.email+'</a></p>'+
-            '<p>'+this.tel+'</p>';
+            '<p>' + this.tel + '</p>';
+
+            //console.log(partnerDetails);
           infowindow.setContent(partnerDetails);
           infowindow.open(map, this);
         });
