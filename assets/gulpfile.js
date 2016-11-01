@@ -34,7 +34,7 @@ gulp.task('browser-sync', function() {
 // Sass compilation and output
 gulp.task('styles', function() {
   return gulp.src(['sass/main.scss'])
-    .pipe(sass({outputStyle: 'extended'}).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))
@@ -47,7 +47,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
   return gulp.src(['js/libs/*.js', 'js/main.js'])
     .pipe(jshint())
-    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('jshint-stylish'))
     .pipe(concat('site.js'))
     .pipe(gulp.dest('js/build'))
     .pipe(rename({suffix: '.min'}))
@@ -99,6 +99,7 @@ gulp.task('watch', function() {
     files: ['*.html', '*.php'],
     proxy: 'mapscorps-frontend.dev',
     notify: false,
+    open: false
   });
   // Kick it off with a build
   gulp.start('build');
