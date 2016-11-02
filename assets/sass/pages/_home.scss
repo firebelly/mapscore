@@ -383,108 +383,108 @@
     background-image: url("#{$images-dir}partners-background.jpg");
   }
 
-  .maps {
-    margin-top: 50px;
-    ul {
-      li {
-        list-style: none;
-      }
+}
+
+.maps {
+  margin-top: 50px;
+  ul {
+    li {
+      list-style: none;
     }
   }
+}
 
-  .maps-list {
-    padding: 0;
+.maps-list {
+  padding: 0;
 
-    a {
-      @extend .btn;
-      @extend .-blue;
-      display: block;
-    }
+  a {
+    @extend .btn;
+    @extend .-blue;
+    display: block;
+  }
 
-    li {
-      margin-bottom: 10px;
+  li {
+    margin-bottom: 10px;
 
-      &:not(.-active) {
-        a {
-          color: $blue;
-          background: $yellow;
-          &:hover {
-            color: $pink;
-          }
+    &:not(.-active) {
+      a {
+        color: $blue;
+        background: $yellow;
+        &:hover {
+          color: $pink;
         }
       }
     }
-
-    @include min-screen(600px) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-
-      li {
-        max-width: 49%;
-        flex-basis: 49%;
-        margin-bottom: 20px;
-        display: inline-block;
-      }
-
-    }
-
-    @include min-screen(1086px) {
-
-      li {
-        max-width: 24%;
-        flex-basis: 24%;
-        margin-bottom: 0;
-      }
-    }
   }
 
-  .maps-images {
-    height: 0;
-    width: 100%;
-    padding-left: 0;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 100%;
-
-    @include media-md {
-      padding-bottom: 61.875%;
-    }
+  @include min-screen(600px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     li {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1;
-      visibility: hidden;
-      position: absolute;
-      &.-active {
-        z-index: 1;
-        visibility: visible;
-      }
-
-      iframe,
-      .map {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      .gm-style-iw * {
-          display: block;
-          width: 100%;
-      }
-      .gm-style-iw h4, .gm-style-iw p {
-          margin: 0;
-          padding: 0;
-      }
-      .gm-style-iw a {
-          color: #4272db;
-      }
+      max-width: 49%;
+      flex-basis: 49%;
+      margin-bottom: 20px;
+      display: inline-block;
     }
+
   }
 
+  @include min-screen(1086px) {
+
+    li {
+      max-width: 24%;
+      flex-basis: 24%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.maps-images {
+  height: 0;
+  width: 100%;
+  padding-left: 0;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%;
+
+  @include media-md {
+    padding-bottom: 61.875%;
+  }
+
+  li {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    visibility: hidden;
+    position: absolute;
+    &.-active {
+      z-index: 1;
+      visibility: visible;
+    }
+
+    iframe,
+    .map {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .gm-style-iw * {
+        display: block;
+        width: 100%;
+    }
+    .gm-style-iw h4, .gm-style-iw p {
+        margin: 0;
+        padding: 0;
+    }
+    .gm-style-iw a {
+        color: #4272db;
+    }
+  }
 }
 
 .request-data {

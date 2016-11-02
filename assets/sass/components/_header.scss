@@ -1,5 +1,47 @@
 // Header
 
+// Internal pages (map, legal, etc -- no header image and blue nav)
+.internal-page {
+  #intro {
+    display: none;
+  }
+  .site-header {
+    .menu-toggle {
+      span,
+      &::before,
+      &::after {
+        background: $pink;
+      }
+      &.menu-open {
+        span {
+          background: rgba($pink,0);
+        }
+      }
+    }
+    .wrap {
+      padding-bottom: 40px;
+    }
+    .icon-logo {
+      .logo-words {
+        fill: $blue;
+      }
+      .logo-pin {
+        fill: $pink;
+      }
+    }
+    .site-nav.-active {
+      // color: $white;
+    }
+    @include min-screen($breakpoint-nav) {
+      color: $blue;
+      .hiphop {
+        overflow: hidden;
+        border-bottom: 1px solid $blue;
+      }
+    }
+  }
+}
+
 .site-header {
   top: 0;
   left: 0;
@@ -199,7 +241,7 @@
       text-align: left;
       display: inline-block;
       span::after {
-        bottom: -13px;
+        bottom: -15px;
       }
     }
 

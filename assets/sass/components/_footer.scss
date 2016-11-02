@@ -19,7 +19,7 @@
     }
   }
 
-  a:not(.btn) {
+  a {
     font-size: 15px;
     font-weight: 700;
     letter-spacing: .1em;
@@ -32,6 +32,9 @@
     &:hover,
     &:focus {
       opacity: .5;
+    }
+    &.btn:hover {
+      opacity: 1;
     }
   }
 
