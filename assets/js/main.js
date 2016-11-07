@@ -267,7 +267,7 @@ var MapsCorps = (function($) {
     };
     var mapElement = document.getElementById(id);
     var communityMap = new google.maps.Map(mapElement, mapOptions);
-
+    var communityOutlines = [];
     for (i = 0; i < communities.length; i++) {
 
       var communityOutline = new google.maps.Polygon({
@@ -278,7 +278,8 @@ var MapsCorps = (function($) {
         fillColor: '#ff3566',
         fillOpacity: 0.5,
         name: communities[i].name,
-        url: communities[i].url
+        url: communities[i].url,
+        selected: false
       });
       communityOutline.setMap(communityMap);
 
@@ -288,7 +289,20 @@ var MapsCorps = (function($) {
         communityInfoWindow.setContent(communityDetails);
         communityInfoWindow.setPosition(e.latLng);
         communityInfoWindow.open(communityMap);
+        communityOutlines.forEach(function(el) {
+          el.setOptions({ fillOpacity: .5, selected: false });
+        });
+        this.setOptions({fillOpacity: 1, selected: true});
       });
+      google.maps.event.addListener(communityOutline, 'mouseover', function(e) {
+        this.setOptions({fillOpacity: 1});
+      });
+      google.maps.event.addListener(communityOutline, 'mouseout', function(e) {
+        if (!this.get('selected')) {
+          this.setOptions({fillOpacity: .5});
+        }
+      });
+      communityOutlines.push(communityOutline);
     }
 
 
