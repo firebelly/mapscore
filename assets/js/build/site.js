@@ -1806,10 +1806,10 @@ var MapsCorps = (function($) {
         communityOutlines.forEach(function(el) {
           el.setOptions({ fillOpacity: .5, selected: false });
         });
-        this.setOptions({fillOpacity: 1, selected: true});
+        this.setOptions({fillOpacity: .8, selected: true});
       });
       google.maps.event.addListener(communityOutline, 'mouseover', function(e) {
-        this.setOptions({fillOpacity: 1});
+        this.setOptions({fillOpacity: .8});
       });
       google.maps.event.addListener(communityOutline, 'mouseout', function(e) {
         if (!this.get('selected')) {
