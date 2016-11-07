@@ -1725,10 +1725,9 @@ var MapsCorps = (function($) {
   function _initPartnersTabs() {
     $document.on('click', '.maps-list a', function(e) {
       e.preventDefault();
-
       var $target = $($(this).attr('href'));
-
-      $('.maps li.-active').removeClass('-active');
+      var $mapsGroup = $(this).closest('.maps');
+      $mapsGroup.find('li.-active').removeClass('-active');
       $(this).closest('li').addClass('-active');
       $target.addClass('-active');
     });
@@ -1740,6 +1739,8 @@ var MapsCorps = (function($) {
       $.each(data.partnerMaps, function(i) {
        _initPartnerMap(this.partnerLat, this.partnerLng, this.elementID, this.partnerZoom, this.partnerLocations);
       });
+    }).fail(function(a,b,c) {
+      console.log('partner map init failed: ',a,b,c);
     });
 
     $.getJSON('communityMaps.json', {_: new Date().getTime()}, function(data) {
@@ -1747,7 +1748,7 @@ var MapsCorps = (function($) {
        _initCommunityMap(this.lat, this.lng, this.elementID, this.zoom, this.communities);
       });
     }).fail(function(a,b,c) {
-      console.log(a,b,c);
+      console.log('community map init failed: ',a,b,c);
     });
   }
 
@@ -1776,32 +1777,20 @@ var MapsCorps = (function($) {
         },
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         styles: [
-            { "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#444444" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#d8d8d8" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ff3566" }] }, { "featureType": "road.highway", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#51c9ea" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "off" }] }]
+            { "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#444444" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#d8d8d8" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#bbbbbb" }] }, { "featureType": "road.highway", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#CECFD1" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "#CECFD1" }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#51c9ea" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "off" }] }]
     };
     var mapElement = document.getElementById(id);
     var communityMap = new google.maps.Map(mapElement, mapOptions);
 
     for (i = 0; i < communities.length; i++) {
 
-      // marker = new google.maps.Marker({
-      //     icon: markericon,
-      //     position: new google.maps.LatLng(locations[i][5], locations[i][6]),
-      //     map: communityMap,
-      //     title: locations[i][0],
-      //     subtitle: subtitle,
-      //     address: address,
-      //     tel: telephone,
-      //     email: email,
-      //     web: web
-      // });
-      console.log(communities[i], communities[i].path);
       var communityOutline = new google.maps.Polygon({
         paths: communities[i].path,
-        strokeColor: '#FF0000',
+        strokeColor: '#eeeeee',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#FF0000',
-        fillOpacity: 0.35,
+        fillColor: '#ff3566',
+        fillOpacity: 0.5,
         name: communities[i].name,
         url: communities[i].url
       });
