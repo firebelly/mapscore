@@ -393,9 +393,27 @@
     }
   }
 }
+.map-link {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 13px;
+  color: $blue;
+  letter-spacing: .1em;
+  background: #f4f4f7;
+  svg {
+    margin-left: 6px;
+    width: 8px;
+    height: 8px;
+  }
+}
 
 .maps-list {
   padding: 0;
+  margin: 8px 0;
 
   a {
     @extend .btn;
@@ -406,13 +424,17 @@
   li {
     margin-bottom: 10px;
 
-    &:not(.-active) {
+    a {
+      color: $blue;
+      background: $yellow;
+      &:hover {
+        color: $pink;
+      }
+    }
+    &.-active {
       a {
-        color: $blue;
-        background: $yellow;
-        &:hover {
-          color: $pink;
-        }
+        color: $yellow;
+        background: $blue;
       }
     }
   }
@@ -448,6 +470,7 @@
   overflow: hidden;
   position: relative;
   padding-bottom: 100%;
+  margin: 8px 0;
 
   @include media-md {
     padding-bottom: 61.875%;

@@ -1568,17 +1568,37 @@ body.donation-form-active {
   .maps ul li {
     list-style: none; }
 
+.map-link {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 13px;
+  color: #1e1c56;
+  letter-spacing: .1em;
+  background: #f4f4f7; }
+  .map-link svg {
+    margin-left: 6px;
+    width: 8px;
+    height: 8px; }
+
 .maps-list {
-  padding: 0; }
+  padding: 0;
+  margin: 8px 0; }
   .maps-list a {
     display: block; }
   .maps-list li {
     margin-bottom: 10px; }
-    .maps-list li:not(.-active) a {
+    .maps-list li a {
       color: #1e1c56;
       background: #f2ff3d; }
-      .maps-list li:not(.-active) a:hover {
+      .maps-list li a:hover {
         color: #ff3566; }
+    .maps-list li.-active a {
+      color: #f2ff3d;
+      background: #1e1c56; }
   @media screen and (min-width: 600px) {
     .maps-list {
       display: -webkit-box;
@@ -1608,7 +1628,8 @@ body.donation-form-active {
   padding-left: 0;
   overflow: hidden;
   position: relative;
-  padding-bottom: 100%; }
+  padding-bottom: 100%;
+  margin: 8px 0; }
   @media screen and (min-width: 700px) {
     .maps-images {
       padding-bottom: 61.875%; } }

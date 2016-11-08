@@ -1,0 +1,309 @@
+[
+  {
+    "id": 1,
+    "geoarea": "Archer Heights",
+    "lat": 41.8108057,
+    "lng": -87.7261729
+  },
+  {
+    "id": 2,
+    "geoarea": "Armour Square",
+    "lat": 41.8924415,
+    "lng": -87.6655461
+  },
+  {
+    "id": 3,
+    "geoarea": "Ashburn",
+    "lat": 41.7479966,
+    "lng": -87.7071433
+  },
+  {
+    "id": 4,
+    "geoarea": "Auburn Gresham",
+    "lat": 41.74213171,
+    "lng": -87.65458832
+  },
+  {
+    "id": 5,
+    "geoarea": "Bedford Park",
+    "lat": 41.7624671,
+    "lng": -87.7459725
+  },
+  {
+    "id": 6,
+    "geoarea": "Beverly",
+    "lat": 41.7166465,
+    "lng": -87.6710325
+  },
+  {
+    "id": 7,
+    "geoarea": "Bridgeport",
+    "lat": 41.8364094,
+    "lng": -87.6494664
+  },
+  {
+    "id": 8,
+    "geoarea": "Brighton Park",
+    "lat": 41.8193644,
+    "lng": -87.6990552
+  },
+  {
+    "id": 9,
+    "geoarea": "Burnside",
+    "lat": 41.729419,
+    "lng": -87.5956108
+  },
+  {
+    "id": 10,
+    "geoarea": "Calumet Heights",
+    "lat": 41.7298982,
+    "lng": -87.5705221
+  },
+  {
+    "id": 11,
+    "geoarea": "Chatham",
+    "lat": 41.7406938,
+    "lng": -87.6203569
+  },
+  {
+    "id": 12,
+    "geoarea": "Chicago Lawn",
+    "lat": 41.7718489,
+    "lng": -87.6955483
+  },
+  {
+    "id": 13,
+    "geoarea": "Clearing",
+    "lat": 41.7784604,
+    "lng": -87.769196
+  },
+  {
+    "id": 14,
+    "geoarea": "Douglas",
+    "lat": 41.8243209,
+    "lng": -87.6147651
+  },
+  {
+    "id": 15,
+    "geoarea": "East Side",
+    "lat": 41.70455,
+    "lng": -87.5348
+  },
+  {
+    "id": 16,
+    "geoarea": "Englewood",
+    "lat": 41.7753381,
+    "lng": -87.6415605
+  },
+  {
+    "id": 17,
+    "geoarea": "Fuller Park",
+    "lat": 41.81,
+    "lng": -87.626667
+  },
+  {
+    "id": 18,
+    "geoarea": "Gage Park",
+    "lat": 41.7954729,
+    "lng": -87.6962913
+  },
+  {
+    "id": 19,
+    "geoarea": "Garfield Ridge",
+    "lat": 41.803403,
+    "lng": -87.7696852
+  },
+  {
+    "id": 20,
+    "geoarea": "Grand Boulevard",
+    "lat": 41.812942,
+    "lng": -87.617769
+  },
+  {
+    "id": 21,
+    "geoarea": "Greater Grand Crossing",
+    "lat": 41.7669573,
+    "lng": -87.6159992
+  },
+  {
+    "id": 22,
+    "geoarea": "Hegewisch",
+    "lat": 41.6553019,
+    "lng": -87.5468784
+  },
+  {
+    "id": 23,
+    "geoarea": "Hyde Park",
+    "lat": 41.794804,
+    "lng": -87.589273
+  },
+  {
+    "id": 24,
+    "geoarea": "Kenwood",
+    "lat": 41.809452,
+    "lng": -87.59378
+  },
+  {
+    "id": 25,
+    "geoarea": "Lower West Side",
+    "lat": 41.8474109,
+    "lng": -87.6616156
+  },
+  {
+    "id": 26,
+    "geoarea": "Mckinley Park",
+    "lat": 41.8310103,
+    "lng": -87.6717819
+  },
+  {
+    "id": 27,
+    "geoarea": "Morgan Park",
+    "lat": 41.6878025,
+    "lng": -87.6690343
+  },
+  {
+    "id": 28,
+    "geoarea": "Near South Side",
+    "lat": 41.8565996,
+    "lng": -87.6203978
+  },
+  {
+    "id": 29,
+    "geoarea": "Near West Side",
+    "lat": 41.8733679,
+    "lng": -87.6633929
+  },
+  {
+    "id": 30,
+    "geoarea": "New City",
+    "lat": 41.8086749,
+    "lng": -87.659855
+  },
+  {
+    "id": 31,
+    "geoarea": "North Lawndale",
+    "lat": 41.8582574,
+    "lng": -87.7139721
+  },
+  {
+    "id": 32,
+    "geoarea": "Oakland",
+    "lat": 41.82505,
+    "lng": -87.60039
+  },
+  {
+    "id": 33,
+    "geoarea": "Pullman",
+    "lat": 41.7038906,
+    "lng": -87.5980766
+  },
+  {
+    "id": 34,
+    "geoarea": "Riverdale",
+    "lat": 41.6653987,
+    "lng": -87.5993448
+  },
+  {
+    "id": 35,
+    "geoarea": "Roseland",
+    "lat": 41.7122781,
+    "lng": -87.6229899
+  },
+  {
+    "id": 36,
+    "geoarea": "South Chicago",
+    "lat": 41.73880142,
+    "lng": -87.5546814
+  },
+  {
+    "id": 37,
+    "geoarea": "South Deering",
+    "lat": 41.6915314,
+    "lng": -87.5720604
+  },
+  {
+    "id": 38,
+    "geoarea": "South Lawndale",
+    "lat": 41.7714681,
+    "lng": -87.7152037
+  },
+  {
+    "id": 39,
+    "geoarea": "South Shore",
+    "lat": 41.76287812,
+    "lng": -87.56832848
+  },
+  {
+    "id": 40,
+    "geoarea": "Washington Heights",
+    "lat": 41.7159848,
+    "lng": -87.6506
+  },
+  {
+    "id": 41,
+    "geoarea": "Washington Park",
+    "lat": 41.791028,
+    "lng": -87.617254
+  },
+  {
+    "id": 42,
+    "geoarea": "West Elsdon",
+    "lat": 41.7959029,
+    "lng": -87.7255619
+  },
+  {
+    "id": 43,
+    "geoarea": "West Englewood",
+    "lat": 41.77561719,
+    "lng": -87.6660038
+  },
+  {
+    "id": 44,
+    "geoarea": "West Lawn",
+    "lat": 41.7716861,
+    "lng": -87.727174
+  },
+  {
+    "id": 45,
+    "geoarea": "West Pullman",
+    "lat": 41.6713949,
+    "lng": -87.636932
+  },
+  {
+    "id": 46,
+    "geoarea": "Woodlawn",
+    "lat": 41.77666,
+    "lng": -87.587299
+  },
+  {
+    "id": 47,
+    "geoarea": "Chicago Communities",
+    "lat": 41.8,
+    "lng": -87.6
+  },
+  {"id":48,"geoarea":"60607","lat":41.8749,"lng":-87.6513},
+{"id":49,"geoarea":"60608","lat":41.8491,"lng":-87.6715},
+{"id":50,"geoarea":"60609","lat":41.8122,"lng":-87.6555},
+{"id":51,"geoarea":"60612","lat":41.8805,"lng":-87.6878},
+{"id":52,"geoarea":"60615","lat":41.8021,"lng":-87.6031},
+{"id":53,"geoarea":"60616","lat":41.8449,"lng":-87.6276},
+{"id":54,"geoarea":"60617","lat":41.7141,"lng":-87.5556},
+{"id":55,"geoarea":"60619","lat":41.7437,"lng":-87.6055},
+{"id":56,"geoarea":"60620","lat":41.7413,"lng":-87.6531},
+{"id":57,"geoarea":"60621","lat":41.7763,"lng":-87.6396},
+{"id":58,"geoarea":"60623","lat":41.8477,"lng":-87.718},
+{"id":59,"geoarea":"60624","lat":41.8806,"lng":-87.7232},
+{"id":60,"geoarea":"60628","lat":41.6911,"lng":-87.6151},
+{"id":61,"geoarea":"60629","lat":41.7748,"lng":-87.7128},
+{"id":62,"geoarea":"60632","lat":41.8112,"lng":-87.7134},
+{"id":63,"geoarea":"60633","lat":41.6568,"lng":-87.5557},
+{"id":64,"geoarea":"60636","lat":41.7757,"lng":-87.669},
+{"id":65,"geoarea":"60637","lat":41.7809,"lng":-87.6024},
+{"id":66,"geoarea":"60643","lat":41.7005,"lng":-87.663},
+{"id":67,"geoarea":"60644","lat":41.8803,"lng":-87.7573},
+{"id":68,"geoarea":"60649","lat":41.7622,"lng":-87.5702},
+{"id":69,"geoarea":"60651","lat":41.9021,"lng":-87.7578},
+{"id":70,"geoarea":"60652","lat":41.7444,"lng":-87.713},
+{"id":71,"geoarea":"60653","lat":41.8195,"lng":-87.6102},
+{"id":72,"geoarea":"60661","lat":41.8828,"lng":-87.6438}
+]

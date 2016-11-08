@@ -1522,7 +1522,9 @@ var MapsCorps = (function($) {
       map,
       markers = [],
       infoWindow,
-      currentCity = {};
+      currentCity = {},
+      // images_dir = '/Content/Images/';
+      images_dir = 'assets/images/';
 
   function _init() {
     // Touch-friendly fast clicks
@@ -1728,8 +1730,12 @@ var MapsCorps = (function($) {
       var $target = $($(this).attr('href'));
       var $mapsGroup = $(this).closest('.maps');
       $mapsGroup.find('li.-active').removeClass('-active');
-      $(this).closest('li').addClass('-active');
+      var $li = $(this).closest('li').addClass('-active');
       $target.addClass('-active');
+      // Swap out large map link if available
+      if ($(this).attr('data-map-link')) {
+        $mapsGroup.find('.map-link').attr('href', $(this).attr('data-map-link')).find('span').text($(this).text());
+      }
     });
   }
 
@@ -1859,7 +1865,7 @@ var MapsCorps = (function($) {
       if (locations[i][2] === 'undefined') { telephone = ''; } else { telephone = locations[i][2]; }
       if (locations[i][3] === 'undefined') { email = ''; } else { email = locations[i][3]; }
       if (locations[i][4] === 'undefined') { web = ''; } else { web = locations[i][4]; }
-      if (locations[i][7] === 'undefined') { markericon = 'assets/images/pin-sm.png'; } else { markericon = locations[i][7]; }
+      if (locations[i][7] === 'undefined') { markericon = images_dir + 'pin-sm.png'; } else { markericon = locations[i][7]; }
       if (locations[i][8] === 'undefined') {subtitle = ''; } else { subtitle = locations[i][8]; }
       marker = new google.maps.Marker({
           icon: markericon,
