@@ -488,25 +488,29 @@
       z-index: 1;
       visibility: visible;
     }
+  }
+}
 
-    iframe,
-    .map {
+// Google map styles for homepage and maps page
+.maps-images,
+#map {
+  iframe,
+  .map {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .gm-style-iw * {
+      display: block;
       width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .gm-style-iw * {
-        display: block;
-        width: 100%;
-    }
-    .gm-style-iw h4, .gm-style-iw p {
-        margin: 0;
-        padding: 0;
-    }
-    .gm-style-iw a {
-        color: #4272db;
-    }
+  }
+  .gm-style-iw h4, .gm-style-iw p {
+      margin: 0;
+      padding: 0;
+  }
+  .gm-style-iw a {
+      color: #4272db;
   }
 }
 

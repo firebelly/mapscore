@@ -251,10 +251,7 @@ var MapsCorps = (function($) {
   }
 
   function _initCommunityMap(lat,lng,id,zoom,communities) {
-    var communityInfoWindow = new google.maps.InfoWindow({
-      content: 'content!',
-      maxWidth: 260
-    });
+    var communityInfoWindow = new google.maps.InfoWindow({maxWidth: 260});
     var mapOptions = {
         center: new google.maps.LatLng(lat, lng),
         zoom: zoom,
@@ -319,10 +316,7 @@ var MapsCorps = (function($) {
   }
 
   function _initPartnerMap(partnerLat, partnerLng, id, partnerZoom, partnerLocations) {
-    var partnerInfoWindow = new google.maps.InfoWindow({
-      content: 'content!',
-      maxWidth: 260
-    });
+    var partnerInfoWindow = new google.maps.InfoWindow({maxWidth: 260});
     var mapOptions = {
         center: new google.maps.LatLng(partnerLat, partnerLng),
         zoom: partnerZoom,
@@ -370,9 +364,9 @@ var MapsCorps = (function($) {
       });
 
       google.maps.event.addListener(marker, 'click', function() {
-          var localTitle = "<h4>" + this.title + "</h4>";
-          if (this.subtitle !== "")
-              localTitle = "<h4 class=\"hub-or-champion\">" + this.subtitle + "</h3>" + localTitle;
+          var localTitle = '<h4>' + this.title + '</h4>';
+          if (this.subtitle !== '')
+              localTitle = '<p style="font-weight:bold">' + this.subtitle + '</p>' + localTitle;
 
         var partnerDetails = localTitle +
           '<p>'+this.address+'</p><br>'+
@@ -749,7 +743,7 @@ var MapsCorps = (function($) {
         styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.land_parcel","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"landscape","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#d8d8d8"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road","stylers":[{"saturation":55},{"lightness":45}]},{"featureType":"road.highway","stylers":[{"saturation":-100}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fbfffd"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c5c5c5"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]}]
     };
     map = new google.maps.Map(document.getElementById('gmap-canvas'), myOptions);
-    infoWindow = new google.maps.InfoWindow();
+    infoWindow = new google.maps.InfoWindow({maxWidth: 260});
 
     // Init custom icons
     var catColors = [
@@ -875,13 +869,12 @@ var MapsCorps = (function($) {
       });
       _shadowMarker(marker);
       var html =
-        '<div style="width:300px;min-height:40px">' +
-        '<h4 style="margin: 0;font-size: 20px;font-weight: bold;">' + this.name.toString() + '</h4>' +
-        '<p style="font-weight: bold;"> ' + this.subtype.toString() + ' </p> ' +
-        '<p style="margin: 0;">' + (this.buildingNum !== null ? this.buildingNum.toString() : "") + ' ' + this.street.toString() + '</p>' +
-        '<p style="margin: 0;">' + (this.zip !== null ? this.zip.toString() : "") + ' ' + (this.city !== null ? this.city.toString() : "") + '</p>' +
-        '<p style="margin: 0;">Phone: ' + (this.phone !== null ? this.phone.toString() : "N/A") + '</p>' +
-        '<p style="margin: 0;">Email: ' + (this.email !== null ? this.email.toString() : "N/A") + '</p></div>';
+        '<h4>' + this.name.toString() + '</h4>' +
+        '<p style="font-weight: bold;"> ' + this.subtype.toString() + '</p><br>' +
+        '<p>' + (this.buildingNum !== null ? this.buildingNum.toString() : "") + ' ' + this.street.toString() + '</p>' +
+        '<p>' + (this.zip !== null ? this.zip.toString() : '') + ' ' + (this.city !== null ? this.city.toString() : '') + '</p>' +
+        '<p>Phone: ' + (this.phone !== null ? this.phone.toString() : 'N/A') + '</p>' +
+        '<p>Email: ' + (this.email !== null ? this.email.toString() : 'N/A') + '</p>';
       google.maps.event.addListener(marker, 'click', function () {
         infoWindow.setContent(html);
         infoWindow.open(map, marker);
