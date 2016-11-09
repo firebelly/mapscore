@@ -63,61 +63,20 @@
 
       <div class="wrap">
 <!-- BEGIN MAP SEARCH MENU WORK -->
-      <div class="page-section map-section">
-        <div class="search-menu">
+      <div class="page-section map-section" data-city="CHICAGO">
+        <form class="search-menu" id="mapSearch">
           <h2>Start Your Search</h2>
           <ol class="steps">
             <li class="step">
               <div class="select-wrap">
-                <select class="communities">
-                  <option selected>Select Your Community</option>
-                  <option value="Archer Heights" label="Archer Heights">Archer Heights</option>
-                  <option value="Armour Square" label="Armour Square">Armour Square</option>
-                  <option value="Ashburn" label="Ashburn">Ashburn</option>
-                  <option value="Auburn Gresham" label="Auburn Gresham">Auburn Gresham</option>
-                  <option value="Bedford Park" label="Bedford Park">Bedford Park</option>
-                  <option value="Beverly" label="Beverly">Beverly</option>
-                  <option value="Bridgeport" label="Bridgeport">Bridgeport</option>
-                  <option value="Brighton Park" label="Brighton Park">Brighton Park</option>
-                  <option value="Burnside" label="Burnside">Burnside</option>
-                  <option value="Calumet Heights" label="Calumet Heights">Calumet Heights</option>
-                  <option value="Chatham" label="Chatham">Chatham</option>
-                  <option value="Chicago Lawn" label="Chicago Lawn">Chicago Lawn</option>
-                  <option value="Clearing" label="Clearing">Clearing</option>
-                  <option value="Douglas" label="Douglas">Douglas</option>
-                  <option value="East Side" label="East Side">East Side</option>
-                  <option value="Englewood" label="Englewood">Englewood</option>
-                  <option value="Fuller Park" label="Fuller Park">Fuller Park</option>
-                  <option value="Gage Park" label="Gage Park">Gage Park</option>
-                  <option value="Garfield Ridge" label="Garfield Ridge">Garfield Ridge</option>
-                  <option value="Grand Boulevard" label="Grand Boulevard">Grand Boulevard</option>
-                  <option value="Greater Grand Crossing" label="Greater Grand Crossing">Greater Grand Crossing</option>
-                  <option value="Hegewisch" label="Hegewisch">Hegewisch</option>
-                  <option value="Hyde Park" label="Hyde Park">Hyde Park</option>
-                  <option value="Kenwood" label="Kenwood">Kenwood</option>
-                  <option value="Lower West Side" label="Lower West Side">Lower West Side</option>
-                  <option value="Mckinley Park" label="Mckinley Park">Mckinley Park</option>
-                  <option value="Morgan Park" label="Morgan Park">Morgan Park</option>
-                  <option value="Near South Side" label="Near South Side">Near South Side</option>
-                  <option value="Near West Side" label="Near West Side">Near West Side</option>
-                  <option value="New City" label="New City">New City</option>
-                  <option value="North Lawndale" label="North Lawndale">North Lawndale</option>
-                  <option value="Oakland" label="Oakland">Oakland</option>
-                  <option value="Pullman" label="Pullman">Pullman</option>
-                  <option value="Riverdale" label="Riverdale">Riverdale</option>
-                  <option value="Roseland" label="Roseland">Roseland</option>
-                  <option value="South Chicago" label="South Chicago">South Chicago</option>
-                  <option value="South Deering" label="South Deering">South Deering</option>
-                  <option value="South Lawndale" label="South Lawndale">South Lawndale</option>
-                  <option value="South Shore" label="South Shore">South Shore</option>
-                  <option value="Washington Heights" label="Washington Heights">Washington Heights</option>
-                  <option value="Washington Park" label="Washington Park">Washington Park</option>
-                  <option value="West Elsdon" label="West Elsdon">West Elsdon</option>
-                  <option value="West Englewood" label="West Englewood">West Englewood</option>
-                  <option value="West Lawn" label="West Lawn">West Lawn</option>
-                  <option value="West Pullman" label="West Pullman">West Pullman</option>
-                  <option value="Woodlawn" label="Woodlawn">Woodlawn</option></select>
-                </select>
+                <select class="communities" id="communities"></select>
+              </div>
+            </li>
+            <li class="or">
+              <span>OR</span>
+              <div class="pad">
+                <input type="text" placeholder="Enter ZIP Code" name="zip">
+                <button type="submit" name="go" id="zipGo">GO</button>
               </div>
             </li>
             <li class="step">
@@ -125,304 +84,303 @@
             </li>
           </ol>
 
-          <ul class="categories">
-            <li id="c14" class="category">
+    <ul class="categories">
+            <li id="c14">
               <svg class="toggle-category icon-category -arts-and-entertainment" role="img"><use xlink:href="#icon-arts-and-entertainment"></use></svg>
               <div class="category-name toggle-category">Arts and Entertainment</div>
               <ul class="services">
-                <li id="d14.01" class="service">Museums</li>
-                <li id="d14.02" class="service">Zoos and Aquariums</li>
-                <li id="d14.03" class="service">Live Theater and Plays</li>
-                <li id="d14.04" class="service">Movie Theaters</li>
-                <li id="d14.05" class="service">Rental Halls, Party Planning, and Catering</li>
-                <li id="d14.06" class="service">Clubs, Lounges, and Bars</li>
-                <li id="d14.07" class="service">Social Clubs</li>
-                <li id="d14.08" class="service">Performers and Arts Instructors</li>
-                <li id="d14.09" class="service">Amusement Centers</li>
-                <li id="d14.10" class="service">Movie Rentals</li>
-                <li id="d14.11" class="service">Stadiums</li>
-                <li id="d14.12" class="service">Golf Courses</li>
-                <li id="d14.13" class="service">Travel Agents</li>
-                <li id="d14.14" class="service">Other Entertainment</li>
+                <li id="14.01" typeid="14" subtypeid="1">Museums</li>
+                <li id="14.02" typeid="14" subtypeid="2">Zoos and Aquariums</li>
+                <li id="14.03" typeid="14" subtypeid="3">Live Theater and Plays</li>
+                <li id="14.04" typeid="14" subtypeid="4">Movie Theaters</li>
+                <li id="14.05" typeid="14" subtypeid="5">Rental Halls, Party Planning, and Catering</li>
+                <li id="14.06" typeid="14" subtypeid="6">Clubs, Lounges, and Bars</li>
+                <li id="14.07" typeid="14" subtypeid="7">Social Clubs</li>
+                <li id="14.08" typeid="14" subtypeid="8">Performers and Arts Instructors</li>
+                <li id="14.09" typeid="14" subtypeid="9">Amusement Centers</li>
+                <li id="14.10" typeid="14" subtypeid="10">Movie Rentals</li>
+                <li id="14.11" typeid="14" subtypeid="11">Stadiums</li>
+                <li id="14.12" typeid="14" subtypeid="12">Golf Courses</li>
+                <li id="14.13" typeid="14" subtypeid="13">Travel Agents</li>
+                <li id="14.14" typeid="14" subtypeid="14">Other Entertainment</li>
               </ul>
             </li>
-            <li id="c11" class="category">
+            <li id="c11">
               <svg class="toggle-category icon-category -education" role="img"><use xlink:href="#icon-education"></use></svg>
               <div class="category-name toggle-category">Education, Schools, Childcare</div>
               <ul class="services">
-                <li id="d11.01" class="service">Home Daycares</li>
-                <li id="d11.02" class="service">Kid Centers</li>
-                <li id="d11.03" class="service">Public Schools K-12</li>
-                <li id="d11.04" class="service">Private Schools K-12</li>
-                <li id="d11.05" class="service">Trade Schools</li>
-                <li id="d11.06" class="service">Professional Schools</li>
-                <li id="d11.07" class="service">Seminary/Religious Training Schools</li>
-                <li id="d11.08" class="service">Public Universities</li>
-                <li id="d11.09" class="service">Private Universities</li>
-                <li id="d11.10" class="service">Tutoring, Ged, and Adult Education</li>
+                <li id="11.01" typeid="11" subtypeid="1">Home Daycares</li>
+                <li id="11.02" typeid="11" subtypeid="2">Kid Centers</li>
+                <li id="11.03" typeid="11" subtypeid="3">Public Schools K-12</li>
+                <li id="11.04" typeid="11" subtypeid="4">Private Schools K-12</li>
+                <li id="11.05" typeid="11" subtypeid="5">Trade Schools</li>
+                <li id="11.06" typeid="11" subtypeid="6">Professional Schools</li>
+                <li id="11.07" typeid="11" subtypeid="7">Seminary/Religious Training Schools</li>
+                <li id="11.08" typeid="11" subtypeid="8">Public Universities</li>
+                <li id="11.09" typeid="11" subtypeid="9">Private Universities</li>
+                <li id="11.10" typeid="11" subtypeid="10">Tutoring, Ged, and Adult Education</li>
               </ul>
             </li>
-            <li id="c5" class="category">
+            <li id="c5">
               <svg class="toggle-category icon-category -financial" role="img"><use xlink:href="#icon-financial"></use></svg>
               <div class="category-name toggle-category">Financial, Insurance, Legal, Taxes</div>
               <ul class="services">
-                <li id="d5.01" class="service">Banks</li>
-                <li id="d5.02" class="service">Accountant and Tax Services</li>
-                <li id="d5.03" class="service">Currency Exchanges</li>
-                <li id="d5.04" class="service">Payday Loan</li>
-                <li id="d5.05" class="service">Pawn Shops</li>
-                <li id="d5.06" class="service">Other Financial</li>
-                <li id="d5.07" class="service">Insurance</li>
-                <li id="d5.08" class="service">Lawyers</li>
-                <li id="d5.09" class="service">Other Legal</li>
-                <li id="d5.10" class="service">Property Services</li>
-                <li id="d5.11" class="service">Corporate Offices</li>
-                <li id="d5.12" class="service">Other Professional</li>
-                <li id="d5.13" class="service">Other</li>
+                <li id="5.01" typeid="5" subtypeid="1">Banks</li>
+                <li id="5.02" typeid="5" subtypeid="2">Accountant and Tax Services</li>
+                <li id="5.03" typeid="5" subtypeid="3">Currency Exchanges</li>
+                <li id="5.04" typeid="5" subtypeid="4">Payday Loan</li>
+                <li id="5.05" typeid="5" subtypeid="5">Pawn Shops</li>
+                <li id="5.06" typeid="5" subtypeid="6">Other Financial</li>
+                <li id="5.07" typeid="5" subtypeid="7">Insurance</li>
+                <li id="5.08" typeid="5" subtypeid="8">Lawyers</li>
+                <li id="5.09" typeid="5" subtypeid="9">Other Legal</li>
+                <li id="5.10" typeid="5" subtypeid="10">Property Services</li>
+                <li id="5.11" typeid="5" subtypeid="11">Corporate Offices</li>
+                <li id="5.12" typeid="5" subtypeid="12">Other Professional</li>
+                <li id="5.13" typeid="5" subtypeid="13">Other</li>
               </ul>
             </li>
-            <li id="c1" class="category">
+            <li id="c1">
               <svg class="toggle-category icon-category -foods" role="img"><use xlink:href="#icon-foods"></use></svg>
               <div class="category-name toggle-category">Food, Groceries, Restaurants</div>
               <ul class="services">
-                <li id="d1.01" class="service">Fast Food</li>
-                <li id="d1.02" class="service">Restaurants</li>
-                <li id="d1.03" class="service">Bar &amp; Grills</li>
-                <li id="d1.04" class="service">Cafés, Bakeries, and Specialty Food Stores</li>
-                <li id="d2.02" class="service">Grocery</li>
-                <li id="d2.03" class="service">Small Grocery</li>
-                <li id="d2.04" class="service">Other Food</li>
-                <li id="d1.05" class="service">Other</li>
+                <li id="1.01" typeid="1" subtypeid="1">Fast Food</li>
+                <li id="1.02" typeid="1" subtypeid="2">Restaurants</li>
+                <li id="1.03" typeid="1" subtypeid="3">Bar &amp; Grills</li>
+                <li id="1.04" typeid="1" subtypeid="4">Caf&eacute;s, Bakeries, and Specialty Food Stores</li>
+                <li id="2.02" typeid="2" subtypeid="2">Grocery</li>
+                <li id="2.03" typeid="2" subtypeid="3">Small Grocery</li>
+                <li id="2.04" typeid="2" subtypeid="4">Other Food</li>
+                <li id="1.05" typeid="1" subtypeid="5">Other</li>
               </ul>
             </li>
-            <li id="c15" class="category">
+            <li id="c15">
               <svg class="toggle-category icon-category -gyms" role="img"><use xlink:href="#icon-gyms"></use></svg>
               <div class="category-name toggle-category">Gyms and Exercise</div>
               <ul class="services">
-                <li id="d15.01" class="service">Dance, Yoga, Pilates, and Martial Arts</li>
-                <li id="d15.02" class="service">Gyms/Field Houses</li>
-                <li id="d15.03" class="service">Trainers</li>
-                <li id="d15.04" class="service">Sport Teams</li>
-                <li id="d15.05" class="service">Weight Loss Centers</li>
-                <li id="d15.06" class="service">Other Fitness</li>
+                <li id="15.01" typeid="15" subtypeid="1">Dance, Yoga, Pilates, and Martial Arts</li>
+                <li id="15.02" typeid="15" subtypeid="2">Gyms/Field Houses</li>
+                <li id="15.03" typeid="15" subtypeid="3">Trainers</li>
+                <li id="15.04" typeid="15" subtypeid="4">Sport Teams</li>
+                <li id="15.05" typeid="15" subtypeid="5">Weight Loss Centers</li>
+                <li id="15.06" typeid="15" subtypeid="6">Other Fitness</li>
               </ul>
             </li>
-            <li id="c6" class="category">
+            <li id="c6">
               <svg class="toggle-category icon-category -health" role="img"><use xlink:href="#icon-health"></use></svg>
               <div class="category-name toggle-category">Health services</div>
               <ul class="services">
-                <li id="d6.01" class="service">Hospitals</li>
-                <li id="d6.02" class="service">Emergency Rooms</li>
-                <li id="d6.03" class="service">Out-patient Clinics</li>
-                <li id="d6.04" class="service">Chiropractors</li>
-                <li id="d6.05" class="service">Alternative Medicine</li>
-                <li id="d6.06" class="service">Dentists</li>
-                <li id="d6.07" class="service">Eye Care</li>
-                <li id="d6.08" class="service">In-patient Mental Health</li>
-                <li id="d6.09" class="service">Counseling</li>
-                <li id="d6.10" class="service">Out-patient Testing, Rehabilitation, and Therapy</li>
-                <li id="d6.11" class="service">In-patient Rehabilitation</li>
-                <li id="d6.12" class="service">Ambulances</li>
-                <li id="d6.13" class="service">Mobile Health</li>
-                <li id="d2.05" class="service">Drug Stores and Pharmacies</li>
-                <li id="d17.03" class="service">Research Groups</li>
-                <li id="d6.14" class="service">Other Health Services</li>
+                <li id="6.01" typeid="6" subtypeid="1">Hospitals</li>
+                <li id="6.02" typeid="6" subtypeid="2">Emergency Rooms</li>
+                <li id="6.03" typeid="6" subtypeid="3">Out-patient Clinics</li>
+                <li id="6.04" typeid="6" subtypeid="4">Chiropractors</li>
+                <li id="6.05" typeid="6" subtypeid="5">Alternative Medicine</li>
+                <li id="6.06" typeid="6" subtypeid="6">Dentists</li>
+                <li id="6.07" typeid="6" subtypeid="7">Eye Care</li>
+                <li id="6.08" typeid="6" subtypeid="8">In-patient Mental Health</li>
+                <li id="6.09" typeid="6" subtypeid="9">Counseling</li>
+                <li id="6.10" typeid="6" subtypeid="10">Out-patient Testing, Rehabilitation, and Therapy</li>
+                <li id="6.11" typeid="6" subtypeid="11">In-patient Rehabilitation</li>
+                <li id="6.12" typeid="6" subtypeid="12">Ambulances</li>
+                <li id="6.13" typeid="6" subtypeid="13">Mobile Health</li>
+                <li id="2.05" typeid="2" subtypeid="5">Drug Stores and Pharmacies</li>
+                <li id="17.03" typeid="17" subtypeid="3">Research Groups</li>
+                <li id="6.14" typeid="6" subtypeid="14">Other Health Services</li>
               </ul>
             </li>
-            <li id="c12" class="category">
+            <li id="c12">
               <svg class="toggle-category icon-category -housing" role="img"><use xlink:href="#icon-housing"></use></svg>
               <div class="category-name toggle-category">Housing, Real Estate, Hotels</div>
               <ul class="services">
-                <li id="d12.01" class="service">Hotels</li>
-                <li id="d12.02" class="service">Shelters</li>
-                <li id="d12.03" class="service">Group Homes</li>
-                <li id="d12.04" class="service">Senior Housing</li>
-                <li id="d12.05" class="service">Religious Housing</li>
-                <li id="d12.06" class="service">Public Housing</li>
-                <li id="d12.07" class="service">Student Housing</li>
-                <li id="d12.08" class="service">Other Housing</li>
+                <li id="12.01" typeid="12" subtypeid="1">Hotels</li>
+                <li id="12.02" typeid="12" subtypeid="2">Shelters</li>
+                <li id="12.03" typeid="12" subtypeid="3">Group Homes</li>
+                <li id="12.04" typeid="12" subtypeid="4">Senior Housing</li>
+                <li id="12.05" typeid="12" subtypeid="5">Religious Housing</li>
+                <li id="12.06" typeid="12" subtypeid="6">Public Housing</li>
+                <li id="12.07" typeid="12" subtypeid="7">Student Housing</li>
+                <li id="12.08" typeid="12" subtypeid="8">Other Housing</li>
               </ul>
             </li>
-            <li id="c8" class="category">
+            <li id="c8">
               <svg class="toggle-category icon-category -moving" role="img"><use xlink:href="#icon-moving"></use></svg>
               <div class="category-name toggle-category">Moving, Storage, Shipping</div>
               <ul class="services">
-                <li id="d8.01" class="service">Warehouses</li>
-                <li id="d8.02" class="service">Public Storage</li>
-                <li id="d8.03" class="service">Taxi and Limo</li>
-                <li id="d8.04" class="service">Public Transit</li>
-                <li id="d8.05" class="service">Shipping and Delivery Services</li>
-                <li id="d8.06" class="service">Parking</li>
-                <li id="d8.07" class="service">Car Rental</li>
-                <li id="d8.08" class="service">Car Emissions Test Centers</li>
-                <li id="d8.09" class="service">Moving and Storage</li>
-                <li id="d8.10" class="service">Towing</li>
-                <li id="d8.11" class="service">Wholesalers</li>
-                <li id="d8.12" class="service">Other</li>
+                <li id="8.01" typeid="8" subtypeid="1">Warehouses</li>
+                <li id="8.02" typeid="8" subtypeid="2">Public Storage</li>
+                <li id="8.03" typeid="8" subtypeid="3">Taxi and Limo</li>
+                <li id="8.04" typeid="8" subtypeid="4">Public Transit</li>
+                <li id="8.05" typeid="8" subtypeid="5">Shipping and Delivery Services</li>
+                <li id="8.06" typeid="8" subtypeid="6">Parking</li>
+                <li id="8.07" typeid="8" subtypeid="7">Car Rental</li>
+                <li id="8.08" typeid="8" subtypeid="8">Car Emissions Test Centers</li>
+                <li id="8.09" typeid="8" subtypeid="9">Moving and Storage</li>
+                <li id="8.10" typeid="8" subtypeid="10">Towing</li>
+                <li id="8.11" typeid="8" subtypeid="11">Wholesalers</li>
+                <li id="8.12" typeid="8" subtypeid="12">Other</li>
               </ul>
             </li>
-            <li id="c17" class="category">
+            <li id="c17">
               <svg class="toggle-category icon-category -other" role="img"><use xlink:href="#icon-other"></use></svg>
               <div class="category-name toggle-category">Other</div>
               <ul class="services">
-                <li id="d16.01" class="service">Community Event Groups</li>
-                <li id="d16.02" class="service">Community Gardens</li>
-                <li id="d16.03" class="service">Research Groups</li>
-                <li id="d16.04" class="service">Other</li>
+                <li id="16.01" typeid="16" subtypeid="1">Community Event Groups</li>
+                <li id="16.02" typeid="16" subtypeid="2">Community Gardens</li>
+                <li id="16.03" typeid="16" subtypeid="3">Research Groups</li>
+                <li id="16.04" typeid="16" subtypeid="4">Other</li>
               </ul>
             </li>
-            <li id="c4" class="category">
+            <li id="c4">
               <svg class="toggle-category icon-category -personal-services" role="img"><use xlink:href="#icon-personal-services"></use></svg>
               <div class="category-name toggle-category">Personal Services</div>
               <ul class="services">
-                <li id="d4.01" class="service">Beauty and Barber Shops</li>
-                <li id="d4.02" class="service">Tattoos and Body Piercing</li>
-                <li id="d4.03" class="service">Spas</li>
-                <li id="d4.04" class="service">Psychics</li>
-                <li id="d4.05" class="service">Laundry and Tailor Services</li>
-                <li id="d14.13" class="service">Travel Agents</li>
-                <li id="d4.06" class="service">Other Personal Services</li>
+                <li id="4.01" typeid="4" subtypeid="1">Beauty and Barber Shops</li>
+                <li id="4.02" typeid="4" subtypeid="2">Tattoos and Body Piercing</li>
+                <li id="4.03" typeid="4" subtypeid="3">Spas</li>
+                <li id="4.04" typeid="4" subtypeid="4">Psychics</li>
+                <li id="4.05" typeid="4" subtypeid="5">Laundry and Tailor Services</li>
+                <li id="14.13" typeid="14" subtypeid="13">Travel Agents</li>
+                <li id="4.06" typeid="4" subtypeid="6">Other Personal Services</li>
               </ul>
             </li>
-            <li id="c3" class="category">
+            <li id="c3">
               <svg class="toggle-category icon-category -professional-and-home" role="img"><use xlink:href="#icon-professional-and-home"></use></svg>
               <div class="category-name toggle-category">Professional and Home Services</div>
               <ul class="services">
-                <li id="d3.01" class="service">Auto Repair, Body Shops, Car Wash, and Detailing</li>
-                <li id="d3.02" class="service">Home Repair/improvement</li>
-                <li id="d3.03" class="service">Other Repair</li>
-                <li id="d3.04" class="service">Outdoor/Yard Services</li>
-                <li id="d3.05" class="service">Indoor/Building Services</li>
-                <li id="d3.06" class="service">Locksmiths and Security Services</li>
-                <li id="d3.07" class="service">Florist, Flower, and Plant Shops</li>
-                <li id="d3.08" class="service">Funeral Homes and Cemetary Services</li>
-                <li id="d3.09" class="service">Disposal and Recycling</li>
-                <li id="d3.10" class="service">Equipment Rental</li>
-                <li id="d3.11" class="service">Bike Shops</li>
-                <li id="d3.12" class="service">Copy/mail/print Shops</li>
-                <li id="d3.13" class="service">Tech Services</li>
-                <li id="d3.14" class="service">Media Services</li>
-                <li id="d3.15" class="service">Photo Studios</li>
-                <li id="d3.16" class="service">Animal Care</li>
-                <li id="d3.17" class="service">Other Services</li>
+                <li id="3.01" typeid="3" subtypeid="1">Auto Repair, Body Shops, Car Wash, and Detailing</li>
+                <li id="3.02" typeid="3" subtypeid="2">Home Repair/improvement</li>
+                <li id="3.03" typeid="3" subtypeid="3">Other Repair</li>
+                <li id="3.04" typeid="3" subtypeid="4">Outdoor/Yard Services</li>
+                <li id="3.05" typeid="3" subtypeid="5">Indoor/Building Services</li>
+                <li id="3.06" typeid="3" subtypeid="6">Locksmiths and Security Services</li>
+                <li id="3.07" typeid="3" subtypeid="7">Florist, Flower, and Plant Shops</li>
+                <li id="3.08" typeid="3" subtypeid="8">Funeral Homes and Cemetary Services</li>
+                <li id="3.09" typeid="3" subtypeid="9">Disposal and Recycling</li>
+                <li id="3.10" typeid="3" subtypeid="10">Equipment Rental</li>
+                <li id="3.11" typeid="3" subtypeid="11">Bike Shops</li>
+                <li id="3.12" typeid="3" subtypeid="12">Copy/mail/print Shops</li>
+                <li id="3.13" typeid="3" subtypeid="13">Tech Services</li>
+                <li id="3.14" typeid="3" subtypeid="14">Media Services</li>
+                <li id="3.15" typeid="3" subtypeid="15">Photo Studios</li>
+                <li id="3.16" typeid="3" subtypeid="16">Animal Care</li>
+                <li id="3.17" typeid="3" subtypeid="17">Other Services</li>
               </ul>
             </li>
-            <li id="c13" class="category">
+            <li id="c13">
               <svg class="toggle-category icon-category -public-and-gov" role="img"><use xlink:href="#icon-public-and-gov"></use></svg>
               <div class="category-name toggle-category">Public and Government Services</div>
               <ul class="services">
-                <li id="d13.01" class="service">Post Offices</li>
-                <li id="d13.02" class="service">Fire Departments</li>
-                <li id="d13.03" class="service">Libraries</li>
-                <li id="d13.04" class="service">City Police Stations</li>
-                <li id="d13.05" class="service">Other Law Enforcement</li>
-                <li id="d13.06" class="service">Government</li>
-                <li id="d13.07" class="service">Government Representative</li>
-                <li id="d13.08" class="service">Utility-water</li>
-                <li id="d13.09" class="service">Utility-electric</li>
-                <li id="d13.10" class="service">Utility-gas</li>
-                <li id="d13.11" class="service">Military/armed Forces</li>
-                <li id="d13.12" class="service">Other Public and Government Services</li>
+                <li id="13.01" typeid="13" subtypeid="1">Post Offices</li>
+                <li id="13.02" typeid="13" subtypeid="2">Fire Departments</li>
+                <li id="13.03" typeid="13" subtypeid="3">Libraries</li>
+                <li id="13.04" typeid="13" subtypeid="4">City Police Stations</li>
+                <li id="13.05" typeid="13" subtypeid="5">Other Law Enforcement</li>
+                <li id="13.06" typeid="13" subtypeid="6">Government</li>
+                <li id="13.07" typeid="13" subtypeid="7">Government Representative</li>
+                <li id="13.08" typeid="13" subtypeid="8">Utility-water</li>
+                <li id="13.09" typeid="13" subtypeid="9">Utility-electric</li>
+                <li id="13.10" typeid="13" subtypeid="10">Utility-gas</li>
+                <li id="13.11" typeid="13" subtypeid="11">Military/armed Forces</li>
+                <li id="13.12" typeid="13" subtypeid="12">Other Public and Government Services</li>
               </ul>
             </li>
-            </li>
-            <li id="c10" class="category">
+            <li id="c10">
               <svg class="toggle-category icon-category -worship" role="img"><use xlink:href="#icon-worship"></use></svg>
               <div class="category-name toggle-category">Religious and Places of Worship</div>
               <ul class="services">
-                <li id="d10.01" class="service">Churches</li>
-                <li id="d10.02" class="service">Mosques</li>
-                <li id="d10.03" class="service">Synagogues</li>
-                <li id="d10.04" class="service">Other Worship</li>
-                <li id="d10.05" class="service">Other Religious Except Residential</li>
+                <li id="10.01" typeid="10" subtypeid="1">Churches</li>
+                <li id="10.02" typeid="10" subtypeid="2">Mosques</li>
+                <li id="10.03" typeid="10" subtypeid="3">Synagogues</li>
+                <li id="10.04" typeid="10" subtypeid="4">Other Worship</li>
+                <li id="10.05" typeid="10" subtypeid="5">Other Religious Except Residential</li>
               </ul>
             </li>
-             <li id="c2" class="category">
+             <li id="c2">
               <svg class="toggle-category icon-category -shopping" role="img"><use xlink:href="#icon-shopping"></use></svg>
               <div class="category-name toggle-category">Shopping</div>
               <ul class="services">
-                <li id="d2.01" class="service">Convenience Stores</li>
-                <li id="d2.02" class="service">Grocery</li>
-                <li id="d2.03" class="service">Small Grocery</li>
-                <li id="d2.04" class="service">Other Food</li>
-                <li id="d2.05" class="service">Drug Stores and Pharmacies</li>
-                <li id="d2.06" class="service">Wine, Beer, Spirits and Other Alcohol</li>
-                <li id="d2.07" class="service">Clothing</li>
-                <li id="d2.08" class="service">Shoes</li>
-                <li id="d2.09" class="service">Thrift Stores</li>
-                <li id="d2.10" class="service">Department Store</li>
-                <li id="d2.11" class="service">General and Dollar Stores</li>
-                <li id="d2.12" class="service">Housewares and Furniture</li>
-                <li id="d2.13" class="service">Hardware</li>
-                <li id="d2.14" class="service">Beauty Supplies and Accessories</li>
-                <li id="d2.15" class="service">Phones</li>
-                <li id="d2.16" class="service">Electronics and Appliances</li>
-                <li id="d2.17" class="service">Cars, Trucks, and Motorcycles</li>
-                <li id="d2.18" class="service">Auto Supply</li>
-                <li id="d2.19" class="service">Gas Stations</li>
-                <li id="d2.20" class="service">Office Supplies</li>
-                <li id="d2.21" class="service">Bookstores</li>
-                <li id="d2.22" class="service">Cards, Gifts and Art</li>
-                <li id="d2.23" class="service">Pet Stores and Pet Supplies</li>
-                <li id="d2.24" class="service">Crafts</li>
-                <li id="d2.25" class="service">Toys</li>
-                <li id="d2.26" class="service">Other Shopping</li>
+                <li id="2.01" typeid="2" subtypeid="1">Convenience Stores</li>
+                <li id="2.02" typeid="2" subtypeid="2">Grocery</li>
+                <li id="2.03" typeid="2" subtypeid="3">Small Grocery</li>
+                <li id="2.04" typeid="2" subtypeid="4">Other Food</li>
+                <li id="2.05" typeid="2" subtypeid="5">Drug Stores and Pharmacies</li>
+                <li id="2.06" typeid="2" subtypeid="6">Wine, Beer, Spirits and Other Alcohol</li>
+                <li id="2.07" typeid="2" subtypeid="7">Clothing</li>
+                <li id="2.08" typeid="2" subtypeid="8">Shoes</li>
+                <li id="2.09" typeid="2" subtypeid="9">Thrift Stores</li>
+                <li id="2.10" typeid="2" subtypeid="10">Department Store</li>
+                <li id="2.11" typeid="2" subtypeid="11">General and Dollar Stores</li>
+                <li id="2.12" typeid="2" subtypeid="12">Housewares and Furniture</li>
+                <li id="2.13" typeid="2" subtypeid="13">Hardware</li>
+                <li id="2.14" typeid="2" subtypeid="14">Beauty Supplies and Accessories</li>
+                <li id="2.15" typeid="2" subtypeid="15">Phones</li>
+                <li id="2.16" typeid="2" subtypeid="16">Electronics and Appliances</li>
+                <li id="2.17" typeid="2" subtypeid="17">Cars, Trucks, and Motorcycles</li>
+                <li id="2.18" typeid="2" subtypeid="18">Auto Supply</li>
+                <li id="2.19" typeid="2" subtypeid="19">Gas Stations</li>
+                <li id="2.20" typeid="2" subtypeid="20">Office Supplies</li>
+                <li id="2.21" typeid="2" subtypeid="21">Bookstores</li>
+                <li id="2.22" typeid="2" subtypeid="22">Cards, Gifts and Art</li>
+                <li id="2.23" typeid="2" subtypeid="23">Pet Stores and Pet Supplies</li>
+                <li id="2.24" typeid="2" subtypeid="24">Crafts</li>
+                <li id="2.25" typeid="2" subtypeid="25">Toys</li>
+                <li id="2.26" typeid="2" subtypeid="26">Other Shopping</li>
               </ul>
             </li>
-            <li id="c7" class="category">
+            <li id="c7">
               <svg class="toggle-category icon-category -social-services" role="img"><use xlink:href="#icon-social-services"></use></svg>
               <div class="category-name toggle-category">Social Services, Advocacy, Political</div>
               <ul class="services">
-                <li id="d7.01" class="service">Social Service Centers</li>
-                <li id="d7.02" class="service">Food Pantries</li>
-                <li id="d7.03" class="service">Employment and Job Services</li>
-                <li id="d7.04" class="service">Children's Services, Foster Care, and Adoption</li>
-                <li id="d7.05" class="service">Senior Service Centers</li>
-                <li id="d7.06" class="service">Disabled Service Centers</li>
-                <li id="d7.07" class="service">Mobile Social Service</li>
-                <li id="d7.08" class="service">Other Social Service</li>
-                <li id="d7.09" class="service">Administrative</li>
-                <li id="d7.10" class="service">Political Offices</li>
-                <li id="d7.11" class="service">Community Organizing and Advocacy</li>
-                <li id="d7.12" class="service">Other</li>
+                <li id="7.01" typeid="7" subtypeid="1">Social Service Centers</li>
+                <li id="7.02" typeid="7" subtypeid="2">Food Pantries</li>
+                <li id="7.03" typeid="7" subtypeid="3">Employment and Job Services</li>
+                <li id="7.04" typeid="7" subtypeid="4">Children's Services, Foster Care, and Adoption</li>
+                <li id="7.05" typeid="7" subtypeid="5">Senior Service Centers</li>
+                <li id="7.06" typeid="7" subtypeid="6">Disabled Service Centers</li>
+                <li id="7.07" typeid="7" subtypeid="7">Mobile Social Service</li>
+                <li id="7.08" typeid="7" subtypeid="8">Other Social Service</li>
+                <li id="7.09" typeid="7" subtypeid="9">Administrative</li>
+                <li id="7.10" typeid="7" subtypeid="10">Political Offices</li>
+                <li id="7.11" typeid="7" subtypeid="11">Community Organizing and Advocacy</li>
+                <li id="7.12" typeid="7" subtypeid="12">Other</li>
               </ul>
             </li>
-            <li id="c16" class="category">
+            <li id="c16">
               <svg class="toggle-category icon-category -transport" role="img"><use xlink:href="#icon-transport"></use></svg>
               <div class="category-name toggle-category">Transportation</div>
               <ul class="services">
-                <li id="d2.17" class="service">Cars, Trucks, and Motorcycles</li>
-                <li id="d2.19" class="service">Gas Stations</li>
-                <li id="d3.01" class="service">Auto Repair, Body Shops, Car Wash, and Detailing</li>
-                <li id="d3.11" class="service">Bike Shops</li>
-                <li id="d6.12" class="service">Ambulances</li>
-                <li id="d8.03" class="service">Taxi and Limo</li>
-                <li id="d8.04" class="service">Public Transit</li>
-                <li id="d8.05" class="service">Shipping and Delivery Services</li>
-                <li id="d8.06" class="service">Parking</li>
-                <li id="d8.07" class="service">Car Rental</li>
-                <li id="d8.08" class="service">Car Emissions Test Centers</li>
+                <li id="2.17" typeid="2" subtypeid="17">Cars, Trucks, and Motorcycles</li>
+                <li id="2.19" typeid="2" subtypeid="19">Gas Stations</li>
+                <li id="3.01" typeid="3" subtypeid="1">Auto Repair, Body Shops, Car Wash, and Detailing</li>
+                <li id="3.11" typeid="3" subtypeid="11">Bike Shops</li>
+                <li id="6.12" typeid="6" subtypeid="12">Ambulances</li>
+                <li id="8.03" typeid="8" subtypeid="3">Taxi and Limo</li>
+                <li id="8.04" typeid="8" subtypeid="4">Public Transit</li>
+                <li id="8.05" typeid="8" subtypeid="5">Shipping and Delivery Services</li>
+                <li id="8.06" typeid="8" subtypeid="6">Parking</li>
+                <li id="8.07" typeid="8" subtypeid="7">Car Rental</li>
+                <li id="8.08" typeid="8" subtypeid="8">Car Emissions Test Centers</li>
               </ul>
             </li>
-            <li id="c9" class="category">
+            <li id="c9">
               <svg class="toggle-category icon-category -manufacturing" role="img"><use xlink:href="#icon-manufacturing"></use></svg>
               <div class="category-name toggle-category">Wholesale and Manufacturing</div>
               <ul class="services">
-                <li id="d9.01" class="service">Food Processing Plants</li>
-                <li id="d9.02" class="service">Chemical Production Or Processing</li>
-                <li id="d9.03" class="service">Parts Manufacturers</li>
-                <li id="d9.04" class="service">Finished Goods</li>
-                <li id="d9.05" class="service">Other Manufacturing</li>
+                <li id="9.01" typeid="9" subtypeid="1">Food Processing Plants</li>
+                <li id="9.02" typeid="9" subtypeid="2">Chemical Production Or Processing</li>
+                <li id="9.03" typeid="9" subtypeid="3">Parts Manufacturers</li>
+                <li id="9.04" typeid="9" subtypeid="4">Finished Goods</li>
+                <li id="9.05" typeid="9" subtypeid="5">Other Manufacturing</li>
               </ul>
           </ul>
-        </div><!-- /search-menu -->
+        </form><!-- /search-menu -->
 
         <div id="map">
-          <ul class="city-nav active-CHICAGO">
+          <ul class="city-nav">
             <li class="chicago"><a href="/Map/Chicago">Chicago</a></li>
             <li class="newyork"><a href="/Map/NewYork">New York</a></li>
-            <li class="niagarafalls"><a href="/Map/NiagaraFalls">Niagara Falls</a></li>
-            <li class="nashedgecombe"><a href="/Map/NashEdgecombe">Nash &amp; Edgecombe</a></li>
+            <li class="niagara"><a href="/Map/Niagara">Niagara Falls</a></li>
+            <li class="nash"><a href="/Map/Nash">Nash &amp; Edgecombe</a></li>
           </ul>
           <div class="gmap-wrap"><div id="gmap-canvas"></div></div>
           <div class="request-data">
@@ -445,7 +403,7 @@
     </footer>
 
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-ArAAZQw3empFtfpkbJ7VgYc-wxp1GrI&callback=MapsCorps.initMaps" ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-ArAAZQw3empFtfpkbJ7VgYc-wxp1GrI" ></script>
 
     <script src="assets/js/build/site.js"></script>
     <script type="text/javascript">// Google Analytics

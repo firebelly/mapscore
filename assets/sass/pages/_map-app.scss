@@ -7,23 +7,23 @@ $blue-gray: #bcbbcd;
 $white: #fff;
 
 // Category Colors
-$category-arts-and-entertainment: #ff3566;
-$category-education: #1449c9;
-$category-financial: #50f5d7;
-$category-foods: #eb2832;
-$category-gyms: #f555c8;
-$category-health: #8c145a;
-$category-manufacturing: #aaeb32;
-$category-moving: #ff733a;
-$category-other: #733ca0;
-$category-personal-services: #b43ccd;
-$category-professional-and-home: #ffdc2d;
-$category-public-and-gov: #307efc;
-$category-shopping: #3cb95f;
-$category-social-services: #51c8eb;
-$category-transport: #1f1c57;
-$category-worship: #055a41;
-$category-housing: #e1f514;
+$category-arts-and-entertainment: #ff3566; // typeId: 14
+$category-education: #1449c9; // typeId: 11
+$category-financial: #50f5d7; // typeId: 5
+$category-foods: #eb2832; // typeId: 1
+$category-gyms: #f555c8; // typeId: 15
+$category-health: #8c145a; // typeId: 6
+$category-manufacturing: #aaeb32; // typeId: 9
+$category-moving: #ff733a; // typeId: 8
+$category-other: #733ca0; // typeId: 16
+$category-personal-services: #b43ccd; // typeId: 4
+$category-professional-and-home: #ffdc2d; // typeId: 3
+$category-public-and-gov: #307efc; // typeId: 13
+$category-shopping: #3cb95f; // typeId: 2
+$category-social-services: #51c8eb; // typeId: 7
+$category-transport: #1f1c57; // typeId: 8
+$category-worship: #055a41; // typeId: 10
+$category-housing: #e1f514; // typeId: 12
 
 // Page Stylings
 .map-page {
@@ -93,18 +93,19 @@ $category-housing: #e1f514;
     @include min-screen($breakpoint-nav) {
       text-align: right;
     }
+  }
 
-    // Active states
-    &.active-CHICAGO li.chicago,
-    &.active-NEWYORK li.newyork,
-    &.active-NIAGARAFALLS li.niagarafalls,
-    &.active-NASHEDGECOMBE li.nashedgecombe {
-      a {
-        color: $blue;
-        border-bottom: 3px solid $blue;
-      }
+  // Active states
+  [data-city="CHICAGO"] .city-nav li.chicago,
+  [data-city="NEWYORK"] .city-nav li.newyork,
+  [data-city="NIAGARAFALLS"] .city-nav li.niagara,
+  [data-city="NASHVILLEEDGECOMBE"] .city-nav li.nash {
+    a {
+      color: $blue;
+      border-bottom: 3px solid $blue;
     }
   }
+
 
   h2 {
     color: $pink;
@@ -117,6 +118,8 @@ $category-housing: #e1f514;
 
   // Map Search Menu Styling
   .search-menu {
+    margin: 0;
+    padding: 0;
     @include min-screen($breakpoint-nav) {
       float: left;
       width: 280px;
@@ -139,7 +142,7 @@ $category-housing: #e1f514;
         content: ' ';
         width: 10px;
         height: 14px;
-        // background: url(#{$svg_dir}select-bg.svg);
+        background: url(#{$svg_dir}select-bg.svg);
         top: 1px;
         right: 0;
         pointer-events: none;
@@ -152,6 +155,7 @@ $category-housing: #e1f514;
         background-color: transparent;
         background-image: none;
         appearance: none;
+        outline: none;
         &::-ms-expand {
           display: none;
         }
@@ -171,16 +175,11 @@ $category-housing: #e1f514;
       padding-right: 30px;
     }
 
-    .step, .category {
-      margin-top: 10px;
-      margin-left: 36px;
-      width: 246px;
-    }
-
     .steps {
       font-size: 15px;
       counter-reset: step-counter;
-      .step {
+      li:not(.or) {
+        margin: 10px 0 0 36px;
         background: $yellow;
         position: relative;
         &:before{
@@ -199,12 +198,52 @@ $category-housing: #e1f514;
           font-weight: bold;
         }
       }
+      // Or Zipcode field for Chicago
+      .or {
+        display: none; // set to display: block for Chicago only
+        background: none;
+        position: relative;
+        margin-left: 36px;
+        span {
+          display: block;
+          position: absolute;
+          left: -33px;
+          top: 8px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .pad {
+          background: $yellow;
+          position: relative;
+          padding: 4px;
+          margin: 10px 0 20px;
+        }
+        input[type=text] {
+          background: none;
+          border: none;
+          font-size: 15px;
+          padding: 4px;
+        }
+        button {
+          background: $blue;
+          color: $white;
+          font-size: 13px;
+          padding: 2px 4px;
+          letter-spacing: .1em;
+          border: none;
+          outline: none;
+          position: absolute;
+          top: 8px;
+          right: 6px;
+        }
+      }
     }
 
     .categories {
       font-size: 13px;
       margin-top: 30px;
-      .category {
+      >li {
+        margin: 10px 0 0 36px;
         background: $light-gray;
         position: relative;
         .toggle-category {
@@ -236,7 +275,7 @@ $category-housing: #e1f514;
       color: $white;
       background: $blue-gray;
       display: none;
-      .service {
+      li {
         position: relative;
         padding-left: 10px;
         padding-top: 5px;
@@ -255,6 +294,10 @@ $category-housing: #e1f514;
         }
       }
     }
+  }
+  // Show OR for Chicago
+  [data-city="CHICAGO"] .steps .or {
+    display: block;
   }
 
   //Icon sizing and colors

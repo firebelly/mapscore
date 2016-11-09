@@ -1521,10 +1521,16 @@ var MapsCorps = (function($) {
       $paymentForm = $('#payment-form'),
       map,
       markers = [],
+      shadowMarkers = [],
+      customIcons = [],
+      statusColors = [],
       infoWindow,
       currentCity = {},
-      // images_dir = '/Content/Images/';
-      images_dir = 'assets/images/';
+      markerZ = 0,
+      images_dir = '/Content/Images/',
+      svgs_dir = '/Content/Svgs/';
+      // images_dir = '/assets/images/',
+      // svgs_dir = '/assets/svgs/';
 
   function _init() {
     // Touch-friendly fast clicks
@@ -1551,6 +1557,7 @@ var MapsCorps = (function($) {
         $(this).attr('href', $(this).attr('href').replace('/','')).addClass('smoothscroll');
       });
       _initScrollspy();
+      _initHomepageMapsTabs();
       google.maps.event.addDomListener(window, 'load', MapsCorps.initMaps);
     }
 
@@ -1558,8 +1565,6 @@ var MapsCorps = (function($) {
     _initMobileNav();
     _stickyNav();
     _initDonate();
-    _initPartnersTabs();
-
 
     // Esc handlers
     $(document).keyup(function(e) {
@@ -1724,7 +1729,7 @@ var MapsCorps = (function($) {
   }
 
   // Nav to swap out maps
-  function _initPartnersTabs() {
+  function _initHomepageMapsTabs() {
     $document.on('click', '.maps-list a', function(e) {
       e.preventDefault();
       var $target = $($(this).attr('href'));
@@ -1739,9 +1744,9 @@ var MapsCorps = (function($) {
     });
   }
 
-  // get PartnerMaps json and populate map data
+  // Get PartnerMaps json and populate map data
   function _initMaps() {
-    $.getJSON('partnerMaps.json', {_: new Date().getTime()}, function(data) {
+    $.getJSON('../partnerMaps.json', {_: new Date().getTime()}, function(data) {
       $.each(data.partnerMaps, function(i) {
        _initPartnerMap(this.partnerLat, this.partnerLng, this.elementID, this.partnerZoom, this.partnerLocations);
       });
@@ -1749,7 +1754,8 @@ var MapsCorps = (function($) {
       console.log('partner map init failed: ',a,b,c);
     });
 
-    $.getJSON('communityMaps.json', {_: new Date().getTime()}, function(data) {
+    $.getJSON('../communityMaps.json', {_: new Date().getTime()}, function(data) {
+      statusColors = data.statusColors;
       $.each(data.communityMaps, function(i) {
        _initCommunityMap(this.lat, this.lng, this.elementID, this.zoom, this.communities);
       });
@@ -1782,20 +1788,18 @@ var MapsCorps = (function($) {
             opened: false,
         },
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-            { "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#444444" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#d8d8d8" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#bbbbbb" }] }, { "featureType": "road.highway", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#CECFD1" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "#CECFD1" }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#51c9ea" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "off" }] }]
+        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#d8d8d8"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"road","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#CECFD1"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#bbbbbb"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#CECFD1"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#c5c5c5"},{"visibility":"on"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]}]
     };
     var mapElement = document.getElementById(id);
     var communityMap = new google.maps.Map(mapElement, mapOptions);
     var communityOutlines = [];
     for (i = 0; i < communities.length; i++) {
-
       var communityOutline = new google.maps.Polygon({
         paths: communities[i].path,
         strokeColor: '#eeeeee',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#ff3566',
+        fillColor: statusColors[communities[i].status],
         fillOpacity: 0.5,
         name: communities[i].name,
         url: communities[i].url,
@@ -1902,8 +1906,7 @@ var MapsCorps = (function($) {
 
   // Inject all svgs onto page so they can be pulled with xlinks and can be styled as if inline.
   function _injectSvgSprite() {
-    boomsvgloader.load('/assets/svgs/build/svgs-defs.svg');
-    // boomsvgloader.load('/Content/Svgs/build/svgs-defs.svg');
+    boomsvgloader.load(svgs_dir + 'build/svgs-defs.svg');
   }
 
   // Track ajax pages in Analytics
@@ -2153,11 +2156,11 @@ var MapsCorps = (function($) {
 
   function _initMapPage() {
     // Add svg toggles to categories
-    $('.category').prepend('<svg class="icon-triangle toggle-category" role="img"><use xlink:href="#icon-triangle"></use></svg>');
+    $('.categories>li').prepend('<svg class="icon-triangle toggle-category" role="img"><use xlink:href="#icon-triangle"></use></svg>');
 
     // Make categories open and close via Velocity.js
     $('.toggle-category').each(function() {
-      var $category = $(this).closest('.category');
+      var $category = $(this).closest('li');
       var $services = $category.find('.services');
       $(this).click(function() {
         $category.toggleClass('open');
@@ -2179,34 +2182,54 @@ var MapsCorps = (function($) {
     });
 
     // Change community/zipcode when submitted
-    $('#btnCommunity').on('click', function () {
-        var opt = $('option[value="' + $('#txtAutoComplete').val() + '"]');
-        var lat = opt.attr('lat');
-        var lng = opt.attr('lng');
-        var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-        map.setZoom(12);
-        map.setCenter(point);
+    $('#mapSearch').on('submit', function(e) {
+      e.preventDefault();
+      var zip = $('input[name="zip"]').val();
+      if (zip != '') {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({address: zip}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            map.setZoom(12);
+            map.setCenter(results[0].geometry.location);
+          } else {
+            console.log("ZIP geocode failed: " + status);
+          }
+        });
+      } else {
+        var opt = $('#communities option:selected');
+        if (opt.length) {
+          var lat = opt.attr('data-lat');
+          var lng = opt.attr('data-lng');
+          var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+          map.setZoom(12);
+          map.setCenter(point);
+        }
+      }
+    });
+    $('#communities').on('change', function() {
+      $('input[name="zip"]').val('');
+      $('#mapSearch').trigger('submit');
     });
 
     // Determine city we're on, set starting position and json filename
-    currentCity.name = $('.map-section[data-city]').val();
+    currentCity.name = $('.map-section').attr('data-city');
     switch (currentCity.name) {
       case 'CHICAGO':
         currentCity.startLat = '41.8541605';
         currentCity.startLng = '-87.6632838';
         currentCity.jsonFile = '../chicago.json';
         break;
-      case 'NEW YORK':
+      case 'NEWYORK':
         currentCity.startLat = '40.7058316';
         currentCity.startLng = '-74.0480853';
         currentCity.jsonFile = '../ny.json';
         break;
-      case 'NIAGARA FALLS':
+      case 'NIAGARAFALLS':
         currentCity.startLat = '43.0996095';
         currentCity.startLng = '-79.0787823';
         currentCity.jsonFile = '../niagara.json';
         break;
-      case 'NASHVILLE & EDGECOMBE':
+      case 'NASHVILLEEDGECOMBE':
         currentCity.startLat = '35.9221321';
         currentCity.startLng = '-77.8831092';
         currentCity.jsonFile = '../nash.json';
@@ -2219,11 +2242,11 @@ var MapsCorps = (function($) {
 
     // Pull in city's community options
     $.getJSON(currentCity.jsonFile, function (data) {
-      $('#communities').append('<option value="0" lat="' + currentCity.startLat + '" lng="' + currentCity.startLng + '">Select Your Community</option>');
+      $('#communities').append('<option value="0" data-lat="' + currentCity.startLat + '" data-lng="' + currentCity.startLng + '">Select Your Community</option>');
       $.each(data, function () {
-        $('#communities').append('<option value="' + this.id + '" lat="' + this.lat + '" lng="' + this.lng + '">' + this.geoarea + '</option>');
-        $('#communityList').append('<option value="' + this.geoarea + '" lat="' + this.lat + '" lng="' + this.lng + '"></option>');
+        $('#communities').append('<option value="' + this.id + '" data-lat="' + this.lat + '" data-lng="' + this.lng + '">' + this.geoarea + '</option>');
       });
+      _checkInitialCommunity();
     }).fail(function(xhr, textStatus, error) {
       console.log('City JSON request failed: ' + textStatus + ', ' + error);
     });
@@ -2236,10 +2259,75 @@ var MapsCorps = (function($) {
         center: new google.maps.LatLng(currentCity.startLat, currentCity.startLng),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         streetViewControl: false,
-        mapTypeControl: false
+        mapTypeControl: false,
+        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.land_parcel","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"landscape","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#d8d8d8"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"road","stylers":[{"saturation":55},{"lightness":45}]},{"featureType":"road.highway","stylers":[{"saturation":-100}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fbfffd"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c5c5c5"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]}]
     };
     map = new google.maps.Map(document.getElementById('gmap-canvas'), myOptions);
     infoWindow = new google.maps.InfoWindow();
+
+    // Init custom icons
+    var catColors = [
+      { 'typeId': 1, 'color': '#eb2832' },
+      { 'typeId': 2, 'color': '#3cb95f' },
+      { 'typeId': 3, 'color': '#ffdc2d' },
+      { 'typeId': 4, 'color': '#b43ccd' },
+      { 'typeId': 5, 'color': '#50f5d7' },
+      { 'typeId': 6, 'color': '#8c145a' },
+      { 'typeId': 7, 'color': '#51c8eb' },
+      { 'typeId': 8, 'color': '#1f1c57' },
+      { 'typeId': 8, 'color': '#ff733a' },
+      { 'typeId': 9, 'color': '#aaeb32' },
+      { 'typeId': 10, 'color': '#055a41' },
+      { 'typeId': 11, 'color': '#1449c9' },
+      { 'typeId': 12, 'color': '#e1f514' },
+      { 'typeId': 13, 'color': '#307efc' },
+      { 'typeId': 14, 'color': '#ff3566' },
+      { 'typeId': 15, 'color': '#f555c8' },
+      { 'typeId': 16, 'color': '#733ca0' }
+    ];
+    for (var i = catColors.length - 1; i >= 0; i--) {
+      customIcons[catColors[i]['typeId']] = {
+        path: "M16,6.93,8,22,0,6.93,4,0h8Z",
+        fillColor: catColors[i]['color'],
+        fillOpacity: 1,
+        size: new google.maps.Size(16, 22),
+        anchor: new google.maps.Point(8, 23),
+        strokeWeight: 0,
+        scale: 1
+      };
+    }
+    // Shadow png that is shown behind svgs
+    shadowIcon = {
+      url: images_dir + 'pin-shadow.png',
+      size: new google.maps.Size(20, 26),
+      anchor: new google.maps.Point(10, 24),
+      strokeWeight: 0,
+      scale: 1
+    };
+  }
+
+  // Add a new shadow to map behind a point
+  function _shadowMarker(marker) {
+    var markerShadow = new google.maps.Marker({
+        clickable: false,
+        position: marker.position,
+        map: map,
+        icon: shadowIcon,
+        optimized: false,
+        zIndex: marker.getZIndex() - 1
+    });
+    shadowMarkers.push(markerShadow);
+  }
+
+  // Clear out all shadows and reinit from markers array
+  function _resetShadows() {
+    for (var i = 0; i < shadowMarkers.length; i++) {
+      shadowMarkers[i].setMap(null);
+    }
+    shadowMarkers = [];
+    for (var i = 0; i < markers.length; i++) {
+      _shadowMarker(markers[i]);
+    }
   }
 
   // Pull markers for type/subtype
@@ -2269,32 +2357,37 @@ var MapsCorps = (function($) {
       }
     }
     markers = markersKeep;
+    // _resetBounds();
+    // Reset shadows behind markers
+    _resetShadows();
+  }
+
+  // Reset bounds to markers (not currently used)
+  function _resetBounds() {
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markers.length; i++) {
+      bounds.extend(markers[i].position);
+    }
+    map.fitBounds(bounds);
   }
 
   function _placesCallback(json) {
-    $.each(json, function () {
+    $.each(json, function() {
       var lat = this.lat.toString();
       var lng = this.lng.toString();
       var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-      //map.bounds.extend(point);
-      var icon = {
-        // path: "M-20,0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0",
-        path: "12 0 4 0 0 6.93 8 22 16 6.93 12 0",
-        fillColor: '#FF0000',
-        fillOpacity: 1,
-        anchor: new google.maps.Point(0,0),
-        strokeWeight: 0,
-        scale: 1
-      };
+      markerZ += 2;
       var marker = new google.maps.Marker({
         position: point,
         map: map,
         typeid: this.typeId,
         subtypeId: this.subtypeId,
-        geoareaId: this.geoareaId
-        // ,icon: icon
-        // ,icon: images_dir + 'pin-' + this.typeId + '.png'
+        geoareaId: this.geoareaId,
+        icon: customIcons[this.typeId],
+        optimized: false,
+        zIndex: markerZ
       });
+      _shadowMarker(marker);
       var html =
         '<div style="width:300px;min-height:40px">' +
         '<h4 style="margin: 0;font-size: 20px;font-weight: bold;">' + this.name.toString() + '</h4>' +
@@ -2309,7 +2402,34 @@ var MapsCorps = (function($) {
       });
       markers.push(marker);
     });
-    //map.fitBounds(map.bounds);
+    // _resetBounds();
+  }
+
+  // Check if GET var is sent from homepage and preselect community if so
+  function _checkInitialCommunity() {
+    var community = _getVar('community');
+    if (community) {
+      $('#communities option').each(function(){
+        if($(this).text().toLowerCase() == community.toLowerCase()) {
+          $(this).attr('selected',true);
+          google.maps.event.addDomListener(window, 'load', function() {
+            $('#mapSearch').trigger('submit');
+          });
+        }
+      });
+    }
+  }
+
+  // Simple function to retrieve GET var (from http://stackoverflow.com/a/439578/1001675)
+  function _getVar(q) {
+    var $_GET = {};
+    document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+      function decode(s) {
+        return decodeURIComponent(s.split("+").join(" "));
+      }
+      $_GET[decode(arguments[1])] = decode(arguments[2]);
+    });
+    return $_GET[q];
   }
 
   // Public functions

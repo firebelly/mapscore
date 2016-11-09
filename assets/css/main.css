@@ -543,16 +543,16 @@ body:hover .visually-hidden a, body:hover .visually-hidden input, body:hover .vi
   width: 133px;
   height: 29px;
   display: block;
-  background: url("../images/logo-light.png");
+  background: url("/Content/Images/logo-light.png");
   background-size: 100%; }
 
 .lt-ie9 .site-header.-sticky {
   background: #fff; }
   .lt-ie9 .site-header.-sticky .logo a {
-    background: url("../images/logo-dark.png"); }
+    background: url("/Content/Images/logo-dark.png"); }
 
 .lt-ie9 .site-footer .logo a {
-  background: url("../images/logo-footer.png"); }
+  background: url("/Content/Images/logo-footer.png"); }
 
 .lt-ie10 .grid:before, .lt-ie10 .grid:after {
   content: "";
@@ -1267,7 +1267,7 @@ body.donation-form-active {
   .vision-section .vision-banner {
     position: relative;
     padding: 160px 0 115px;
-    background: url("../images/vision-background.jpg") no-repeat center center;
+    background: url("/Content/Images/vision-background.jpg") no-repeat center center;
     background-size: cover; }
   .vision-section .statement {
     color: #f2ff3d;
@@ -1407,7 +1407,7 @@ body.donation-form-active {
         font-size: 50px; } }
 
 .communities-section .section-image {
-  background-image: url("../images/communities-background.jpg"); }
+  background-image: url("/Content/Images/communities-background.jpg"); }
 
 .communities-section .section-copy p {
   font-size: 15px;
@@ -1495,13 +1495,13 @@ body.donation-form-active {
     .map-grid .map-content p {
       margin: 0; }
   .map-grid .chicago .map-wrapper {
-    background-image: url("../images/map-chicago.jpg"); }
+    background-image: url("/Content/Images/map-chicago.jpg"); }
   .map-grid .new-york .map-wrapper {
-    background-image: url("../images/map-nyc.jpg"); }
+    background-image: url("/Content/Images/map-nyc.jpg"); }
   .map-grid .niagara .map-wrapper {
-    background-image: url("../images/map-niagara.jpg"); }
+    background-image: url("/Content/Images/map-niagara.jpg"); }
   .map-grid .nash-edgecombe .map-wrapper {
-    background-image: url("../images/map-nash-edgecombe.jpg"); }
+    background-image: url("/Content/Images/map-nash-edgecombe.jpg"); }
   .map-grid .chicago .map-content a,
   .map-grid .new-york .map-content a {
     margin-bottom: 1.25em; }
@@ -1561,7 +1561,7 @@ body.donation-form-active {
       height: 100%; }
 
 .partners-section .section-image {
-  background-image: url("../images/partners-background.jpg"); }
+  background-image: url("/Content/Images/partners-background.jpg"); }
 
 .maps {
   margin-top: 50px; }
@@ -1664,7 +1664,7 @@ body.donation-form-active {
   margin-top: 50px; }
 
 .impact-section .section-image {
-  background-image: url("../images/impact-background.jpg"); }
+  background-image: url("/Content/Images/impact-background.jpg"); }
   .impact-section .section-image::before, .impact-section .section-image::after {
     display: none; }
 
@@ -1859,7 +1859,7 @@ body.donation-form-active {
           animation: fadeInOutImpact 6s 12s linear forwards infinite; }
 
 .page-section.intro-section.legal {
-  background: url("../images//vision-background.jpg") no-repeat top center; }
+  background: url("/Content/Images//vision-background.jpg") no-repeat top center; }
 
 .map-page .map-section {
   padding: 130px 0 100px; }
@@ -1918,12 +1918,13 @@ body.donation-form-active {
   @media screen and (min-width: 900px) {
     .map-page .city-nav {
       text-align: right; } }
-  .map-page .city-nav.active-CHICAGO li.chicago a,
-  .map-page .city-nav.active-NEWYORK li.newyork a,
-  .map-page .city-nav.active-NIAGARAFALLS li.niagarafalls a,
-  .map-page .city-nav.active-NASHEDGECOMBE li.nashedgecombe a {
-    color: #1e1c56;
-    border-bottom: 3px solid #1e1c56; }
+
+.map-page [data-city="CHICAGO"] .city-nav li.chicago a,
+.map-page [data-city="NEWYORK"] .city-nav li.newyork a,
+.map-page [data-city="NIAGARAFALLS"] .city-nav li.niagara a,
+.map-page [data-city="NASHVILLEEDGECOMBE"] .city-nav li.nash a {
+  color: #1e1c56;
+  border-bottom: 3px solid #1e1c56; }
 
 .map-page h2 {
   color: #ff3666;
@@ -1934,6 +1935,8 @@ body.donation-form-active {
   margin: 0; }
 
 .map-page .search-menu {
+  margin: 0;
+  padding: 0;
   line-height: 20px; }
   @media screen and (min-width: 900px) {
     .map-page .search-menu {
@@ -1951,6 +1954,7 @@ body.donation-form-active {
       content: ' ';
       width: 10px;
       height: 14px;
+      background: url(/Content/Images/select-bg.svg);
       top: 1px;
       right: 0;
       pointer-events: none; }
@@ -1963,6 +1967,7 @@ body.donation-form-active {
       -webkit-appearance: none;
          -moz-appearance: none;
               appearance: none;
+      outline: none;
       font-size: 15px;
       line-height: 20px;
       width: 100%;
@@ -1973,17 +1978,14 @@ body.donation-form-active {
     padding: 9px 10px 5px 10px; }
   .map-page .search-menu .category-name {
     padding-right: 30px; }
-  .map-page .search-menu .step, .map-page .search-menu .category {
-    margin-top: 10px;
-    margin-left: 36px;
-    width: 246px; }
   .map-page .search-menu .steps {
     font-size: 15px;
     counter-reset: step-counter; }
-    .map-page .search-menu .steps .step {
+    .map-page .search-menu .steps li:not(.or) {
+      margin: 10px 0 0 36px;
       background: #f2ff3d;
       position: relative; }
-      .map-page .search-menu .steps .step:before {
+      .map-page .search-menu .steps li:not(.or):before {
         position: absolute;
         left: -36px;
         top: 0;
@@ -1997,48 +1999,85 @@ body.donation-form-active {
         padding-left: 10px;
         padding-top: 8px;
         font-weight: bold; }
+    .map-page .search-menu .steps .or {
+      display: none;
+      background: none;
+      position: relative;
+      margin-left: 36px; }
+      .map-page .search-menu .steps .or span {
+        display: block;
+        position: absolute;
+        left: -33px;
+        top: 8px;
+        font-size: 20px;
+        font-weight: bold; }
+      .map-page .search-menu .steps .or .pad {
+        background: #f2ff3d;
+        position: relative;
+        padding: 4px;
+        margin: 10px 0 20px; }
+      .map-page .search-menu .steps .or input[type=text] {
+        background: none;
+        border: none;
+        font-size: 15px;
+        padding: 4px; }
+      .map-page .search-menu .steps .or button {
+        background: #1e1c56;
+        color: #fff;
+        font-size: 13px;
+        padding: 2px 4px;
+        letter-spacing: .1em;
+        border: none;
+        outline: none;
+        position: absolute;
+        top: 8px;
+        right: 6px; }
   .map-page .search-menu .categories {
     font-size: 13px;
     margin-top: 30px; }
-    .map-page .search-menu .categories .category {
+    .map-page .search-menu .categories > li {
+      margin: 10px 0 0 36px;
       background: #f4f4f7;
       position: relative; }
-      .map-page .search-menu .categories .category .toggle-category {
+      .map-page .search-menu .categories > li .toggle-category {
         cursor: pointer; }
-      .map-page .search-menu .categories .category .icon-triangle {
+      .map-page .search-menu .categories > li .icon-triangle {
         position: absolute;
         top: 15px;
         right: 10px; }
-      .map-page .search-menu .categories .category .icon-category {
+      .map-page .search-menu .categories > li .icon-category {
         position: absolute;
         left: -36px;
         top: 17px;
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%); }
-      .map-page .search-menu .categories .category.open .category-name {
+      .map-page .search-menu .categories > li.open .category-name {
         font-weight: bold; }
-      .map-page .search-menu .categories .category.open .icon-triangle {
+      .map-page .search-menu .categories > li.open .icon-triangle {
         -webkit-transform: rotate(180deg);
                 transform: rotate(180deg); }
   .map-page .search-menu .services {
     color: #fff;
     background: #bcbbcd;
     display: none; }
-    .map-page .search-menu .services .service {
+    .map-page .search-menu .services li {
       position: relative;
       padding-left: 10px;
       padding-top: 5px;
       cursor: pointer; }
-      .map-page .search-menu .services .service:first-child {
+      .map-page .search-menu .services li:first-child {
         padding-top: 0; }
-      .map-page .search-menu .services .service:before {
+      .map-page .search-menu .services li:before {
         position: absolute;
         left: 0px;
         content: '+'; }
-      .map-page .search-menu .services .service.selected {
+      .map-page .search-menu .services li.selected {
         color: #1f1c57; }
-        .map-page .search-menu .services .service.selected:before {
+        .map-page .search-menu .services li.selected:before {
           content: '-'; }
+
+.map-page [data-city="CHICAGO"] .steps .or {
+  display: block; }
 
 .map-page .icon-category {
   width: 32px;
