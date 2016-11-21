@@ -1947,18 +1947,17 @@ body.donation-form-active {
   color: #1e1c56;
   border-bottom: 3px solid #1e1c56; }
 
-.map-page h2 {
-  color: #ff3666;
-  text-transform: uppercase;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: .1em;
-  margin: 0; }
-
 .map-page .search-menu {
   margin: 0;
   padding: 0;
   line-height: 20px; }
+  .map-page .search-menu h2 {
+    color: #ff3666;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: .1em;
+    margin: 0; }
   @media screen and (min-width: 900px) {
     .map-page .search-menu {
       float: left;

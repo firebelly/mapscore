@@ -1526,6 +1526,7 @@ var MapsCorps = (function($) {
       statusColors = [],
       infoWindow,
       currentCity = {},
+      currentCommunity = '',
       markerZ = 0,
       // images_dir = '/Content/Images/',
       // svgs_dir = '/Content/Svgs/';
@@ -1811,16 +1812,16 @@ var MapsCorps = (function($) {
         communityInfoWindow.setPosition(e.latLng);
         communityInfoWindow.open(communityMap);
         communityOutlines.forEach(function(el) {
-          el.setOptions({ fillOpacity: .5, selected: false });
+          el.setOptions({ fillOpacity: 0.5, selected: false });
         });
-        this.setOptions({fillOpacity: .8, selected: true});
+        this.setOptions({fillOpacity: 0.8, selected: true});
       });
       google.maps.event.addListener(communityOutline, 'mouseover', function(e) {
-        this.setOptions({fillOpacity: .8});
+        this.setOptions({fillOpacity: 0.8});
       });
       google.maps.event.addListener(communityOutline, 'mouseout', function(e) {
         if (!this.get('selected')) {
-          this.setOptions({fillOpacity: .5});
+          this.setOptions({fillOpacity: 0.5});
         }
       });
       communityOutlines.push(communityOutline);
@@ -1836,7 +1837,7 @@ var MapsCorps = (function($) {
         zoom: partnerZoom,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.DEFAULT,
+          style: google.maps.ZoomControlStyle.DEFAULT,
         },
         disableDoubleClickZoom: true,
         mapTypeControl: false,
@@ -1847,11 +1848,10 @@ var MapsCorps = (function($) {
         draggable : true,
         overviewMapControl: true,
         overviewMapControlOptions: {
-            opened: false,
+          opened: false,
         },
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-            { "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#444444" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#d8d8d8" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ff3566" }] }, { "featureType": "road.highway", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#51c9ea" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "off" }] }]
+        styles: [{ "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#444444" }] }, { "featureType": "landscape", "elementType": "all", "stylers": [{ "color": "#f2f2f2" }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#d8d8d8" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#ff3566" }] }, { "featureType": "road.highway", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.arterial", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "geometry.fill", "stylers": [{ "color": "#f2ff3d" }] }, { "featureType": "road.local", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "road.local", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#46bcec" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#51c9ea" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "off" }] }]
     };
     var mapElement = document.getElementById(id);
     var partnerMap = new google.maps.Map(mapElement, mapOptions);
@@ -2148,7 +2148,33 @@ var MapsCorps = (function($) {
     $paymentForm.find('input.submit').prop('disabled', false);
   }
 
+  function _initStickyMap() {
+    // Sticky map on desktop
+    var $map = $('#map').css('margin-top','');
+    var mapTop = $map.offset().top;
+    $(window).off('scroll.map').on('scroll.map', function() {
+      _checkStickyMap($map, mapTop);
+    });
+    _checkStickyMap($map, mapTop);
+  }
+  function _checkStickyMap($map, mapTop) {
+    if(document.documentElement.clientWidth > 900 && $(window).scrollTop() >= mapTop - 100) {
+      var mt = $(window).scrollTop() - mapTop + 120;
+      if (mt > $('#mapSearch').height() - 500) {
+        mt = $('#mapSearch').height() - 500;
+      }
+      $map.css('margin-top', mt);
+    } else {
+      $map.css('margin-top', '');
+    }
+  }
+
   function _initMapPage() {
+    _initStickyMap();
+    $(window).on('resize', function() {
+      _initStickyMap();
+    });
+
     // Add svg toggles to categories
     $('.categories>li').prepend('<svg class="icon-triangle toggle-category" role="img"><use xlink:href="#icon-triangle"></use></svg>');
 
@@ -2169,8 +2195,7 @@ var MapsCorps = (function($) {
       $(this).toggleClass('selected');
       if ($(this).hasClass("selected")) {
         _getMarkers(typeId, subtypeId);
-      }
-      else {
+      } else {
         _clearMarkers(typeId, subtypeId, null);
       }
     });
@@ -2179,27 +2204,31 @@ var MapsCorps = (function($) {
     $('#mapSearch').on('submit', function(e) {
       e.preventDefault();
       var zip = $('input[name="zip"]').val();
-      if (zip != '') {
+      if (zip !== '') {
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({address: zip}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
             map.setZoom(12);
             map.setCenter(results[0].geometry.location);
+            currentCommunity = zip;
           } else {
             console.log("ZIP geocode failed: " + status);
           }
         });
       } else {
-        var opt = $('#communities option:selected');
-        if (opt.length) {
-          var lat = opt.attr('data-lat');
-          var lng = opt.attr('data-lng');
+        var $opt = $('#communities option:selected');
+        if ($opt.length) {
+          var lat = $opt.attr('data-lat');
+          var lng = $opt.attr('data-lng');
           var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
           map.setZoom(12);
           map.setCenter(point);
+          currentCommunity = $opt.val();
         }
       }
     });
+
+    // When selecting a community from dropdown, clear zipcode field and submit mapsearch
     $('#communities').on('change', function() {
       $('input[name="zip"]').val('');
       $('#mapSearch').trigger('submit');
@@ -2280,9 +2309,9 @@ var MapsCorps = (function($) {
       { 'typeId': 16, 'color': '#733ca0' }
     ];
     for (var i = catColors.length - 1; i >= 0; i--) {
-      customIcons[catColors[i]['typeId']] = {
+      customIcons[catColors[i].typeId] = {
         path: "M16,6.93,8,22,0,6.93,4,0h8Z",
-        fillColor: catColors[i]['color'],
+        fillColor: catColors[i].color,
         fillOpacity: 1,
         size: new google.maps.Size(16, 22),
         anchor: new google.maps.Point(8, 23),
@@ -2315,11 +2344,12 @@ var MapsCorps = (function($) {
 
   // Clear out all shadows and reinit from markers array
   function _resetShadows() {
-    for (var i = 0; i < shadowMarkers.length; i++) {
+    var i;
+    for (i = 0; i < shadowMarkers.length; i++) {
       shadowMarkers[i].setMap(null);
     }
     shadowMarkers = [];
-    for (var i = 0; i < markers.length; i++) {
+    for (i = 0; i < markers.length; i++) {
       _shadowMarker(markers[i]);
     }
   }
@@ -2327,8 +2357,8 @@ var MapsCorps = (function($) {
   // Pull markers for type/subtype
   function _getMarkers(typeId, subtypeId) {
     $.ajax({
-      url: 'https://gentle-temple-97638.herokuapp.com/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name,
-      // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name,
+      url: 'https://gentle-temple-97638.herokuapp.com/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&community=' + currentCommunity,
+      // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&community=' + currentCommunity,
       type: 'GET',
       dataType: 'jsonp',
       jsonp: 'callback',
