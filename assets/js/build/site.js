@@ -1528,10 +1528,10 @@ var MapsCorps = (function($) {
       currentCity = {},
       currentCommunity = '',
       markerZ = 0,
-      // images_dir = '/Content/Images/',
-      // svgs_dir = '/Content/Svgs/';
-      images_dir = '/assets/images/',
-      svgs_dir = '/assets/svgs/';
+      images_dir = '/Content/Images/',
+      svgs_dir = '/Content/Svgs/';
+      // images_dir = '/assets/images/',
+      // svgs_dir = '/assets/svgs/';
 
   function _init() {
     // Touch-friendly fast clicks
@@ -2048,22 +2048,12 @@ var MapsCorps = (function($) {
       }
 
     } else {
-      // Show success notice
-      $('#donate').addClass('-success');
-
-      // Reset form
-      $paymentForm[0].reset();
-      $('#formFeedback').text('').removeClass('-active');
-      $paymentForm.find('input.submit').prop('disabled', false);
-
-      // Scroll #donate up to show success notice (in case we're on mobile)
-      $('#donate')[0].scrollTop = 0;
 
       // Build object of donation fields
       var params = {
         'firstName': $('#inFirstName').val(),
         'lastName': $('#inLastName').val(),
-        'comp': $('#inComp').val(),
+        'company': $('#inComp').val(),
         'email': $('#inEmail').val(),
         'comments': $('#txtMessage').val(),
         'amount': $('#hidAmount').val(),
@@ -2095,6 +2085,16 @@ var MapsCorps = (function($) {
         contentType: 'application/json'
       });
 
+        // Show success notice
+      $('#donate').addClass('-success');
+
+        // Reset form
+      $paymentForm[0].reset();
+      $('#formFeedback').text('').removeClass('-active');
+      $paymentForm.find('input.submit').prop('disabled', false);
+
+        // Scroll #donate up to show success notice (in case we're on mobile)
+      $('#donate')[0].scrollTop = 0;
     }
   }
 
@@ -2117,10 +2117,10 @@ var MapsCorps = (function($) {
 
         // Send payment to backend to handle Stripe transaction
         $.ajax({
-            url: 'https://gentle-temple-97638.herokuapp.com/node/payment?token=' + token + '&amount=' + amount,
+            //url: 'https://gentle-temple-97638.herokuapp.com/node/payment?token=' + token + '&amount=' + amount,
             // url: 'http://mapscorps-nodeapi-dev.mapscorps.org/node/payment?token=' + token + '&amount=' + amount,
             // url: 'http://mapscorps-nodeapi.mapscorps.org/node/payment?token=' + token + '&amount=' + amount,
-            // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
+            url: 'http://mapscorps-nodeapi.azurewebsites.net/node/payment?token=' + token + '&amount=' + amount,
             // url: 'http://localhost:1337/node/payment?token=' + token + '&amount=' + amount,
             type: 'GET',
             dataType: 'jsonp',
@@ -2195,7 +2195,8 @@ var MapsCorps = (function($) {
       $(this).toggleClass('selected');
       if ($(this).hasClass("selected")) {
         _getMarkers(typeId, subtypeId);
-      } else {
+      }
+      else {
         _clearMarkers(typeId, subtypeId, null);
       }
     });
@@ -2210,7 +2211,7 @@ var MapsCorps = (function($) {
           if (status === google.maps.GeocoderStatus.OK) {
             map.setZoom(12);
             map.setCenter(results[0].geometry.location);
-            currentCommunity = zip;
+            currentCommunity = '0';
           } else {
             console.log("ZIP geocode failed: " + status);
           }
@@ -2227,7 +2228,6 @@ var MapsCorps = (function($) {
         }
       }
     });
-
     // When selecting a community from dropdown, clear zipcode field and submit mapsearch
     $('#communities').on('change', function() {
       $('input[name="zip"]').val('');
@@ -2357,9 +2357,12 @@ var MapsCorps = (function($) {
   // Pull markers for type/subtype
   function _getMarkers(typeId, subtypeId) {
     $.ajax({
-      url: 'https://gentle-temple-97638.herokuapp.com/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&community=' + currentCommunity,
-      // url: 'http://mapscorps-nodeapi.azurewebsites.net/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&community=' + currentCommunity,
-      type: 'GET',
+     // url: 'https://gentle-temple-97638.herokuapp.com/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&community=' + currentCommunity,
+        //url: 'http://mapscorps-nodeapi.azurewebsites.net/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&community=' + currentCommunity,
+        url: 'http://mapscorps-nodeapi.azurewebsites.net/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&geoareaId=' + currentCommunity,
+        //url: 'http://localhost:1337/node/places?typeid=' + typeId + '&subtypeid=' + subtypeId + '&city=' + currentCity.name + '&geoareaId=' + currentCommunity,
+
+        type: 'GET',
       dataType: 'jsonp',
       jsonp: 'callback',
       jsonpCallback: 'MapsCorps.placesCallback',
