@@ -1528,10 +1528,10 @@ var MapsCorps = (function($) {
       currentCity = {},
       currentCommunity = '',
       markerZ = 0,
-      images_dir = '/Content/Images/',
-      svgs_dir = '/Content/Svgs/';
-      // images_dir = '/assets/images/',
-      // svgs_dir = '/assets/svgs/';
+      // images_dir = '/Content/Images/',
+      // svgs_dir = '/Content/Svgs/';
+      images_dir = '/assets/images/',
+      svgs_dir = '/assets/svgs/';
 
   function _init() {
     // Touch-friendly fast clicks
@@ -2209,7 +2209,7 @@ var MapsCorps = (function($) {
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({address: zip}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            map.setZoom(12);
+            map.setZoom(13);
             map.setCenter(results[0].geometry.location);
             currentCommunity = '0';
           } else {
