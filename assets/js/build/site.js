@@ -1528,10 +1528,10 @@ var MapsCorps = (function($) {
       currentCity = {},
       currentCommunity = '',
       markerZ = 0,
-      // images_dir = '/Content/Images/',
-      // svgs_dir = '/Content/Svgs/';
-      images_dir = '/assets/images/',
-      svgs_dir = '/assets/svgs/';
+      images_dir = '/Content/Images/',
+      svgs_dir = '/Content/Svgs/';
+      // images_dir = '/assets/images/',
+      // svgs_dir = '/assets/svgs/';
 
   function _init() {
     // Touch-friendly fast clicks
@@ -2222,7 +2222,7 @@ var MapsCorps = (function($) {
           var lat = $opt.attr('data-lat');
           var lng = $opt.attr('data-lng');
           var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-          map.setZoom(12);
+          map.setZoom(13);
           map.setCenter(point);
           currentCommunity = $opt.val();
         }
@@ -2232,6 +2232,15 @@ var MapsCorps = (function($) {
     $('#communities').on('change', function() {
       $('input[name="zip"]').val('');
       $('#mapSearch').trigger('submit');
+
+      // Clear services and markers when changing community
+      $('.categories li.open').each(function() {
+        $(this).removeClass('open').velocity('slideUp', { duration: 250 }).find('li').removeClass('selected');
+      });
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
     });
 
     // Determine city we're on, set starting position and json filename
