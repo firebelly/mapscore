@@ -78,7 +78,13 @@ var MapsCorps = (function($) {
     // Scroll down to hash afer page load
     $(window).load(function() {
       if (window.location.hash) {
-        _scrollBody($(window.location.hash));
+
+        // Open up donate form if the hash is #donate
+        if (window.location.hash === '#donate') {
+          _showDonateForm();
+        } else {
+          _scrollBody($(window.location.hash));
+        }
       }
     });
 
